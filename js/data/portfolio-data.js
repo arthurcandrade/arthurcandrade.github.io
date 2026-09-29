@@ -11,10 +11,10 @@ export const portfolioData = {
     displayName: "ARTHUR_DE_ANDRADE",
     nodeId: "RESEARCH_NODE",
     fileId: "ACA_RESEARCH.dat",
-    role: "Lead Software Engineer & AI Researcher",
+    role: "Software Engineer & AI Researcher",
     shortRole: "LEAD_ENG / AI_RES",
     location: "Goiânia, GO, Brazil",
-    bio: "Software Engineer with 4+ years of professional experience, currently working with Python, Ruby on Rails, and PostgreSQL. Focused on clean code, performance, and automated testing, with extensive background architecting advanced AI-driven solutions leveraging LLMs, RAG architecture, and autonomous AI agents (SIMPATIC) to automate complex workflows and document generation. Dual postgraduate specializations in Cybersecurity & Data Governance (PUC Minas) and IT Processes & Management (UFG), with hands-on experience in AppSec, ISO 31000 risk management, and enterprise Java Spring Boot.",
+    bio: "Software Engineer with 4+ years of professional experience, currently working with Python, Ruby on Rails, and PostgreSQL. Focused on clean code, performance, and automated testing, with extensive background architecting advanced AI-driven solutions leveraging LLMs, RAG architecture, and autonomous AI agents to automate complex workflows and document generation. Dual postgraduate specializations in Cybersecurity & Data Governance (PUC Minas) and IT Processes & Management (UFG), with hands-on experience in AppSec, ISO 31000 risk management, and enterprise Java Spring Boot.",
     quote: "Building solid, secure, and well-documented systems that bridge cutting-edge AI technologies with robust engineering practices to drive business value.",
     contacts: {
       github: "https://github.com/arthurcandrade",
@@ -45,7 +45,7 @@ export const portfolioData = {
       color: "magenta",
       skills: [
         { name: "LLMs & Hybrid RAG Pipelines", tag: "Generative AI", icon: "fa-solid fa-brain" },
-        { name: "SIMPATIC Autonomous AI Agents", tag: "Agentic Systems", icon: "fa-solid fa-robot" },
+        { name: "Autonomous AI Agents", tag: "Agentic Systems", icon: "fa-solid fa-robot" },
         { name: "Diffusion Models & Flow Matching", tag: "Deep Learning", icon: "fa-solid fa-wind" },
         { name: "U-Net Architectures & Denoising", tag: "Generative Models", icon: "fa-solid fa-wave-square" },
         { name: "PyTorch & Neural Workflows", tag: "ML Framework", icon: "fa-solid fa-fire" },
@@ -192,39 +192,52 @@ export const portfolioData = {
 
   certifications: [
     {
+      year: "2027 (Scheduled)",
+      title: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services (AWS)",
+      badgeColor: "magenta",
+      icon: "fa-brands fa-aws",
+      url: ""
+    },
+    {
       year: "2026",
       title: "C1 Proficient (English)",
       issuer: "EF-SET",
       badgeColor: "magenta",
-      icon: "fa-solid fa-language"
+      icon: "fa-solid fa-language",
+      url: "https://cert.efset.org/BKA6Ty"
     },
     {
       year: "2024",
       title: "Junior Cybersecurity Analyst",
       issuer: "CISCO Networking Academy",
       badgeColor: "green",
-      icon: "fa-solid fa-shield-halved"
+      icon: "fa-solid fa-shield-halved",
+      url: "https://www.credly.com/badges/638cd988-4154-402e-9d2f-71d0ec01e6cd"
     },
     {
       year: "2024",
       title: "Network Technician",
       issuer: "CISCO Networking Academy",
       badgeColor: "cyan",
-      icon: "fa-solid fa-network-wired"
+      icon: "fa-solid fa-network-wired",
+      url: "https://www.credly.com/badges/c875c7a0-22b2-47da-9bb0-7db32add846a"
     },
     {
       year: "2023",
       title: "Fundamentals of Accelerated Computing with CUDA C/C++",
       issuer: "NVIDIA Deep Learning Institute",
       badgeColor: "green",
-      icon: "fa-solid fa-microchip"
+      icon: "fa-solid fa-microchip",
+      url: "https://learn.nvidia.com/certificates?id=68b71eb563a54b5e95edcdeb70ac5e20"
     },
     {
       year: "2022",
       title: "Data Privacy and Protection (LGPD)",
       issuer: "SENAI",
       badgeColor: "yellow",
-      icon: "fa-solid fa-user-shield"
+      icon: "fa-solid fa-user-shield",
+      url: "https://www.sp.senai.br/consulta-certificado?qrcode=00015509/7105061"
     }
   ],
 
@@ -255,7 +268,7 @@ export const portfolioData = {
         { icon: "fa-solid fa-robot", text: "SIMPATIC AI Agents (Auto-generating DOD, ETP, and TR artifacts)" },
         { icon: "fa-solid fa-shield-halved", text: "Integrated Risk Assessment System (SAR)" }
       ],
-      technologies: ["Ruby (Rails)", "Hotwire", "PostgreSQL", "AI Agents", "Java (Spring Boot)"],
+      technologies: ["Ruby (Rails)", "Hotwire", "PostgreSQL", "AI Agents"],
       date: "April 2026"
     },
     {

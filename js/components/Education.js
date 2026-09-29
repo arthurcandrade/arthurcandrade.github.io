@@ -40,15 +40,26 @@ export function renderEducation(container, data) {
   const certsHtml = (certifications || []).map(cert => {
     const textColor = `text-${cert.badgeColor || 'cyan'}`;
     const badgeColor = `badge-${cert.badgeColor || 'cyan'}`;
+    const hasLink = Boolean(cert.url && cert.url.trim().length > 0);
+
+    const titleContent = hasLink
+      ? `<a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="cert-title cert-title-link" title="Verify Certificate">
+          <span>${cert.title}</span>
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+         </a>`
+      : `<h5 class="cert-title">${cert.title}</h5>`;
 
     return `
-      <div class="cert-card">
+      <div class="cert-card ${hasLink ? 'has-cert-link' : ''}">
         <div class="cert-icon-box ${textColor}">
           <i class="${cert.icon}"></i>
         </div>
         <div class="cert-meta">
-          <span class="badge ${badgeColor}" style="width: fit-content; padding: 0.1rem 0.4rem; font-size: 0.62rem;">${cert.year}</span>
-          <h5 class="cert-title">${cert.title}</h5>
+          <div class="cert-header-meta">
+            <span class="badge ${badgeColor}" style="width: fit-content; padding: 0.1rem 0.4rem; font-size: 0.62rem;">${cert.year}</span>
+            ${hasLink ? `<a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="cert-ext-btn ${textColor}" title="Verify Credential"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ''}
+          </div>
+          ${titleContent}
           <p class="cert-issuer">${cert.issuer}</p>
         </div>
       </div>
