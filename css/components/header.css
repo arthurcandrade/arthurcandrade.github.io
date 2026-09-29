@@ -1,0 +1,170 @@
+/**
+ * Header Component CSS - HUD Navigation Bar
+ */
+
+.hud-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5, 5, 10, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+  padding: 0.75rem 0;
+  transition: all var(--transition-normal);
+}
+
+.hud-header.scrolled {
+  background: rgba(5, 5, 10, 0.98);
+  border-bottom-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+}
+
+.hud-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Brand Node (Left) */
+.hud-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.hud-avatar-box {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #05050a;
+  box-shadow: var(--shadow-glow-cyan-sm);
+  transition: transform var(--transition-fast);
+}
+
+.hud-brand:hover .hud-avatar-box {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.hud-brand-details h1 {
+  font-family: var(--font-tech);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hud-status-tag {
+  font-size: 0.68rem;
+  color: var(--neon-cyan);
+  font-family: var(--font-mono);
+}
+
+.hud-role-text {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* Center Section Navigation */
+.hud-nav-center {
+  display: none;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .hud-nav-center {
+    display: flex;
+  }
+}
+
+.hud-nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.hud-nav-link:hover {
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.06);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+/* Right Controls: Clock & Audio Option Button */
+.hud-right-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.hud-clock-box {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+@media (min-width: 640px) {
+  .hud-clock-box {
+    display: flex;
+  }
+}
+
+.hud-clock-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hud-clock-time {
+  color: var(--neon-yellow);
+  font-weight: 600;
+}
+
+.hud-sound-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 0, 127, 0.08);
+  border: 1px solid rgba(255, 0, 127, 0.3);
+  color: var(--neon-magenta);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.hud-sound-btn:hover {
+  background: rgba(255, 0, 127, 0.2);
+  border-color: var(--neon-magenta);
+  box-shadow: var(--shadow-glow-magenta-sm);
+}

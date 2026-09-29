@@ -1,0 +1,213 @@
+/**
+ * Hero Component CSS - Profile Terminal Core
+ */
+
+.hero-section {
+  width: 100%;
+}
+
+/* Profile Card Box (Full-width, expansive presentation) */
+.profile-card {
+  padding: 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.profile-name {
+  font-family: var(--font-tech);
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 640px) {
+  .profile-name {
+    font-size: 1.65rem;
+  }
+}
+
+.profile-title {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--neon-magenta);
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+}
+
+/* Glowing Decrypt / Experience Bar */
+.decrypt-bar-container {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  margin: 0.5rem 0;
+}
+
+.decrypt-bar-fill {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 82%;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-green));
+  border-radius: 3px;
+  animation: barPulse 3s infinite alternate;
+}
+
+@keyframes barPulse {
+  0% { opacity: 0.75; width: 75%; }
+  100% { opacity: 1; width: 85%; }
+}
+
+.profile-bio {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Quote & Workflow Status Block */
+.hero-quote-container {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.hero-quote-box {
+  padding: 0.95rem 1.25rem;
+  background: rgba(5, 5, 12, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--neon-cyan);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.hero-workflow-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.55rem 0.95rem;
+  background: rgba(5, 5, 12, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.hero-workflow-text {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.hero-status-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ci-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  animation: pulseDot 1.4s infinite alternate;
+}
+
+.ci-dot:nth-child(2) { animation-delay: 0.2s; }
+.ci-dot:nth-child(3) { animation-delay: 0.4s; }
+.ci-dot:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes pulseDot {
+  0% { transform: scale(0.8); opacity: 0.4; }
+  100% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 6px currentColor); }
+}
+
+/* Fast Contact Buttons Grid (4 columns on desktop, 2 on mobile) */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 768px) {
+  .contacts-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.contact-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.95rem;
+  background: rgba(2, 2, 8, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  transition: all var(--transition-fast);
+  overflow: hidden;
+}
+
+.contact-link-btn:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-link-btn.magenta-hover:hover {
+  background: rgba(255, 0, 127, 0.08);
+  border-color: var(--neon-magenta);
+  color: var(--neon-magenta);
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.2);
+}
+
+.contact-link-btn.green-hover:hover {
+  background: rgba(57, 255, 20, 0.08);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  box-shadow: 0 0 12px rgba(57, 255, 20, 0.2);
+}
+
+.contact-link-btn .truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,203 @@
+/**
+ * Skills & Expertise Component CSS
+ * Modern colorful capability cards with tags stacked cleanly below titles
+ */
+
+/* 2-column spacious grid: 2 on desktop, 1 on mobile */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 820px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skill-category-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0.85;
+}
+
+.skill-category-card.magenta-accent::before { background: var(--neon-magenta); }
+.skill-category-card.cyan-accent::before { background: var(--neon-cyan); }
+.skill-category-card.green-accent::before { background: var(--neon-green); }
+.skill-category-card.yellow-accent::before { background: var(--neon-yellow); }
+
+.skill-category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.skill-category-card.magenta-accent:hover {
+  border-color: var(--border-magenta);
+  box-shadow: 0 10px 30px rgba(255, 0, 127, 0.18);
+}
+
+.skill-category-card.cyan-accent:hover {
+  border-color: var(--border-cyan);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.18);
+}
+
+.skill-category-card.green-accent:hover {
+  border-color: var(--border-green);
+  box-shadow: 0 10px 30px rgba(57, 255, 20, 0.18);
+}
+
+.skill-category-card.yellow-accent:hover {
+  border-color: var(--border-yellow);
+  box-shadow: 0 10px 30px rgba(255, 223, 0, 0.18);
+}
+
+.skill-cat-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.85rem;
+}
+
+.skill-cat-title {
+  font-family: var(--font-tech);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.skill-cat-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-dim);
+  margin-top: 0.35rem;
+  line-height: 1.45;
+}
+
+/* Skills Chips: Generous 2-column layout inside the card */
+.skill-items-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+
+@media (min-width: 600px) {
+  .skill-items-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skill-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  background: rgba(5, 5, 12, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  min-height: 56px;
+}
+
+.skill-chip-icon {
+  font-size: 0.95rem;
+  width: 18px;
+  flex-shrink: 0;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.skill-chip-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.skill-chip-name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.skill-chip-tag {
+  display: inline-block;
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Category Specific Tag & Hover Glow Styles */
+.skill-category-card.magenta-accent .skill-chip:hover {
+  background: rgba(255, 0, 127, 0.08);
+  border-color: rgba(255, 0, 127, 0.4);
+  transform: translateY(-2px);
+}
+.skill-category-card.magenta-accent .skill-chip-tag {
+  background: rgba(255, 0, 127, 0.15);
+  color: var(--neon-magenta);
+  border: 1px solid rgba(255, 0, 127, 0.3);
+}
+
+.skill-category-card.cyan-accent .skill-chip:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-2px);
+}
+.skill-category-card.cyan-accent .skill-chip-tag {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.skill-category-card.green-accent .skill-chip:hover {
+  background: rgba(57, 255, 20, 0.08);
+  border-color: rgba(57, 255, 20, 0.4);
+  transform: translateY(-2px);
+}
+.skill-category-card.green-accent .skill-chip-tag {
+  background: rgba(57, 255, 20, 0.15);
+  color: var(--neon-green);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+}
+
+.skill-category-card.yellow-accent .skill-chip:hover {
+  background: rgba(255, 223, 0, 0.08);
+  border-color: rgba(255, 223, 0, 0.4);
+  transform: translateY(-2px);
+}
+.skill-category-card.yellow-accent .skill-chip-tag {
+  background: rgba(255, 223, 0, 0.15);
+  color: var(--neon-yellow);
+  border: 1px solid rgba(255, 223, 0, 0.3);
+}
