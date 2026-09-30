@@ -92,6 +92,10 @@ class AudioSynthesizer {
     }
   }
 
+  playChirp() {
+    this.play('node-toggle');
+  }
+
   attachGlobalClickSounds() {
     document.addEventListener('click', (e) => {
       const clickable = e.target.closest('button, a, .cursor-pointer, .cyber-card');

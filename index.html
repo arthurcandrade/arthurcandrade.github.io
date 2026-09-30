@@ -49,6 +49,8 @@
   <link rel="stylesheet" href="css/components/experience.css">
   <link rel="stylesheet" href="css/components/education.css">
   <link rel="stylesheet" href="css/components/projects.css">
+  <link rel="stylesheet" href="css/components/personal.css">
+  <link rel="stylesheet" href="css/components/side-guide.css">
   <link rel="stylesheet" href="css/components/footer.css">
 </head>
 
@@ -60,24 +62,39 @@
   <!-- Mount: Top HUD Header -->
   <div id="header-mount"></div>
 
+  <!-- Mount: Lateral HUD Section Guide (Scroll Spy) -->
+  <div id="side-guide-mount"></div>
+
+  <!-- Mount: Floating Audio RX Button -->
+  <div id="floating-audio-mount"></div>
+
   <!-- Main Content Layout -->
   <main class="container relative z-10"
-    style="display: flex; flex-direction: column; gap: 4.5rem; padding-top: 2.5rem; padding-bottom: 3.5rem;">
+    style="display: flex; flex-direction: column; padding-top: 2rem; padding-bottom: 1.5rem;">
 
-    <!-- Mount: Hero Profile & Systems Telemetry -->
-    <div id="hero-mount"></div>
+    <!-- REALM 01: PROFESSIONAL (Engineering, Systems & Academic CV) -->
+    <div id="realm-professional" class="portal-realm-view active-view">
+      <!-- Mount: Hero Profile & Systems Telemetry -->
+      <div id="hero-mount"></div>
 
-    <!-- Mount: Skills Matrix -->
-    <div id="skills-mount"></div>
+      <!-- Mount: Skills Matrix -->
+      <div id="skills-mount"></div>
 
-    <!-- Mount: Experience Motherboard Bus -->
-    <div id="experience-mount"></div>
+      <!-- Mount: Experience Motherboard Bus -->
+      <div id="experience-mount"></div>
 
-    <!-- Mount: Education & Honors -->
-    <div id="education-mount"></div>
+      <!-- Mount: Education & Honors -->
+      <div id="education-mount"></div>
 
-    <!-- Mount: Key Engineering Projects -->
-    <div id="projects-mount"></div>
+      <!-- Mount: Key Engineering Projects -->
+      <div id="projects-mount"></div>
+    </div>
+
+    <!-- REALM 02: PERSONAL (Mural: Music, Gaming, Hardware, Blog) -->
+    <div id="realm-personal" class="portal-realm-view hidden-view">
+      <!-- Mount: Personal Hub & Creative Mural -->
+      <div id="personal-mount"></div>
+    </div>
 
   </main>
 

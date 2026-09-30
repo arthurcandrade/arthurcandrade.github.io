@@ -11,7 +11,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
   color-scheme: dark;
+}
+
+section, [id] {
+  scroll-margin-top: 5.5rem;
 }
 
 body {
@@ -35,18 +40,9 @@ body {
     linear-gradient(to bottom, rgba(0, 240, 255, 0.035) 1px, transparent 1px);
 }
 
-/* CRT Scanline Overlay */
+/* CRT Scanline Overlay disabled for 100% text clarity and sharpness */
 body::before {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: 
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.22) 50%),
-    linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.015), rgba(0, 0, 255, 0.04));
-  z-index: 9999;
-  background-size: 100% 4px, 6px 100%;
-  pointer-events: none;
+  display: none;
 }
 
 /* Matrix Rain Canvas */
@@ -69,6 +65,20 @@ body::before {
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 }
 
 /* Custom Scrollbar */
@@ -315,3 +325,24 @@ body::before {
 .text-yellow { color: var(--neon-yellow); }
 .text-muted { color: var(--text-muted); }
 .text-white { color: #ffffff; }
+
+/* Portal Realm Transitions */
+.portal-realm-view {
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.portal-realm-view.active-view {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portal-realm-view.hidden-view {
+  display: none !important;
+  opacity: 0;
+  transform: translateY(8px);
+}
+

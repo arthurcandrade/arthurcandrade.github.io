@@ -286,5 +286,72 @@ export const portfolioData = {
       technologies: ["Python", "FastAPI", "RAG Architecture", "ISO 31000", "NLP"],
       date: "Feb 2026"
     }
-  ]
+  ],
+
+  personal: {
+    title: "Personal Mural & Creative Lab",
+    subtitle: "A personal portal for music, gaming, hardware gear, audio synthesis, and research thoughts",
+    blog: {
+      id: "personal-blog",
+      title: "Tech Notes & Neural Blog",
+      subtitle: "Articles, technical notes & research logs on AI and Systems",
+      badge: "FEED IN PREPARATION",
+      description: "A forthcoming series of deep-dive articles exploring Flow Matching, Diffusion Models, AI Agents in public procurement, and modern Ruby on Rails architectures.",
+      posts: [
+        {
+          title: "Demystifying Flow Matching & Continuous Normalizing Flows",
+          category: "Deep Learning",
+          status: "UPCOMING ARTICLE",
+          summary: "An intuitive mathematical and engineering guide to Flow Matching as an alternative to classical diffusion models."
+        },
+        {
+          title: "Designing Autonomous AI Agents for Enterprise Document Synthesis",
+          category: "AI Architecture",
+          status: "UPCOMING ARTICLE",
+          summary: "Architectural lessons learned from SIMPATIC: orchestration, deterministic validation, and RAG grounding in production."
+        }
+      ],
+      tags: ["Flow Matching", "AI Research", "Rails Architecture", "Deep Learning"]
+    },
+    gear: {
+      id: "personal-gear",
+      title: "Workstation, Lab & Hardware",
+      subtitle: "Hardware architecture, developer tooling & local compute",
+      badge: "HARDWARE DEPLOYED",
+      description: "Curated engineering environment optimized for high-performance computing, clean ergonomics, Linux/Unix toolchains, and multi-monitor telemetry.",
+      items: [
+        { label: "Compute Node", val: "Multi-core workstation + dedicated NVIDIA CUDA acceleration" },
+        { label: "Input Telemetry", val: "Custom mechanical keyboards with tactile switches" },
+        { label: "OS & Terminal", val: "Linux / PowerShell / WSL2 with automated dotfiles" }
+      ],
+      tags: ["NVIDIA CUDA", "Workstation", "Mechanical Keyboards", "Homelab"]
+    },
+    gaming: {
+      id: "personal-gaming",
+      title: "Gaming & Rig Telemetry",
+      subtitle: "Tactical, RPG, simulations & competitive gaming history",
+      badge: "STEAM NODE",
+      steamUrl: "https://steamcommunity.com/id/Kaizenhauer",
+      description: "Enthusiast gamer focused on deep mechanics, immersive tactical sims, RPG world-building, and high-framerate competitive titles. Steam profile linked with community telemetry.",
+      items: [
+        { label: "Steam Identity", val: "Kaizenhauer", isLink: true, url: "https://steamcommunity.com/id/Kaizenhauer" },
+        { label: "Favorite Genres", val: "Tactical Shooters, Immersive RPGs, Cyberpunk Sci-Fi & Simulators" },
+        { label: "Setup Telemetry", val: "Ultra-low latency peripherals, high-refresh rate displays" }
+      ],
+      tags: ["Steam", "Competitive Gaming", "PC Enthusiast", "Simulation"]
+    },
+    music: {
+      id: "personal-music",
+      title: "Audio & Music Synthesis",
+      subtitle: "Electric guitars, synthesizer workflows, DSP & Web Audio experiments",
+      badge: "ACTIVE AUDIO RX",
+      description: "Lifelong passion for music production, digital signal processing, guitar tone modeling, and electronic sound synthesis. Exploring procedural audio synthesis and ambient sound design directly in modern browsers.",
+      items: [
+        { label: "Instruments & Synths", val: "Electric Guitars, MIDI Controllers, VSTs & Soft Synths" },
+        { label: "Soundtrack & Aesthetics", val: "Cyberpunk OSTs, Synthwave, Prog Metal & Dark Synth" },
+        { label: "Audio Gear", val: "High-Impedance IEMs & DAC/Amp Stack" }
+      ],
+      tags: ["Audio Synthesis", "Web Audio API", "DSP", "Music Production"]
+    }
+  }
 };

@@ -1,0 +1,292 @@
+/**
+ * SideGuide & Floating Controls Component CSS
+ * Arthur Cavalcante de Andrade | Left Minimal HUD Rail & Floating Audio Toggle
+ */
+
+/* =======================================================
+   HUD LATERAL SECTION GUIDE (MINIMAL LEFT RAIL)
+   ======================================================= */
+.hud-side-guide {
+  position: fixed;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+}
+
+.hud-side-guide-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* Clean vertical connecting line behind the dots */
+.hud-side-guide-rail::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 13.5px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 240, 255, 0.08),
+    rgba(0, 240, 255, 0.35) 20%,
+    rgba(255, 0, 127, 0.35) 80%,
+    rgba(255, 0, 127, 0.08)
+  );
+  z-index: 1;
+}
+
+/* Individual Guide Node */
+.hud-side-node {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-fast);
+}
+
+/* Marker Hit Area - generous 28px box so it's super easy to click the dots */
+.hud-side-marker {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.hud-side-marker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  transform: rotate(45deg);
+  transition: all var(--transition-fast);
+  pointer-events: none;
+}
+
+/* Hover States */
+.hud-side-node:hover .hud-side-marker-dot {
+  background: var(--neon-cyan);
+  border-color: #ffffff;
+  box-shadow: 0 0 10px var(--neon-cyan);
+  transform: rotate(45deg) scale(1.35);
+}
+
+/* Active Node State */
+.hud-side-node.active .hud-side-marker-dot {
+  background: var(--neon-cyan);
+  border-color: #ffffff;
+  box-shadow: 0 0 12px var(--neon-cyan), 0 0 20px rgba(0, 240, 255, 0.65);
+  transform: rotate(45deg) scale(1.45);
+  animation: nodePulse 2s infinite alternate ease-in-out;
+}
+
+/* Floating Label Tooltip (Minimal glassmorphic badge) */
+.hud-side-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  background: rgba(5, 5, 12, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.hud-side-node:hover .hud-side-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hud-side-node.active .hud-side-label {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--neon-cyan);
+  border-color: rgba(0, 240, 255, 0.45);
+  background: rgba(8, 12, 22, 0.95);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+  font-weight: 700;
+}
+
+/* Personal Realm Variant Active Color (Neon Magenta) */
+.hud-side-guide.personal-theme .hud-side-node:hover .hud-side-marker-dot {
+  background: var(--neon-magenta);
+  box-shadow: 0 0 10px var(--neon-magenta);
+}
+
+.hud-side-guide.personal-theme .hud-side-node.active .hud-side-marker-dot {
+  background: var(--neon-magenta);
+  border-color: #ffffff;
+  box-shadow: 0 0 12px var(--neon-magenta), 0 0 20px rgba(255, 0, 127, 0.65);
+}
+
+.hud-side-guide.personal-theme .hud-side-node.active .hud-side-label {
+  color: var(--neon-magenta);
+  border-color: rgba(255, 0, 127, 0.45);
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.25);
+}
+
+@keyframes nodePulse {
+  0% { transform: rotate(45deg) scale(1.35); }
+  100% { transform: rotate(45deg) scale(1.6); }
+}
+
+/* =======================================================
+   FLOATING AUDIO RX BUTTON (BOTTOM RIGHT)
+   ======================================================= */
+.hud-floating-audio-wrap {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hud-floating-audio-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 8, 18, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 0, 127, 0.45);
+  color: var(--neon-magenta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 127, 0.2);
+  position: relative;
+}
+
+.hud-floating-audio-btn:hover {
+  background: rgba(255, 0, 127, 0.18);
+  border-color: var(--neon-magenta);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 0, 127, 0.5);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.hud-floating-audio-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Floating Audio Tooltip Label */
+.hud-floating-audio-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--neon-magenta);
+  background: rgba(5, 5, 12, 0.95);
+  border: 1px solid rgba(255, 0, 127, 0.4);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.hud-floating-audio-btn:hover .hud-floating-audio-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Muted State */
+.hud-floating-audio-btn.muted {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.hud-floating-audio-btn.muted:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.hud-floating-audio-btn.muted .hud-floating-audio-tooltip {
+  color: var(--text-muted);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =======================================================
+   RESPONSIVE BREAKPOINTS
+   ======================================================= */
+@media (max-width: 900px) {
+  .hud-side-guide {
+    left: 0.5rem;
+  }
+
+  .hud-side-label {
+    display: none; /* Keep sleek minimal dots on tablets & phones */
+  }
+
+  .hud-side-guide-rail {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hud-floating-audio-wrap {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .hud-floating-audio-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .hud-side-guide {
+    left: 0.25rem;
+  }
+
+  .hud-side-marker {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hud-side-guide-rail::before {
+    left: 11.5px;
+  }
+
+  .hud-side-marker-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
