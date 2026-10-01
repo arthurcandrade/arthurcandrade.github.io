@@ -9,8 +9,7 @@ export const portfolioData = {
   profile: {
     fullName: "Arthur Cavalcante de Andrade",
     displayName: "ARTHUR_DE_ANDRADE",
-    nodeId: "RESEARCH_NODE",
-    fileId: "ACA_RESEARCH.dat",
+    nodeId: "WHOAMI",
     role: "Software Engineer & AI Researcher",
     shortRole: "LEAD_ENG / AI_RES",
     location: "Goiânia, GO, Brazil",
@@ -23,8 +22,7 @@ export const portfolioData = {
       linkedinUser: "arthurdeandrade",
       lattes: "https://lattes.cnpq.br/3580910644683656",
       lattesUser: "3580910644683656",
-      steam: "https://steamcommunity.com/id/Kaizenhauer",
-      steamUser: "Kaizenhauer"
+      email: "arthurcandrade@hotmail.com"
     }
   },
 
@@ -289,30 +287,6 @@ export const portfolioData = {
   ],
 
   personal: {
-    title: "Personal Mural & Creative Lab",
-    subtitle: "A personal portal for music, gaming, hardware gear, audio synthesis, and research thoughts",
-    blog: {
-      id: "personal-blog",
-      title: "Tech Notes & Neural Blog",
-      subtitle: "Articles, technical notes & research logs on AI and Systems",
-      badge: "FEED IN PREPARATION",
-      description: "A forthcoming series of deep-dive articles exploring Flow Matching, Diffusion Models, AI Agents in public procurement, and modern Ruby on Rails architectures.",
-      posts: [
-        {
-          title: "Demystifying Flow Matching & Continuous Normalizing Flows",
-          category: "Deep Learning",
-          status: "UPCOMING ARTICLE",
-          summary: "An intuitive mathematical and engineering guide to Flow Matching as an alternative to classical diffusion models."
-        },
-        {
-          title: "Designing Autonomous AI Agents for Enterprise Document Synthesis",
-          category: "AI Architecture",
-          status: "UPCOMING ARTICLE",
-          summary: "Architectural lessons learned from SIMPATIC: orchestration, deterministic validation, and RAG grounding in production."
-        }
-      ],
-      tags: ["Flow Matching", "AI Research", "Rails Architecture", "Deep Learning"]
-    },
     gear: {
       id: "personal-gear",
       title: "Workstation, Lab & Hardware",
@@ -334,24 +308,38 @@ export const portfolioData = {
       steamUrl: "https://steamcommunity.com/id/Kaizenhauer",
       description: "Enthusiast gamer focused on deep mechanics, immersive tactical sims, RPG world-building, and high-framerate competitive titles. Steam profile linked with community telemetry.",
       items: [
-        { label: "Steam Identity", val: "Kaizenhauer", isLink: true, url: "https://steamcommunity.com/id/Kaizenhauer" },
-        { label: "Favorite Genres", val: "Tactical Shooters, Immersive RPGs, Cyberpunk Sci-Fi & Simulators" },
-        { label: "Setup Telemetry", val: "Ultra-low latency peripherals, high-refresh rate displays" }
+        { label: "Community Profile", val: "Kaizenhauer (Level 30)" },
+        { label: "Favorite Genres", val: "Tactical Shooters, Immersive RPGs & Simulators" },
+        { label: "Hardware & Display", val: "Ultra-low latency peripherals, high-refresh rate displays" }
       ],
       tags: ["Steam", "Competitive Gaming", "PC Enthusiast", "Simulation"]
     },
     music: {
       id: "personal-music",
       title: "Audio & Music Synthesis",
-      subtitle: "Electric guitars, synthesizer workflows, DSP & Web Audio experiments",
+      subtitle: "Electric guitars, synthesizer workflows, DSP & procedural sound",
       badge: "ACTIVE AUDIO RX",
+      spotifyUrl: "https://open.spotify.com/user/12163317381",
       description: "Lifelong passion for music production, digital signal processing, guitar tone modeling, and electronic sound synthesis. Exploring procedural audio synthesis and ambient sound design directly in modern browsers.",
       items: [
         { label: "Instruments & Synths", val: "Electric Guitars, MIDI Controllers, VSTs & Soft Synths" },
-        { label: "Soundtrack & Aesthetics", val: "Cyberpunk OSTs, Synthwave, Prog Metal & Dark Synth" },
+        { label: "Soundtrack & Aesthetics", val: "Cyberpunk OSTs, Synthwave, Hip-Hop Classics & Dark Synth" },
         { label: "Audio Gear", val: "High-Impedance IEMs & DAC/Amp Stack" }
       ],
-      tags: ["Audio Synthesis", "Web Audio API", "DSP", "Music Production"]
+      tags: ["Spotify", "Audio Synthesis", "Web Audio API", "DSP", "Music Production"]
+    },
+    cinema: {
+      id: "personal-cinema",
+      title: "Cinema & Series",
+      subtitle: "Sci-Fi, psychological thrillers, cyberpunk narratives & television",
+      badge: "MEDIA STREAM",
+      description: "Appreciation for nuanced storytelling, complex character arcs, atmospheric world-building, and hard science fiction. Fascinated by narratives exploring artificial intelligence sentience, techno-dystopian futures, time dilation, and existential philosophy.",
+      items: [
+        { label: "Favorite Genres", val: "Cyberpunk, Hard Sci-Fi, Neo-Noir & Psychological Thrillers" },
+        { label: "Narrative Themes", val: "AI Sentience, Dystopian Societies, Mind-Bending Twists & Detective Arcs" },
+        { label: "Aesthetic Influences", val: "Blade Runner, Mr. Robot, Dark, Westworld & Classic Thrillers" }
+      ],
+      tags: ["Cinema", "Sci-Fi Series", "Cyberpunk Narrative", "Neo-Noir", "Psychological Thriller"]
     }
   }
 };

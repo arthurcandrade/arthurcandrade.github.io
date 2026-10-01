@@ -4,7 +4,6 @@
  * Tracks active section in real-time on load and scroll, with instant, snappy jump-to navigation.
  */
 
-import { audioSynth } from '../modules/audio-synth.js';
 
 const REALM_SECTIONS = {
   professional: [
@@ -15,10 +14,10 @@ const REALM_SECTIONS = {
     { id: 'projects-section', label: 'PROJECTS', num: '05' }
   ],
   personal: [
-    { id: 'personal-blog', label: 'TECH NOTES', num: '01' },
-    { id: 'personal-gear', label: 'GEAR & SETUP', num: '02' },
-    { id: 'personal-gaming', label: 'GAMING', num: '03' },
-    { id: 'personal-music', label: 'MUSIC', num: '04' }
+    { id: 'personal-gear', label: 'GEAR & SETUP', num: '01' },
+    { id: 'personal-gaming', label: 'GAMING', num: '02' },
+    { id: 'personal-music', label: 'MUSIC', num: '03' },
+    { id: 'personal-cinema', label: 'CINEMA & SERIES', num: '04' }
   ]
 };
 
@@ -39,11 +38,10 @@ export function renderSideGuide(container, initialRealm = 'professional') {
       <nav class="hud-side-guide ${isPersonal ? 'personal-theme' : ''}" aria-label="Quick Section Navigation">
         <div class="hud-side-guide-rail">
           ${sections.map((s, idx) => `
-            <a href="#${s.id}" class="hud-side-node ${idx === 0 ? 'active' : ''}" data-target="${s.id}" title="Jump to ${s.label}">
+            <a href="#${s.id}" class="hud-side-node ${idx === 0 ? 'active' : ''}" data-target="${s.id}" title="${s.label}">
               <span class="hud-side-marker">
                 <span class="hud-side-marker-dot"></span>
               </span>
-              <span class="hud-side-label">${s.num} // ${s.label}</span>
             </a>
           `).join('')}
         </div>
@@ -65,13 +63,8 @@ export function renderSideGuide(container, initialRealm = 'professional') {
         const targetEl = document.getElementById(targetId);
 
         if (targetEl) {
-          try {
-            audioSynth.playChirp();
-          } catch (_) {}
-
-          // 1. Immediately highlight the target node for zero-latency response
-          nodes.forEach(n => n.classList.remove('active'));
-          node.classList.add('active');
+          // 1. Immediately highlight target node
+          setActiveNode(targetId, nodes);
 
           // 2. Calculate snappy scroll destination accounting for sticky header offset
           const header = document.querySelector('.hud-header');
@@ -135,11 +128,7 @@ export function renderSideGuide(container, initialRealm = 'professional') {
 
   function setActiveNode(targetId, nodes) {
     nodes.forEach(n => {
-      if (n.getAttribute('data-target') === targetId) {
-        n.classList.add('active');
-      } else {
-        n.classList.remove('active');
-      }
+      n.classList.toggle('active', n.getAttribute('data-target') === targetId);
     });
   }
 

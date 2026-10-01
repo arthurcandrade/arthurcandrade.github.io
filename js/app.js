@@ -4,7 +4,6 @@
  */
 
 import { portfolioData } from './data/portfolio-data.js';
-import { audioSynth } from './modules/audio-synth.js';
 import { MatrixRain } from './modules/matrix-rain.js';
 import { HudClock } from './modules/hud-clock.js';
 
@@ -16,7 +15,6 @@ import { renderEducation } from './components/Education.js';
 import { renderProjects } from './components/Projects.js';
 import { renderPersonalHub } from './components/PersonalHub.js';
 import { renderSideGuide } from './components/SideGuide.js';
-import { renderFloatingAudio } from './components/FloatingAudio.js';
 import { renderFooter } from './components/Footer.js';
 
 class PortfolioApp {
@@ -28,7 +26,7 @@ class PortfolioApp {
   }
 
   init() {
-    console.log(`%c[SYSTEM BOOT] Initializing Arthur Cavalcante Portfolio & Mural Node...`, 'color: #00f0ff; font-family: monospace; font-size: 14px; font-weight: bold;');
+    console.log(`%c[SYSTEM BOOT] Initializing Arthur Cavalcante Portfolio & Systems Node...`, 'color: #00f0ff; font-family: monospace; font-size: 14px; font-weight: bold;');
 
     // 1. Mount Components into DOM containers
     this.mountComponents();
@@ -39,7 +37,7 @@ class PortfolioApp {
     // 3. Setup Portal Realm Orchestration & Fluid Navigation
     this.setupRealmOrchestration();
 
-    console.log(`%c[SYSTEM ACTIVE] Dual-portal telemetry synchronized.`, 'color: #39ff14; font-family: monospace;');
+    console.log(`%c[SYSTEM ACTIVE] Dual-portal telemetry synchronized.`, 'color: #00f0ff; font-family: monospace;');
   }
 
   mountComponents() {
@@ -61,7 +59,6 @@ class PortfolioApp {
     mount('#personal-mount', renderPersonalHub);
     mount('#footer-mount', renderFooter);
     mount('#side-guide-mount', (el) => renderSideGuide(el, this.activeRealm));
-    mount('#floating-audio-mount', renderFloatingAudio);
   }
 
   initModules() {
@@ -72,9 +69,6 @@ class PortfolioApp {
     // HUD Live Clock
     this.hudClock = new HudClock('sys-clock');
     this.hudClock.init();
-
-    // Audio Synthesizer Global Click Listener
-    audioSynth.attachGlobalClickSounds();
   }
 
   setupRealmOrchestration() {
@@ -154,7 +148,7 @@ class PortfolioApp {
     if (initialHash.startsWith('#personal')) {
       switchRealm('personal', initialHash);
     } else {
-      switchRealm('professional');
+      switchRealm('professional', (initialHash.startsWith('#skills') || initialHash.startsWith('#experience') || initialHash.startsWith('#education') || initialHash.startsWith('#projects') || initialHash.startsWith('#hero')) ? initialHash : null);
     }
 
     // Handle browser back/forward buttons
@@ -162,7 +156,7 @@ class PortfolioApp {
       const currentHash = window.location.hash;
       if (currentHash.startsWith('#personal')) {
         switchRealm('personal', currentHash);
-      } else if (currentHash.startsWith('#skills') || currentHash.startsWith('#experience') || currentHash.startsWith('#education') || currentHash.startsWith('#projects')) {
+      } else if (currentHash.startsWith('#skills') || currentHash.startsWith('#experience') || currentHash.startsWith('#education') || currentHash.startsWith('#projects') || currentHash.startsWith('#hero')) {
         switchRealm('professional', currentHash);
       }
     });

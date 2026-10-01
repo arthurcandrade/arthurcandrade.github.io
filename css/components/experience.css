@@ -128,9 +128,10 @@
 }
 
 .exp-description {
+  font-family: var(--font-mono);
   color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-size: 0.84rem;
+  line-height: 1.6;
 }
 
 /* Key Achievement Bullet Points */

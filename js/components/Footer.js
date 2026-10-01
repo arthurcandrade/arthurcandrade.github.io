@@ -16,9 +16,8 @@ export function renderFooter(container, data) {
         </div>
 
         <div class="footer-actions">
-          <a href="https://github.com/arthurcandrade/profile" target="_blank" rel="noopener noreferrer" class="footer-action-link" title="Source Code Repository">
-            <i class="fa-brands fa-github"></i>
-            <span>GitHub Repository</span>
+          <a href="https://github.com/arthurcandrade/arthurcandrade.github.io" target="_blank" rel="noopener noreferrer" class="footer-action-link" title="GitHub Repository" aria-label="GitHub Repository">
+            <i class="fa-brands fa-github" style="font-size: 1.25rem;"></i>
           </a>
 
           <a href="#" class="footer-top-btn" title="Back to top of page">

@@ -5,8 +5,6 @@
  * - Row 2 (Below name, aligned left): Realm Switcher (Professional / Personal) & Contextual Subnav Links
  */
 
-import { audioSynth } from '../modules/audio-synth.js';
-
 export function renderHeader(container, data) {
   const { profile } = data;
 
@@ -17,12 +15,11 @@ export function renderHeader(container, data) {
         <!-- Row 1: Brand Node (Left) & Controls (Right) -->
         <div class="hud-top-row">
           <!-- Left: Brand / Identity -->
-          <a href="#hero-mount" class="hud-brand" title="Arthur Cavalcante de Andrade Profile Node">
-            <div class="hud-avatar-box">AC</div>
+          <a href="#hero-section" class="hud-brand" title="Arthur Cavalcante de Andrade Profile Node">
+            <div class="hud-avatar-box">AA</div>
             <div class="hud-brand-details">
               <h1 class="hud-brand-heading">
-                <span class="hud-brand-name">${profile.displayName}</span>
-                <span class="hud-status-tag animate-pulse">[${profile.nodeId}]</span>
+                <span class="hud-brand-name text-cyan">WHOAMI</span>
               </h1>
               <p class="hud-role-text">
                 <span class="hud-status-prefix">SYS STATUS: ACTIVE // </span>ROLE: ${profile.shortRole}
@@ -47,7 +44,7 @@ export function renderHeader(container, data) {
               <i class="fa-solid fa-terminal"></i>
               <span>PROFESSIONAL</span>
             </button>
-            <button class="hud-realm-btn" data-realm="personal" id="btn-realm-pers" type="button" role="tab" aria-selected="false" title="Personal Mural, Music, Gaming & Gear">
+            <button class="hud-realm-btn" data-realm="personal" id="btn-realm-pers" type="button" role="tab" aria-selected="false" title="Personal Gear, Gaming & Audio">
               <i class="fa-solid fa-shapes"></i>
               <span>PERSONAL</span>
             </button>
@@ -55,7 +52,7 @@ export function renderHeader(container, data) {
 
           <span class="hud-nav-divider">//</span>
 
-          <!-- Professional Subnav Links (aligned left) -->
+          <!-- Professional Subnav Links (active by default) -->
           <nav class="hud-subnav-links active" id="subnav-prof" aria-label="Professional Sections">
             <a href="#skills-section" class="hud-nav-link">SKILLS</a>
             <a href="#experience-section" class="hud-nav-link">EXPERIENCE</a>
@@ -63,12 +60,12 @@ export function renderHeader(container, data) {
             <a href="#projects-section" class="hud-nav-link">PROJECTS</a>
           </nav>
 
-          <!-- Personal Subnav Links (aligned left, shown when Personal realm is active) -->
+          <!-- Personal Subnav Links (shown when Personal realm is active) -->
           <nav class="hud-subnav-links" id="subnav-pers" aria-label="Personal Sections">
-            <a href="#personal-blog" class="hud-nav-link">TECH NOTES</a>
             <a href="#personal-gear" class="hud-nav-link">GEAR & SETUP</a>
             <a href="#personal-gaming" class="hud-nav-link">GAMING</a>
             <a href="#personal-music" class="hud-nav-link">MUSIC</a>
+            <a href="#personal-cinema" class="hud-nav-link">CINEMA &amp; SERIES</a>
           </nav>
         </div>
 
@@ -105,12 +102,10 @@ export function renderHeader(container, data) {
 
   btnProf.addEventListener('click', () => {
     setRealm('professional');
-    audioSynth.playChirp();
   });
 
   btnPers.addEventListener('click', () => {
     setRealm('personal');
-    audioSynth.playChirp();
   });
 
   // Export helper on window for app-level synchronization

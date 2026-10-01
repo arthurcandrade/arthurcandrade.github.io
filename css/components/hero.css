@@ -82,9 +82,10 @@
 }
 
 .profile-bio {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 /* Quote & Workflow Status Block */

@@ -12,7 +12,7 @@ export function renderHero(container, data) {
         <div style="display: flex; flex-direction: column; gap: 1.15rem;">
           
           <div class="profile-card-header">
-            <span class="badge badge-cyan">${profile.fileId}</span>
+            <span class="badge badge-cyan">ENGINEERING & AI</span>
             <span style="color: var(--text-muted); font-size: 0.74rem;">LOC: ${profile.location.toUpperCase()}</span>
           </div>
 
@@ -63,14 +63,14 @@ export function renderHero(container, data) {
             <span class="truncate">in/${profile.contacts.linkedinUser}</span>
           </a>
 
-          <a href="${profile.contacts.lattes}" target="_blank" rel="noopener noreferrer" class="contact-link-btn" title="Currículo Lattes (CNPq)">
+          <a href="${profile.contacts.lattes}" target="_blank" rel="noopener noreferrer" class="contact-link-btn" title="Lattes Academic CV (CNPq)">
             <i class="fa-solid fa-graduation-cap text-yellow"></i>
             <span class="truncate">lattes/${profile.contacts.lattesUser}</span>
           </a>
 
-          <a href="${profile.contacts.steam}" target="_blank" rel="noopener noreferrer" class="contact-link-btn" title="Steam Community Profile">
-            <i class="fa-brands fa-steam text-cyan"></i>
-            <span class="truncate">steam/${profile.contacts.steamUser}</span>
+          <a href="mailto:${profile.contacts.email}" class="contact-link-btn" title="Direct Email Contact">
+            <i class="fa-solid fa-envelope text-cyan"></i>
+            <span class="truncate">${profile.contacts.email}</span>
           </a>
         </div>
 

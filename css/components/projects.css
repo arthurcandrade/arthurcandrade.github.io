@@ -57,8 +57,9 @@
 }
 
 .project-desc {
+  font-family: var(--font-mono);
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   line-height: 1.6;
 }
 

@@ -22,7 +22,7 @@ section, [id] {
 body {
   background-color: var(--bg-primary);
   color: var(--text-secondary);
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -345,4 +345,27 @@ body::before {
   opacity: 0;
   transform: translateY(8px);
 }
+
+/* Cyber Tech Chips */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
+}
+
+.tech-chip:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.06);
+}
+
 
