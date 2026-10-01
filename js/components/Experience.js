@@ -71,7 +71,7 @@ export function renderExperience(container, data) {
       <div class="section-title-wrap">
         <div class="section-accent-bar cyan"></div>
         <div>
-          <h2 class="section-heading">Chronological Experience Matrix</h2>
+          <h2 class="section-heading">Chronological Experience</h2>
           <p class="section-subheading">Engineering journey across judicial high-throughput GovTech systems, insurtech platforms, and academic research</p>
         </div>
       </div>

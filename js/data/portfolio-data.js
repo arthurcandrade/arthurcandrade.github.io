@@ -320,6 +320,7 @@ export const portfolioData = {
       subtitle: "Electric guitars, synthesizer workflows, DSP & procedural sound",
       badge: "ACTIVE AUDIO RX",
       spotifyUrl: "https://open.spotify.com/user/12163317381",
+      audioHabitsUrl: "https://audiohabits.co/u/12163317381",
       description: "Lifelong passion for music production, digital signal processing, guitar tone modeling, and electronic sound synthesis. Exploring procedural audio synthesis and ambient sound design directly in modern browsers.",
       items: [
         { label: "Instruments & Synths", val: "Electric Guitars, MIDI Controllers, VSTs & Soft Synths" },

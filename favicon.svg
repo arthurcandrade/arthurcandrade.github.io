@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Exact Header HUD Avatar Gradient: Cyan #00f0ff to Magenta #ff007f -->
+    <linearGradient id="hudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#ff007f" />
+    </linearGradient>
+  </defs>
+
+  <!-- Box matching .hud-avatar-box border-radius (4px on 34px => 8px on 64px) -->
+  <rect x="0" y="0" width="64" height="64" rx="8" fill="url(#hudGrad)" />
+
+  <!-- Pixel-Perfect Pure Vector Orbitron 900 "AA" Monogram (Zero font-dependency) -->
+  <g transform="translate(8.2, 20.6) scale(0.0313)" fill="#05050a" fill-rule="evenodd">
+    <!-- Letter 'A' (Left) -->
+    <path d="M 58,720 L 58,148 C 58,107 98,40 206,0 L 629,0 C 737,40 778,107 778,148 L 778,720 L 621,720 L 621,488 L 213,488 L 213,720 Z M 213,332 L 621,332 L 621,156 L 213,156 Z" />
+    
+    <!-- Letter 'A' (Right, shifted by 790 units) -->
+    <path d="M 848,720 L 848,148 C 848,107 888,40 996,0 L 1419,0 C 1527,40 1568,107 1568,148 L 1568,720 L 1411,720 L 1411,488 L 1003,488 L 1003,720 Z M 1003,332 L 1411,332 L 1411,156 L 1003,156 Z" />
+  </g>
+</svg>

@@ -1,0 +1,75 @@
+﻿{
+    "updatedAt":  "2026-10-01T03:15:44Z",
+    "artists":  [
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR",
+                        "rank":  "1",
+                        "name":  "Eminem",
+                        "genre":  "rap",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eba00b11c129b27a88fc72f36b"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/5vSQUyT33qxr1xAX2Tkf3A",
+                        "rank":  "2",
+                        "name":  "Clams Casino",
+                        "genre":  "cloud rap",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb775c5cfa9dbf38861387eebc"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/7K3zpFXBvPcvzhj7zlGJdO",
+                        "rank":  "3",
+                        "name":  "Crystal Castles",
+                        "genre":  "witch house",
+                        "imageUrl":  "https://i.scdn.co/image/5419a05563a9ba8cb16fe207199c298f621eef85"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/67lytN32YpUxiSeWlKfHJ3",
+                        "rank":  "4",
+                        "name":  "Yung Lean",
+                        "genre":  "cloud rap",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/0fA0VVWsXO9YnASrzqfmYu",
+                        "rank":  "5",
+                        "name":  "Kid Cudi",
+                        "genre":  "electronic",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb5f00bb6dd7a7008d14156630"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/34JhhuxlkDFSA5ek4AuZOp",
+                        "rank":  "6",
+                        "name":  "Yung Buda",
+                        "genre":  "brazilian trap",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb681e2b4e6e3815bbb04155c3"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/22g86cix6LCeLMbu3m91Wo",
+                        "rank":  "7",
+                        "name":  "Bobby Raps",
+                        "genre":  "bass house",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb9eeea29c54ddfc568d380b52"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/1A5QJAC1vdhbhPE25Q0x0f",
+                        "rank":  "8",
+                        "name":  "O Rappa",
+                        "genre":  "brazilian rock",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb70eaf88bf53be1e2f8b0fa6e"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/1PmVyfIR9KtCxbHWuga8E5",
+                        "rank":  "9",
+                        "name":  "Lorn",
+                        "genre":  "witch house",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb407dacc6afcca2e56bdf0b02"
+                    },
+                    {
+                        "spotifyUrl":  "https://open.spotify.com/artist/1l9d7B8W0IHy3LqWsxP2SH",
+                        "rank":  "10",
+                        "name":  "Phantogram",
+                        "genre":  "electronic",
+                        "imageUrl":  "https://i.scdn.co/image/ab6761610000e5eb0fcb5946f9fea8be6ae5e858"
+                    }
+                ]
+}
