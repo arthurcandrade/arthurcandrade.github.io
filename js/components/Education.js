@@ -1,11 +1,11 @@
 /**
- * Education, Certifications & Honors Component
+ * Education & Certifications Component
  * Renders university degrees in ascending chronological order,
- * official certifications from Cisco, NVIDIA, EF-SET, SENAI, and competitive awards.
+ * and official certifications from Cisco, NVIDIA, EF-SET, SENAI.
  */
 
 export function renderEducation(container, data) {
-  const { education, certifications, honors } = data;
+  const { education, certifications } = data;
 
   // 1. Education Cards
   const eduCardsHtml = education.map(edu => {
@@ -59,38 +59,8 @@ export function renderEducation(container, data) {
     `;
   }).join('');
 
-  // 3. Honors Cards
-  const honorsCardsHtml = honors.map(h => {
-    const statsHtml = h.stats.map(s => `
-      <div class="honors-stat-box">
-        <span>${s.label}</span>
-        <span style="font-weight: 700; color: ${s.isHighlight ? 'var(--neon-green)' : '#ffffff'};">${s.value}</span>
-      </div>
-    `).join('');
-
-    return `
-      <div class="cyber-card honors-card">
-        <div class="honors-header-row">
-          <span class="badge badge-yellow">${h.categoryBadge}</span>
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">${h.year}</span>
-        </div>
-
-        <div>
-          <h4 class="honors-title">${h.title}</h4>
-          <p class="honors-issuer">${h.issuer}</p>
-        </div>
-
-        <p class="honors-desc">${h.description}</p>
-
-        <div class="honors-stats-grid">
-          ${statsHtml}
-        </div>
-      </div>
-    `;
-  }).join('');
-
   const educationHtml = `
-    <section id="education-honors-section" class="education-honors-wrap">
+    <section id="education-section" class="education-wrap">
       
       <!-- Academic Timeline -->
       <div>
@@ -119,21 +89,6 @@ export function renderEducation(container, data) {
 
         <div class="certifications-grid">
           ${certsHtml}
-        </div>
-      </div>
-
-      <!-- Honors & Recognitions -->
-      <div>
-        <div class="section-title-wrap">
-          <div class="section-accent-bar yellow"></div>
-          <div>
-            <h2 class="section-heading">Honors & Recognitions</h2>
-            <p class="section-subheading">Competitive achievements, hackathons, and scientific incubation</p>
-          </div>
-        </div>
-
-        <div>
-          ${honorsCardsHtml}
         </div>
       </div>
 

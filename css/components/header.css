@@ -139,31 +139,23 @@
   font-size: 0.75rem;
 }
 
-/* Row 2: Sub-bar below name, aligned left */
+/* Row 2: Centered Sub-bar below name */
 .hud-nav-row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
   width: 100%;
   padding-top: 0.35rem;
   padding-bottom: 0.1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  overflow-x: auto;
-  white-space: nowrap;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-}
-
-.hud-nav-row::-webkit-scrollbar {
-  display: none;
 }
 
 /* Realm Switcher Tabs */
 .hud-realm-switcher {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  gap: 0.5rem;
   flex-shrink: 0;
 }
 
@@ -172,7 +164,7 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  padding: 0.25rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -203,48 +195,6 @@
   border-color: var(--neon-magenta);
   color: var(--neon-magenta);
   box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
-}
-
-.hud-nav-divider {
-  color: rgba(255, 255, 255, 0.2);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  flex-shrink: 0;
-}
-
-/* Subnav Links */
-.hud-subnav-links {
-  display: none;
-  align-items: center;
-  gap: 0.3rem;
-  flex-shrink: 0;
-}
-
-.hud-subnav-links.active {
-  display: flex;
-}
-
-.hud-nav-link {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  text-decoration: none;
-  transition: all var(--transition-fast);
-  letter-spacing: 0.05em;
-  padding: 0.22rem 0.5rem;
-  border-radius: var(--radius-sm);
-  white-space: nowrap;
-}
-
-.hud-nav-link:hover {
-  color: var(--neon-cyan);
-  background: rgba(0, 240, 255, 0.08);
-}
-
-#subnav-pers .hud-nav-link:hover {
-  color: var(--neon-magenta);
-  background: rgba(255, 0, 127, 0.08);
 }
 
 /* =======================================================
@@ -294,10 +244,5 @@
     padding: 0.22rem 0.5rem;
     font-size: 0.62rem;
     gap: 0.3rem;
-  }
-
-  .hud-nav-link {
-    padding: 0.2rem 0.4rem;
-    font-size: 0.65rem;
   }
 }

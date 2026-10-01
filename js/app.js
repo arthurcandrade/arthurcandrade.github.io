@@ -12,6 +12,7 @@ import { renderHero } from './components/Hero.js';
 import { renderSkills } from './components/Skills.js';
 import { renderExperience } from './components/Experience.js';
 import { renderEducation } from './components/Education.js';
+import { renderHonors } from './components/Honors.js';
 import { renderProjects } from './components/Projects.js';
 import { renderPersonalHub } from './components/PersonalHub.js';
 import { renderSideGuide } from './components/SideGuide.js';
@@ -55,6 +56,7 @@ class PortfolioApp {
     mount('#skills-mount', renderSkills);
     mount('#experience-mount', renderExperience);
     mount('#education-mount', renderEducation);
+    mount('#honors-mount', renderHonors);
     mount('#projects-mount', renderProjects);
     mount('#personal-mount', renderPersonalHub);
     mount('#footer-mount', renderFooter);
@@ -75,8 +77,8 @@ class PortfolioApp {
       if (!btnFx) return;
       btnFx.classList.toggle('fx-active', enabled);
       btnFx.classList.toggle('fx-eco', !enabled);
-      btnFx.setAttribute('title', enabled ? 'Modo Animações Ativo (Clique para Desativar Todas as Animações)' : 'Modo Eco / Sem Animações (Clique para Ativar Animações)');
-      btnFx.setAttribute('aria-label', enabled ? 'Modo Animações Ativo' : 'Modo Sem Animações Ativo');
+      btnFx.setAttribute('title', enabled ? 'Animation Mode: ACTIVE (Click to Disable All Animations)' : 'Animation Mode: ECO (Click to Enable Animations)');
+      btnFx.setAttribute('aria-label', enabled ? 'Animation Mode Active' : 'Eco Mode Active');
       btnFx.innerHTML = `<i class="fa-solid ${enabled ? 'fa-bolt' : 'fa-leaf'}"></i>`;
     };
 
@@ -153,6 +155,7 @@ class PortfolioApp {
       const isProfTarget = hash.startsWith('#skills') || 
                            hash.startsWith('#experience') || 
                            hash.startsWith('#education') || 
+                           hash.startsWith('#honors') || 
                            hash.startsWith('#projects') || 
                            hash.startsWith('#hero');
 
@@ -172,7 +175,7 @@ class PortfolioApp {
     if (initialHash.startsWith('#personal')) {
       switchRealm('personal', initialHash);
     } else {
-      switchRealm('professional', (initialHash.startsWith('#skills') || initialHash.startsWith('#experience') || initialHash.startsWith('#education') || initialHash.startsWith('#projects') || initialHash.startsWith('#hero')) ? initialHash : null);
+      switchRealm('professional', (initialHash.startsWith('#skills') || initialHash.startsWith('#experience') || initialHash.startsWith('#education') || initialHash.startsWith('#honors') || initialHash.startsWith('#projects') || initialHash.startsWith('#hero')) ? initialHash : null);
     }
 
     // Handle browser back/forward buttons
@@ -180,7 +183,7 @@ class PortfolioApp {
       const currentHash = window.location.hash;
       if (currentHash.startsWith('#personal')) {
         switchRealm('personal', currentHash);
-      } else if (currentHash.startsWith('#skills') || currentHash.startsWith('#experience') || currentHash.startsWith('#education') || currentHash.startsWith('#projects') || currentHash.startsWith('#hero')) {
+      } else if (currentHash.startsWith('#skills') || currentHash.startsWith('#experience') || currentHash.startsWith('#education') || currentHash.startsWith('#honors') || currentHash.startsWith('#projects') || currentHash.startsWith('#hero')) {
         switchRealm('professional', currentHash);
       }
     });

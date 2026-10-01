@@ -3,6 +3,7 @@
  * Clean typographic cards & high-performance grid layout
  */
 
+.education-wrap,
 .education-honors-wrap {
   display: flex;
   flex-direction: column;
@@ -210,70 +211,4 @@
   color: var(--text-dim);
 }
 
-/* Honors & Awards Card */
-.honors-card {
-  padding: 1.75rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
 
-@media (max-width: 640px) {
-  .honors-card {
-    padding: 1.35rem 1.25rem;
-  }
-}
-
-.honors-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.honors-title {
-  font-family: var(--font-tech);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.honors-issuer {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--neon-magenta);
-  margin-top: 0.25rem;
-}
-
-.honors-desc {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.68;
-}
-
-.honors-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  padding-top: 0.75rem;
-}
-
-@media (min-width: 640px) {
-  .honors-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.honors-stat-box {
-  padding: 0.85rem 1rem;
-  background: rgba(4, 4, 10, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-sm);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--text-dim);
-}

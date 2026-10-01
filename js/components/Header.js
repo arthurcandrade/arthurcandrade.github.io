@@ -1,8 +1,8 @@
 /**
  * Header Component
  * Renders the top HUD header with:
- * - Row 1: Brand (left) and Controls with FX Toggle and System Time (right)
- * - Row 2: Portal Realm Switcher & Contextual Navigation Links
+ * - Row 1: Brand (left) and System Time Clock (right)
+ * - Row 2: Centered Portal Realm Switcher (Professional / Personal)
  */
 
 export function renderHeader(container, data) {
@@ -36,9 +36,8 @@ export function renderHeader(container, data) {
           </div>
         </div>
 
-        <!-- Row 2: Sub-bar below name: Portal Realm Switcher & Section Links -->
+        <!-- Row 2: Centered Portal Realm Switcher -->
         <div class="hud-nav-row">
-          <!-- Realm Mode Switcher -->
           <div class="hud-realm-switcher" role="tablist">
             <button class="hud-realm-btn active" data-realm="professional" id="btn-realm-prof" type="button" role="tab" aria-selected="true" title="Professional Engineering Portfolio">
               <i class="fa-solid fa-terminal"></i>
@@ -49,24 +48,6 @@ export function renderHeader(container, data) {
               <span>PERSONAL</span>
             </button>
           </div>
-
-          <span class="hud-nav-divider">//</span>
-
-          <!-- Professional Subnav Links (active by default) -->
-          <nav class="hud-subnav-links active" id="subnav-prof" aria-label="Professional Sections">
-            <a href="#skills-section" class="hud-nav-link">SKILLS</a>
-            <a href="#experience-section" class="hud-nav-link">EXPERIENCE</a>
-            <a href="#education-honors-section" class="hud-nav-link">EDUCATION</a>
-            <a href="#projects-section" class="hud-nav-link">PROJECTS</a>
-          </nav>
-
-          <!-- Personal Subnav Links (shown when Personal realm is active) -->
-          <nav class="hud-subnav-links" id="subnav-pers" aria-label="Personal Sections">
-            <a href="#personal-gear" class="hud-nav-link">GEAR &amp; SETUP</a>
-            <a href="#personal-gaming" class="hud-nav-link">GAMING</a>
-            <a href="#personal-music" class="hud-nav-link">MUSIC</a>
-            <a href="#personal-cinema" class="hud-nav-link">CINEMA &amp; SERIES</a>
-          </nav>
         </div>
 
       </div>
@@ -78,9 +59,6 @@ export function renderHeader(container, data) {
   // Realm Switcher Listeners
   const btnProf = container.querySelector('#btn-realm-prof');
   const btnPers = container.querySelector('#btn-realm-pers');
-  const subnavProf = container.querySelector('#subnav-prof');
-  const subnavPers = container.querySelector('#subnav-pers');
-  const btnFx = container.querySelector('#btn-fx-toggle');
 
   function setRealm(realmName, emitEvent = true) {
     const isProf = realmName === 'professional';
@@ -90,9 +68,6 @@ export function renderHeader(container, data) {
 
     btnPers.classList.toggle('active', !isProf);
     btnPers.setAttribute('aria-selected', !isProf ? 'true' : 'false');
-
-    subnavProf.classList.toggle('active', isProf);
-    subnavPers.classList.toggle('active', !isProf);
 
     if (emitEvent) {
       window.dispatchEvent(new CustomEvent('portal:realmchange', {

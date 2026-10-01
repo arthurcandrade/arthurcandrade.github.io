@@ -138,6 +138,87 @@
 }
 
 /* =======================================================
+   SUBSECTION LABELS (DESKTOP HUD QUICK NAVIGATOR)
+   ======================================================= */
+.hud-side-label {
+  position: absolute;
+  left: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: rgba(7, 8, 15, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  z-index: 10;
+}
+
+.hud-side-num {
+  font-weight: 700;
+  color: var(--neon-cyan);
+  font-size: 0.62rem;
+}
+
+.hud-side-text {
+  color: var(--text-dim);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+/* Hover on node smoothly reveals subsection label */
+.hud-side-node:hover .hud-side-label {
+  opacity: 1;
+  transform: translateX(0);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.hud-side-node:hover .hud-side-text {
+  color: #ffffff;
+}
+
+/* Persistent active label on spacious screens */
+@media (min-width: 1350px) {
+  .hud-side-node.active .hud-side-label {
+    opacity: 1;
+    transform: translateX(0);
+    border-color: rgba(0, 240, 255, 0.5);
+    background: rgba(10, 12, 22, 0.95);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 12px rgba(0, 240, 255, 0.25);
+  }
+
+  .hud-side-node.active .hud-side-text {
+    color: #ffffff;
+  }
+}
+
+/* Personal Realm Variants */
+.hud-side-guide.personal-theme .hud-side-num {
+  color: var(--neon-magenta);
+}
+
+.hud-side-guide.personal-theme .hud-side-node:hover .hud-side-label {
+  border-color: rgba(255, 0, 127, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 10px rgba(255, 0, 127, 0.2);
+}
+
+@media (min-width: 1350px) {
+  .hud-side-guide.personal-theme .hud-side-node.active .hud-side-label {
+    border-color: rgba(255, 0, 127, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 12px rgba(255, 0, 127, 0.25);
+  }
+}
+
+/* =======================================================
    RESPONSIVE BREAKPOINTS
    ======================================================= */
 @media (max-width: 900px) {
@@ -150,26 +231,9 @@
   }
 }
 
-@media (max-width: 640px) {
+/* Requirement 3: Remove the side guide completely on mobile screens */
+@media (max-width: 768px) {
   .hud-side-guide {
-    left: 0.3rem;
-  }
-
-  .hud-side-guide-rail {
-    gap: 1.15rem;
-  }
-
-  .hud-side-marker {
-    width: 28px;
-    height: 28px;
-  }
-
-  .hud-side-guide-rail::before {
-    left: 13.5px;
-  }
-
-  .hud-side-marker-dot {
-    width: 6.5px;
-    height: 6.5px;
+    display: none !important;
   }
 }

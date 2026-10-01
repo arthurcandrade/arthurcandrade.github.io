@@ -10,8 +10,9 @@ const REALM_SECTIONS = {
     { id: 'hero-section', label: 'PROFILE', num: '01' },
     { id: 'skills-section', label: 'SKILLS', num: '02' },
     { id: 'experience-section', label: 'EXPERIENCE', num: '03' },
-    { id: 'education-honors-section', label: 'EDUCATION', num: '04' },
-    { id: 'projects-section', label: 'PROJECTS', num: '05' }
+    { id: 'education-section', label: 'EDUCATION', num: '04' },
+    { id: 'honors-section', label: 'HONORS', num: '05' },
+    { id: 'projects-section', label: 'PROJECTS', num: '06' }
   ],
   personal: [
     { id: 'personal-gear', label: 'GEAR & SETUP', num: '01' },
@@ -38,9 +39,13 @@ export function renderSideGuide(container, initialRealm = 'professional') {
       <nav class="hud-side-guide ${isPersonal ? 'personal-theme' : ''}" aria-label="Quick Section Navigation">
         <div class="hud-side-guide-rail">
           ${sections.map((s, idx) => `
-            <a href="#${s.id}" class="hud-side-node ${idx === 0 ? 'active' : ''}" data-target="${s.id}" title="${s.label}">
+            <a href="#${s.id}" class="hud-side-node ${idx === 0 ? 'active' : ''}" data-target="${s.id}" aria-label="${s.label}">
               <span class="hud-side-marker">
                 <span class="hud-side-marker-dot"></span>
+              </span>
+              <span class="hud-side-label">
+                <span class="hud-side-num">${s.num}</span>
+                <span class="hud-side-text">${s.label}</span>
               </span>
             </a>
           `).join('')}
