@@ -1,30 +1,29 @@
 /**
  * Header Component CSS - Multi-tier Responsive HUD Navigation Bar
+ * High-performance, compact, and streamlined
  */
 
 .hud-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(5, 5, 10, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 240, 255, 0.18);
-  padding: 0.65rem 0 0.55rem 0;
-  transition: all var(--transition-normal);
+  background: rgba(5, 5, 10, 0.95);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.16);
+  padding: 0.5rem 0 0.4rem 0;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
   width: 100%;
 }
 
 .hud-header.scrolled {
   background: rgba(5, 5, 10, 0.98);
-  border-bottom-color: rgba(0, 240, 255, 0.35);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+  border-bottom-color: rgba(0, 240, 255, 0.32);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.75);
 }
 
 .hud-header-container {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.45rem;
   width: 100%;
 }
 
@@ -42,22 +41,22 @@
 .hud-brand {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   text-decoration: none;
   min-width: 0;
   flex: 1;
 }
 
 .hud-avatar-box {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-sm);
   background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-tech);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 900;
   color: #05050a;
   box-shadow: var(--shadow-glow-cyan-sm);
@@ -67,13 +66,12 @@
 
 .hud-brand:hover .hud-avatar-box {
   transform: scale(1.05);
-  box-shadow: var(--shadow-glow-cyan);
 }
 
 .hud-brand-details {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.05rem;
   min-width: 0;
 }
 
@@ -81,12 +79,12 @@
   font-family: var(--font-tech);
   font-size: 0.92rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  line-height: 1.25;
+  gap: 0.4rem;
+  line-height: 1.2;
   min-width: 0;
 }
 
@@ -95,37 +93,30 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--neon-cyan);
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.45);
-  letter-spacing: 0.12em;
-}
-
-.hud-status-tag {
-  font-size: 0.68rem;
-  color: var(--neon-cyan);
-  font-family: var(--font-mono);
-  font-weight: 600;
-  flex-shrink: 0;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
 }
 
 .hud-role-text {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   color: var(--text-dim);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
-/* Right Controls: Real-time System Clock */
+/* Right Controls: Clock */
 .hud-right-controls {
   display: flex;
   align-items: center;
+  gap: 0.85rem;
   margin-left: auto;
   flex-shrink: 0;
 }
 
+/* Live UTC Clock */
 .hud-clock-box {
   display: flex;
   flex-direction: column;
@@ -136,7 +127,7 @@
 }
 
 .hud-clock-label {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   color: var(--text-muted);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -145,7 +136,7 @@
 .hud-clock-time {
   color: var(--neon-yellow);
   font-weight: 600;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
 }
 
 /* Row 2: Sub-bar below name, aligned left */
@@ -154,8 +145,8 @@
   align-items: center;
   gap: 0.75rem;
   width: 100%;
-  padding-top: 0.45rem;
-  padding-bottom: 0.15rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   overflow-x: auto;
   white-space: nowrap;
@@ -172,31 +163,31 @@
 .hud-realm-switcher {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   flex-shrink: 0;
 }
 
 .hud-realm-btn {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 0.3rem 0.7rem;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   color: var(--text-dim);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
   transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
 .hud-realm-btn:hover {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.06);
 }
 
@@ -204,28 +195,28 @@
   background: rgba(0, 240, 255, 0.12);
   border-color: var(--neon-cyan);
   color: var(--neon-cyan);
-  box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
 }
 
 .hud-realm-btn.active[data-realm="personal"] {
   background: rgba(255, 0, 127, 0.12);
   border-color: var(--neon-magenta);
   color: var(--neon-magenta);
-  box-shadow: 0 0 12px rgba(255, 0, 127, 0.25);
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
 }
 
 .hud-nav-divider {
   color: rgba(255, 255, 255, 0.2);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   flex-shrink: 0;
 }
 
-/* Subnav Links (aligned left) */
+/* Subnav Links */
 .hud-subnav-links {
   display: none;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
   flex-shrink: 0;
 }
 
@@ -235,13 +226,13 @@
 
 .hud-nav-link {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--text-dim);
   text-decoration: none;
   transition: all var(--transition-fast);
-  letter-spacing: 0.06em;
-  padding: 0.25rem 0.55rem;
+  letter-spacing: 0.05em;
+  padding: 0.22rem 0.5rem;
   border-radius: var(--radius-sm);
   white-space: nowrap;
 }
@@ -249,13 +240,11 @@
 .hud-nav-link:hover {
   color: var(--neon-cyan);
   background: rgba(0, 240, 255, 0.08);
-  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
 }
 
 #subnav-pers .hud-nav-link:hover {
   color: var(--neon-magenta);
   background: rgba(255, 0, 127, 0.08);
-  text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
 }
 
 /* =======================================================
@@ -263,34 +252,29 @@
    ======================================================= */
 @media (max-width: 640px) {
   .hud-header {
-    padding: 0.5rem 0 0.45rem 0;
+    padding: 0.4rem 0 0.35rem 0;
   }
 
   .hud-header-container {
-    gap: 0.45rem;
+    gap: 0.35rem;
   }
 
   .hud-top-row {
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
 
   .hud-brand {
-    gap: 0.65rem;
+    gap: 0.55rem;
   }
 
   .hud-avatar-box {
-    width: 34px;
-    height: 34px;
-    font-size: 0.95rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
   }
 
   .hud-brand-heading {
-    font-size: 0.82rem;
-    letter-spacing: 0.05em;
-  }
-
-  .hud-status-tag {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .hud-status-prefix {
@@ -298,54 +282,22 @@
   }
 
   .hud-role-text {
-    font-size: 0.64rem;
+    font-size: 0.62rem;
   }
 
-  /* Nav Row adjustments */
   .hud-nav-row {
-    gap: 0.45rem;
-    padding-top: 0.35rem;
-    padding-right: 0.75rem;
+    gap: 0.4rem;
+    padding-top: 0.3rem;
   }
 
   .hud-realm-btn {
-    padding: 0.25rem 0.55rem;
-    font-size: 0.64rem;
-    gap: 0.35rem;
+    padding: 0.22rem 0.5rem;
+    font-size: 0.62rem;
+    gap: 0.3rem;
   }
 
   .hud-nav-link {
-    padding: 0.22rem 0.45rem;
-    font-size: 0.68rem;
-  }
-
-  .hud-nav-divider {
-    font-size: 0.65rem;
-    opacity: 0.3;
-    margin: 0 0.1rem;
-  }
-}
-
-@media (max-width: 420px) {
-  .hud-status-tag {
-    display: none;
-  }
-
-  .hud-brand-heading {
-    font-size: 0.78rem;
-  }
-
-  .hud-role-text {
-    font-size: 0.62rem;
-  }
-
-  .hud-realm-btn {
-    padding: 0.22rem 0.45rem;
-    font-size: 0.62rem;
-  }
-
-  .hud-nav-link {
-    padding: 0.2rem 0.38rem;
+    padding: 0.2rem 0.4rem;
     font-size: 0.65rem;
   }
 }

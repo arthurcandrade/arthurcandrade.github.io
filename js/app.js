@@ -66,6 +66,30 @@ class PortfolioApp {
     this.matrixRain = new MatrixRain('matrix-canvas');
     this.matrixRain.init();
 
+    // Floating Quick FX Button (Bottom-Right)
+    const btnFx = document.getElementById('btn-fx-toggle');
+    const updateFxUI = (enabled) => {
+      document.body.classList.toggle('fx-eco', !enabled);
+      document.documentElement.classList.toggle('fx-eco', !enabled);
+
+      if (!btnFx) return;
+      btnFx.classList.toggle('fx-active', enabled);
+      btnFx.classList.toggle('fx-eco', !enabled);
+      btnFx.setAttribute('title', enabled ? 'Modo Animações Ativo (Clique para Desativar Todas as Animações)' : 'Modo Eco / Sem Animações (Clique para Ativar Animações)');
+      btnFx.setAttribute('aria-label', enabled ? 'Modo Animações Ativo' : 'Modo Sem Animações Ativo');
+      btnFx.innerHTML = `<i class="fa-solid ${enabled ? 'fa-bolt' : 'fa-leaf'}"></i>`;
+    };
+
+    if (btnFx) {
+      btnFx.addEventListener('click', () => {
+        if (this.matrixRain) {
+          const newState = this.matrixRain.toggle();
+          updateFxUI(newState);
+        }
+      });
+      updateFxUI(this.matrixRain.getState());
+    }
+
     // HUD Live Clock
     this.hudClock = new HudClock('sys-clock');
     this.hudClock.init();

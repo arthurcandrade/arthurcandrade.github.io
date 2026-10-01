@@ -76,7 +76,7 @@ export function renderPersonalHub(container, data) {
             </div>
             <a href="${gaming.steamUrl}" target="_blank" rel="noopener noreferrer" class="cyber-button-sm magenta">
               <i class="fa-brands fa-steam"></i>
-              <span>VIEW STEAM PROFILE</span>
+              <span>STEAM PROFILE</span>
             </a>
           </div>
         </div>
@@ -97,7 +97,7 @@ export function renderPersonalHub(container, data) {
 
         <div class="cyber-card green-variant personal-detail-card">
           <p class="personal-card-desc">${music.description}</p>
-          
+
           <div class="personal-items-grid">
             ${music.items.map(item => `
               <div class="personal-spec-box green-accent">
@@ -113,7 +113,7 @@ export function renderPersonalHub(container, data) {
             </div>
             <a href="${music.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="cyber-button-sm green">
               <i class="fa-brands fa-spotify"></i>
-              <span>VIEW SPOTIFY PROFILE</span>
+              <span>SPOTIFY PROFILE</span>
             </a>
           </div>
         </div>
@@ -135,7 +135,7 @@ export function renderPersonalHub(container, data) {
 
           <div class="cyber-card personal-detail-card">
             <p class="personal-card-desc">${cinema.description}</p>
-            
+
             <div class="personal-items-grid">
               ${cinema.items.map(item => `
                 <div class="personal-spec-box">

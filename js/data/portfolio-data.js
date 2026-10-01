@@ -264,7 +264,7 @@ export const portfolioData = {
       description: "Comprehensive planning and management system implemented at TJGO to streamline contract administration and payment workflows. Transitioned the institution away from scattered spreadsheets by automating processes across every procurement stage. Features the Risk Assessment System (SAR) and SIMPATIC AI agents.",
       features: [
         { icon: "fa-solid fa-robot", text: "SIMPATIC AI Agents (Auto-generating DOD, ETP, and TR artifacts)" },
-        { icon: "fa-solid fa-shield-halved", text: "Integrated Risk Assessment System (SAR)" }
+        { icon: "fa-solid fa-shield-halved", text: "Integrated Risk Assessment Engine" }
       ],
       technologies: ["Ruby (Rails)", "Hotwire", "PostgreSQL", "AI Agents"],
       date: "April 2026"
@@ -273,8 +273,8 @@ export const portfolioData = {
       id: "iso31000-engine",
       badge: "PATENTED IP: BR512026002418-8",
       badgeType: "magenta",
-      client: "COURT OF JUSTICE OF GOIÁS | INTELLECTUAL PROPERTY",
-      title: "Risk Assessment Engine (ISO 31000)",
+      client: "INTELLECTUAL PROPERTY",
+      title: "Risk Assessment Engine",
       role: "Lead Creator & Core Developer",
       description: "Python and FastAPI backend engine combining ISO 31000 methodology with RAG architecture. Utilizes NLP to transform qualitative public sector documents (DOD, ETP, TR) into quantitative metrics for calculating inherent and residual risk, serving as a scalable GRC tool and reducing total assessment process time by 80%.",
       features: [

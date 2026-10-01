@@ -1,9 +1,9 @@
 /**
  * SideGuide Component - HUD Section Scroll Spy & Fast Quick Navigator
  * Fixed to the left side of the viewport.
- * Tracks active section in real-time on load and scroll, with instant, snappy jump-to navigation.
+ * Uses rAF-throttled reading-line scroll-spy that works deterministically on all viewports,
+ * including mobile touch screens, tall single-column sections, and desktop.
  */
-
 
 const REALM_SECTIONS = {
   professional: [
@@ -23,8 +23,8 @@ const REALM_SECTIONS = {
 
 export function renderSideGuide(container, initialRealm = 'professional') {
   let activeRealm = initialRealm;
-  let scrollTicking = false;
   let isNavigating = false;
+  let ticking = false;
 
   function getSections() {
     return REALM_SECTIONS[activeRealm] || REALM_SECTIONS.professional;
@@ -63,15 +63,12 @@ export function renderSideGuide(container, initialRealm = 'professional') {
         const targetEl = document.getElementById(targetId);
 
         if (targetEl) {
-          // 1. Immediately highlight target node
           setActiveNode(targetId, nodes);
 
-          // 2. Calculate snappy scroll destination accounting for sticky header offset
           const header = document.querySelector('.hud-header');
-          const headerOffset = header ? header.offsetHeight + 18 : 95;
+          const headerOffset = header ? header.offsetHeight + 18 : 80;
           const targetTop = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
 
-          // 3. Temporarily pause scroll spy to avoid flickering intermediate sections
           isNavigating = true;
           window.scrollTo({
             top: Math.max(0, targetTop),
@@ -81,11 +78,18 @@ export function renderSideGuide(container, initialRealm = 'professional') {
           setTimeout(() => {
             isNavigating = false;
             updateActiveSection();
-          }, 650);
+          }, 600);
 
           history.pushState(null, '', `#${targetId}`);
         }
       });
+    });
+  }
+
+  function setActiveNode(targetId, nodes) {
+    const list = nodes || container.querySelectorAll('.hud-side-node');
+    list.forEach(n => {
+      n.classList.toggle('active', n.getAttribute('data-target') === targetId);
     });
   }
 
@@ -102,23 +106,20 @@ export function renderSideGuide(container, initialRealm = 'professional') {
 
     // 1. Bottom of page check -> activate last section
     if (scrollY + windowHeight >= documentHeight - 60) {
-      const lastSection = sections[sections.length - 1];
-      setActiveNode(lastSection.id, nodes);
+      setActiveNode(sections[sections.length - 1].id, nodes);
       return;
     }
 
-    // 2. Sample line at ~35% down viewport for natural reading position
-    const sampleLine = scrollY + (windowHeight * 0.35);
+    // 2. Reading position sampled at ~30% down the viewport
+    const sampleLine = scrollY + (windowHeight * 0.32);
 
     let currentSectionId = sections[0].id;
-
     for (let i = 0; i < sections.length; i++) {
-      const section = sections[i];
-      const el = document.getElementById(section.id);
+      const el = document.getElementById(sections[i].id);
       if (el) {
         const top = el.getBoundingClientRect().top + scrollY;
-        if (sampleLine >= top) {
-          currentSectionId = section.id;
+        if (top <= sampleLine) {
+          currentSectionId = sections[i].id;
         }
       }
     }
@@ -126,25 +127,23 @@ export function renderSideGuide(container, initialRealm = 'professional') {
     setActiveNode(currentSectionId, nodes);
   }
 
-  function setActiveNode(targetId, nodes) {
-    nodes.forEach(n => {
-      n.classList.toggle('active', n.getAttribute('data-target') === targetId);
-    });
-  }
-
-  // Scroll listener with requestAnimationFrame throttling
   function onScroll() {
-    if (!scrollTicking && !isNavigating) {
+    if (!ticking && !isNavigating) {
       window.requestAnimationFrame(() => {
         updateActiveSection();
-        scrollTicking = false;
+        ticking = false;
       });
-      scrollTicking = true;
+      ticking = true;
     }
   }
 
+  // Listen to both scroll and touchmove to ensure instant response on mobile devices
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('touchmove', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('orientationchange', () => {
+    setTimeout(updateActiveSection, 100);
+  }, { passive: true });
 
   // Initial render
   renderNodes();

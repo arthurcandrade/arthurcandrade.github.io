@@ -1,5 +1,6 @@
 /**
  * Experience Component CSS - Motherboard Bus Timeline
+ * Refined typography, optimal reading contrast & smooth GPU transitions
  */
 
 .experience-timeline {
@@ -9,7 +10,7 @@
   border-left: 2px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 2.75rem;
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
@@ -23,13 +24,13 @@
 .experience-timeline::before {
   content: "";
   position: absolute;
-  left: -4px;
+  left: -3px;
   top: 0;
-  width: 6px;
+  width: 4px;
   height: 100%;
   background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta), var(--neon-green));
-  opacity: 0.25;
-  border-radius: 3px;
+  opacity: 0.35;
+  border-radius: 2px;
   pointer-events: none;
 }
 
@@ -42,11 +43,11 @@
   position: absolute;
   left: -2.6rem;
   top: 1.25rem;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--bg-primary);
-  border: 3px solid var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,8 +64,8 @@
 
 .experience-item:hover .timeline-node {
   border-color: var(--neon-magenta);
-  box-shadow: var(--shadow-glow-magenta);
-  transform: scale(1.2);
+  box-shadow: var(--shadow-glow-magenta-sm);
+  transform: scale(1.15);
 }
 
 .node-pulse-dot {
@@ -72,14 +73,19 @@
   height: 6px;
   border-radius: 50%;
   background: var(--neon-cyan);
-  animation: pulseDot 1.5s infinite;
 }
 
 .experience-card-inner {
-  padding: 1.75rem;
+  padding: 1.75rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .experience-card-inner {
+    padding: 1.35rem 1.25rem;
+  }
 }
 
 .exp-header-row {
@@ -92,7 +98,7 @@
 
 .exp-company-info h3 {
   font-family: var(--font-tech);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #ffffff;
   margin-top: 0.35rem;
@@ -128,10 +134,10 @@
 }
 
 .exp-description {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   color: var(--text-secondary);
-  font-size: 0.84rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.68;
 }
 
 /* Key Achievement Bullet Points */
@@ -141,8 +147,8 @@
   gap: 0.75rem;
   padding-top: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
 }
 
 @media (min-width: 768px) {
@@ -156,18 +162,19 @@
   align-items: flex-start;
   gap: 0.65rem;
   color: var(--text-dim);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .exp-bullet-arrow {
   color: var(--neon-cyan);
   flex-shrink: 0;
-  margin-top: 1px;
+  margin-top: 2px;
+  font-size: 0.75rem;
 }
 
 .exp-tags-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.45rem;
   padding-top: 0.5rem;
 }

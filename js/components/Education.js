@@ -26,7 +26,7 @@ export function renderEducation(container, data) {
           </div>
           <h4 class="edu-degree-name">${edu.title}</h4>
           <p class="edu-institution">${edu.institution}</p>
-          ${edu.focus ? `<p style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.6rem; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.5rem;"><i class="fa-solid fa-layer-group ${degreeColor}" style="font-size: 0.65rem; margin-right: 0.35rem;"></i>${edu.focus}</p>` : ''}
+          ${edu.focus ? `<p style="font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.6rem; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.5rem;"><i class="fa-solid fa-layer-group ${degreeColor}" style="font-size: 0.65rem; margin-right: 0.35rem;"></i>${edu.focus}</p>` : ''}
         </div>
         <div class="edu-footer">
           <span class="edu-period ${degreeColor}">${edu.period}</span>

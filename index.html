@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script>
+    if (localStorage.getItem('hud_matrix_fx') === 'false') {
+      document.documentElement.classList.add('fx-eco');
+    }
+  </script>
+
   <!-- Primary Meta Tags -->
   <title>Arthur Cavalcante de Andrade | Software Engineer & AI Researcher</title>
   <meta name="title" content="Arthur Cavalcante de Andrade | Software Engineer & AI Researcher">
@@ -32,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800;900&family=Share+Tech+Mono&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;800;900&family=Share+Tech+Mono&display=swap"
     rel="stylesheet">
 
   <!-- FontAwesome Icons -->
@@ -97,6 +103,11 @@
 
   <!-- Mount: Cyber Telemetry Footer -->
   <div id="footer-mount"></div>
+
+  <!-- Floating Quick FX Mode Toggle (Bottom-Right Corner) -->
+  <button id="btn-fx-toggle" class="floating-fx-btn fx-active" type="button" aria-label="Alternar Efeitos Matrix Rain" title="Matrix FX: HIGH (Clique para Modo ECO)">
+    <i class="fa-solid fa-bolt"></i>
+  </button>
 
   <!-- Application Coordinator (ES6+ Module) -->
   <script type="module" src="js/app.js"></script>

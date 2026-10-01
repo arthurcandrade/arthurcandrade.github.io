@@ -1,6 +1,6 @@
 /**
  * Skills & Expertise Component CSS
- * Modern colorful capability cards with tags stacked cleanly below titles
+ * Modern, colorful, ergonomic capability cards
  */
 
 /* 2-column spacious grid: 2 on desktop, 1 on mobile */
@@ -25,7 +25,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  transition: all var(--transition-normal);
+  transition: all var(--transition-fast);
   position: relative;
   overflow: hidden;
 }
@@ -46,28 +46,24 @@
 .skill-category-card.yellow-accent::before { background: var(--neon-yellow); }
 
 .skill-category-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .skill-category-card.magenta-accent:hover {
   border-color: var(--border-magenta);
-  box-shadow: 0 10px 30px rgba(255, 0, 127, 0.18);
 }
 
 .skill-category-card.cyan-accent:hover {
   border-color: var(--border-cyan);
-  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.18);
 }
 
 .skill-category-card.green-accent:hover {
   border-color: var(--border-green);
-  box-shadow: 0 10px 30px rgba(57, 255, 20, 0.18);
 }
 
 .skill-category-card.yellow-accent:hover {
   border-color: var(--border-yellow);
-  box-shadow: 0 10px 30px rgba(255, 223, 0, 0.18);
 }
 
 .skill-cat-header {
@@ -87,18 +83,18 @@
 }
 
 .skill-cat-subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
   color: var(--text-dim);
   margin-top: 0.35rem;
   line-height: 1.45;
 }
 
-/* Skills Chips: Generous 2-column layout inside the card */
+/* Skills Chips: 2-column layout inside the card */
 .skill-items-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.7rem;
+  gap: 0.65rem;
 }
 
 @media (min-width: 600px) {
@@ -111,12 +107,12 @@
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  padding: 0.75rem 0.85rem;
+  padding: 0.7rem 0.8rem;
   background: rgba(5, 5, 12, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
-  min-height: 56px;
+  min-height: 54px;
 }
 
 .skill-chip-icon {
@@ -131,14 +127,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.35rem;
+  gap: 0.3rem;
   min-width: 0;
   flex: 1;
 }
 
 .skill-chip-name {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--text-secondary);
   line-height: 1.35;
@@ -148,9 +144,9 @@
   display: inline-block;
   width: fit-content;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  padding: 0.15rem 0.45rem;
+  padding: 0.12rem 0.45rem;
   border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 0.04em;

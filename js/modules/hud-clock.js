@@ -1,6 +1,6 @@
 /**
  * HUD Clock & Telemetry Module
- * Keeps real-time UTC clock synchronized and manages sticky header styles
+ * Keeps real-time UTC clock synchronized and manages sticky header styles efficiently
  */
 
 export class HudClock {
@@ -13,6 +13,12 @@ export class HudClock {
     this.update();
     this.interval = setInterval(() => this.update(), 1000);
     this.initHeaderScrollListener();
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        this.update();
+      }
+    });
   }
 
   update() {
@@ -30,13 +36,22 @@ export class HudClock {
     const header = document.querySelector('.hud-header');
     if (!header) return;
 
+    let isScrolled = false;
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const shouldScroll = window.scrollY > 25;
+          if (shouldScroll !== isScrolled) {
+            isScrolled = shouldScroll;
+            header.classList.toggle('scrolled', isScrolled);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-    });
+    }, { passive: true });
   }
 
   destroy() {

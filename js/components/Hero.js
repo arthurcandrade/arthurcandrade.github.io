@@ -10,9 +10,9 @@ export function renderHero(container, data) {
     <section class="hero-section" id="hero-section">
       <div class="cyber-card profile-card">
         <div style="display: flex; flex-direction: column; gap: 1.15rem;">
-          
+
           <div class="profile-card-header">
-            <span class="badge badge-cyan">ENGINEERING & AI</span>
+            <span class="badge badge-cyan">SUMMARY</span>
             <span style="color: var(--text-muted); font-size: 0.74rem;">LOC: ${profile.location.toUpperCase()}</span>
           </div>
 

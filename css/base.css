@@ -1,6 +1,6 @@
 /**
  * Arthur Cavalcante de Andrade | Portfolio
- * Base Styles, Reset, Cyber Grid & Utility Classes
+ * Base Styles, Reset, Ergonomic Cyber Grid & High-Performance Utility Classes
  */
 
 *, *::before, *::after {
@@ -11,20 +11,110 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 4.75rem;
   color-scheme: dark;
 }
 
 section, [id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 4.75rem;
+}
+
+/* Floating Quick FX Mode Toggle (Bottom-Right Corner) */
+.floating-fx-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(12, 12, 24, 0.94);
+  border: 1px solid var(--border-cyan);
+  color: var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 999;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), var(--shadow-glow-cyan-sm);
+  outline: none;
+}
+
+.floating-fx-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75), var(--shadow-glow-cyan);
+}
+
+.floating-fx-btn.fx-eco {
+  border-color: var(--border-green);
+  color: var(--neon-green);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), var(--shadow-glow-green-sm);
+}
+
+.floating-fx-btn.fx-eco:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75), var(--shadow-glow-green);
+}
+
+@media (max-width: 640px) {
+  .floating-fx-btn {
+    bottom: 1.1rem;
+    right: 1.1rem;
+    width: 38px;
+    height: 38px;
+    font-size: 0.92rem;
+  }
+}
+
+/* =======================================================
+   TOTAL ANIMATION SUPPRESSION (ECO MODE)
+   When FX is disabled, pause & eliminate all keyframe animations,
+   matrix rain background canvas and pulsating effects
+   ======================================================= */
+html.fx-eco *,
+html.fx-eco *::before,
+html.fx-eco *::after,
+body.fx-eco *,
+body.fx-eco *::before,
+body.fx-eco *::after {
+  animation: none !important;
+  -webkit-animation: none !important;
+}
+
+html.fx-eco #matrix-canvas,
+body.fx-eco #matrix-canvas {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Ensure progress bar remains at a clean static 82% */
+html.fx-eco .decrypt-bar-fill,
+body.fx-eco .decrypt-bar-fill {
+  transform: none !important;
+  width: 82% !important;
+  opacity: 1 !important;
+}
+
+/* Ensure side guide active dot remains crisp and static */
+html.fx-eco .hud-side-node.active .hud-side-marker-dot,
+body.fx-eco .hud-side-node.active .hud-side-marker-dot {
+  transform: rotate(45deg) scale(1.3) !important;
+  -webkit-transform: rotate(45deg) scale(1.3) !important;
+  box-shadow: 0 0 8px var(--neon-cyan) !important;
+}
+
+html.fx-eco .hud-side-guide.personal-theme .hud-side-node.active .hud-side-marker-dot,
+body.fx-eco .hud-side-guide.personal-theme .hud-side-node.active .hud-side-marker-dot {
+  box-shadow: 0 0 8px var(--neon-magenta) !important;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-secondary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
@@ -32,17 +122,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Cyber Matrix Background Grid */
+/* Cyber Matrix Background Grid (Hardware-Accelerated) */
 .grid-bg {
   background-size: 44px 44px;
   background-image: 
     linear-gradient(to right, rgba(0, 240, 255, 0.035) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 240, 255, 0.035) 1px, transparent 1px);
-}
-
-/* CRT Scanline Overlay disabled for 100% text clarity and sharpness */
-body::before {
-  display: none;
 }
 
 /* Matrix Rain Canvas */
@@ -55,6 +140,7 @@ body::before {
   z-index: 0;
   opacity: 0.16;
   pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
 /* Main Container Wrapper */
@@ -98,22 +184,20 @@ body::before {
   box-shadow: 0 0 10px var(--neon-cyan);
 }
 
-/* Cybernetic Polygon Chamfer Border */
+/* High-Performance Cybernetic Card (Zero Backdrop Blur Jank) */
 .cyber-card {
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border-cyan);
   clip-path: polygon(
     0 0, 
-    calc(100% - 16px) 0, 
-    100% 16px, 
+    calc(100% - 14px) 0, 
+    100% 14px, 
     100% 100%, 
-    16px 100%, 
-    0 calc(100% - 16px)
+    14px 100%, 
+    0 calc(100% - 14px)
   );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
 .cyber-card::before {
@@ -121,17 +205,17 @@ body::before {
   position: absolute;
   top: 0; 
   right: 0;
-  width: 16px; 
-  height: 16px;
-  background: rgba(0, 240, 255, 0.55);
+  width: 14px; 
+  height: 14px;
+  background: rgba(0, 240, 255, 0.5);
   clip-path: polygon(100% 0, 0 0, 100% 100%);
   pointer-events: none;
   transition: background var(--transition-fast);
 }
 
 .cyber-card:hover {
-  border-color: rgba(0, 240, 255, 0.8);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+  border-color: rgba(0, 240, 255, 0.75);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -144,11 +228,11 @@ body::before {
   border-color: var(--border-magenta);
 }
 .cyber-card.magenta-variant::before {
-  background: rgba(255, 0, 127, 0.55);
+  background: rgba(255, 0, 127, 0.5);
 }
 .cyber-card.magenta-variant:hover {
-  border-color: rgba(255, 0, 127, 0.8);
-  box-shadow: 0 0 25px rgba(255, 0, 127, 0.2);
+  border-color: rgba(255, 0, 127, 0.75);
+  box-shadow: 0 4px 20px rgba(255, 0, 127, 0.15);
 }
 .cyber-card.magenta-variant:hover::before {
   background: var(--neon-magenta);
@@ -159,11 +243,11 @@ body::before {
   border-color: var(--border-green);
 }
 .cyber-card.green-variant::before {
-  background: rgba(57, 255, 20, 0.55);
+  background: rgba(57, 255, 20, 0.5);
 }
 .cyber-card.green-variant:hover {
-  border-color: rgba(57, 255, 20, 0.8);
-  box-shadow: 0 0 25px rgba(57, 255, 20, 0.2);
+  border-color: rgba(57, 255, 20, 0.75);
+  box-shadow: 0 4px 20px rgba(57, 255, 20, 0.15);
 }
 .cyber-card.green-variant:hover::before {
   background: var(--neon-green);
@@ -174,51 +258,53 @@ body::before {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.85rem;
 }
 
 .section-accent-bar {
-  width: 6px;
-  height: 40px;
+  width: 5px;
+  height: 38px;
   border-radius: 2px;
   background-color: var(--neon-cyan);
-  box-shadow: var(--shadow-glow-cyan);
+  box-shadow: var(--shadow-glow-cyan-sm);
+  flex-shrink: 0;
 }
 
-.section-accent-bar.cyan { background-color: var(--neon-cyan); box-shadow: var(--shadow-glow-cyan); }
-.section-accent-bar.magenta { background-color: var(--neon-magenta); box-shadow: var(--shadow-glow-magenta); }
-.section-accent-bar.green { background-color: var(--neon-green); box-shadow: var(--shadow-glow-green); }
-.section-accent-bar.yellow { background-color: var(--neon-yellow); box-shadow: var(--shadow-glow-yellow); }
+.section-accent-bar.cyan { background-color: var(--neon-cyan); box-shadow: var(--shadow-glow-cyan-sm); }
+.section-accent-bar.magenta { background-color: var(--neon-magenta); box-shadow: var(--shadow-glow-magenta-sm); }
+.section-accent-bar.green { background-color: var(--neon-green); box-shadow: var(--shadow-glow-green-sm); }
+.section-accent-bar.yellow { background-color: var(--neon-yellow); box-shadow: 0 0 10px rgba(255, 223, 0, 0.25); }
 
 .section-heading {
   font-family: var(--font-tech);
-  font-size: 1.65rem;
+  font-size: 1.55rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--text-primary);
   text-transform: uppercase;
+  line-height: 1.25;
 }
 
 .section-subheading {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-  margin-top: 0.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: var(--text-dim);
+  letter-spacing: 0.01em;
+  margin-top: 0.25rem;
+  line-height: 1.45;
 }
 
-/* Glitch Animation */
+/* Glitch Animation (Only on hover, low overhead) */
 @keyframes glitch {
   0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
   100% { transform: translate(0); }
 }
 
 .glitch-hover:hover {
-  animation: glitch 0.3s infinite linear alternate-reverse;
+  animation: glitch 0.25s 1 linear;
 }
 
 /* Buttons */
@@ -227,9 +313,9 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.4rem;
+  padding: 0.7rem 1.35rem;
   font-family: var(--font-tech);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -248,7 +334,7 @@ body::before {
 .btn-cyan:hover {
   background: var(--neon-cyan);
   color: var(--bg-primary);
-  box-shadow: 0 0 20px rgba(var(--neon-cyan-rgb), 0.65);
+  box-shadow: 0 0 18px rgba(var(--neon-cyan-rgb), 0.5);
 }
 
 .btn-magenta {
@@ -259,22 +345,23 @@ body::before {
 .btn-magenta:hover {
   background: var(--neon-magenta);
   color: #ffffff;
-  box-shadow: 0 0 20px rgba(var(--neon-magenta-rgb), 0.65);
+  box-shadow: 0 0 18px rgba(var(--neon-magenta-rgb), 0.5);
 }
 
 .btn-sm {
-  padding: 0.4rem 0.8rem;
-  font-size: 0.72rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.7rem;
 }
 
-/* Badge Tags */
+/* Badge Tags (Telemetry / Categories) */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.25rem 0.6rem;
+  padding: 0.22rem 0.55rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 600;
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
@@ -284,36 +371,36 @@ body::before {
 
 .badge-cyan {
   background: rgba(var(--neon-cyan-rgb), 0.1);
-  border-color: rgba(var(--neon-cyan-rgb), 0.25);
+  border-color: rgba(var(--neon-cyan-rgb), 0.3);
   color: var(--neon-cyan);
 }
 
 .badge-magenta {
   background: rgba(var(--neon-magenta-rgb), 0.1);
-  border-color: rgba(var(--neon-magenta-rgb), 0.25);
+  border-color: rgba(var(--neon-magenta-rgb), 0.3);
   color: var(--neon-magenta);
 }
 
 .badge-green {
   background: rgba(var(--neon-green-rgb), 0.1);
-  border-color: rgba(var(--neon-green-rgb), 0.25);
+  border-color: rgba(var(--neon-green-rgb), 0.3);
   color: var(--neon-green);
 }
 
 .badge-yellow {
   background: rgba(var(--neon-yellow-rgb), 0.1);
-  border-color: rgba(var(--neon-yellow-rgb), 0.25);
+  border-color: rgba(var(--neon-yellow-rgb), 0.3);
   color: var(--neon-yellow);
 }
 
-/* Pulse animation utility */
+/* Pulse animation utility (GPU-friendly opacity) */
 .pulse-glow {
-  animation: pulseGlow 2s infinite alternate ease-in-out;
+  animation: pulseGlow 2.5s infinite alternate ease-in-out;
 }
 
 @keyframes pulseGlow {
-  0% { opacity: 0.6; }
-  100% { opacity: 1; filter: drop-shadow(0 0 6px var(--neon-cyan)); }
+  0% { opacity: 0.65; }
+  100% { opacity: 1; }
 }
 
 /* Layout Utilities */
@@ -324,18 +411,19 @@ body::before {
 .text-green { color: var(--neon-green); }
 .text-yellow { color: var(--neon-yellow); }
 .text-muted { color: var(--text-muted); }
+.text-dim { color: var(--text-dim); }
 .text-white { color: #ffffff; }
 
 /* Portal Realm Transitions */
 .portal-realm-view {
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
 
 .portal-realm-view.active-view {
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
+  gap: 4.25rem;
   opacity: 1;
   transform: translateY(0);
 }
@@ -343,14 +431,14 @@ body::before {
 .portal-realm-view.hidden-view {
   display: none !important;
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(6px);
 }
 
 /* Cyber Tech Chips */
 .tech-chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.22rem 0.6rem;
+  padding: 0.22rem 0.58rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
@@ -358,14 +446,12 @@ body::before {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
   color: var(--text-dim);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   transition: all var(--transition-fast);
 }
 
 .tech-chip:hover {
-  border-color: rgba(0, 240, 255, 0.4);
+  border-color: rgba(0, 240, 255, 0.45);
   color: var(--neon-cyan);
-  background: rgba(0, 240, 255, 0.06);
+  background: rgba(0, 240, 255, 0.08);
 }
-
-
