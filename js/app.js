@@ -190,7 +190,7 @@ class PortfolioApp {
         return { realm: 'professional', targetHash: window.location.hash };
       }
 
-      return { realm: 'professional', targetHash: null };
+      return { realm: this.activeRealm || 'professional', targetHash: null };
     };
 
     // Listen to Header Realm button event
@@ -208,7 +208,12 @@ class PortfolioApp {
       if (link.closest('.hud-side-guide')) return;
 
       const hash = link.getAttribute('href');
-      if (!hash || hash === '#') return;
+      if (!hash) return;
+      if (hash === '#') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
 
       const isPersonalTarget = hash.startsWith('#personal');
       const isProfTarget = hash.startsWith('#skills') || 

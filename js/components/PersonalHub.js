@@ -25,7 +25,6 @@ export function renderPersonalHub(container, data) {
               <h2 class="section-heading">${gear.title}</h2>
               <span class="badge badge-yellow" style="font-size: 0.65rem;">${gear.badge}</span>
             </div>
-            <p class="section-subheading">${gear.subtitle}</p>
           </div>
         </div>
 
@@ -58,7 +57,7 @@ export function renderPersonalHub(container, data) {
         </div>
       </section>
 
-      <!-- Section 3: Gaming & Rig Telemetry -->
+      <!-- Section 3: Gaming Telemetry -->
       <section id="personal-gaming" class="personal-section">
         <div class="section-title-wrap">
           <div class="section-accent-bar magenta"></div>
@@ -67,7 +66,6 @@ export function renderPersonalHub(container, data) {
               <h2 class="section-heading">${gaming.title}</h2>
               <span class="badge badge-magenta" style="font-size: 0.65rem;">${gaming.badge}</span>
             </div>
-            <p class="section-subheading">${gaming.subtitle}</p>
           </div>
         </div>
 
@@ -154,7 +152,6 @@ export function renderPersonalHub(container, data) {
               <h2 class="section-heading">${music.title}</h2>
               <span class="badge badge-green" style="font-size: 0.65rem;">${music.badge}</span>
             </div>
-            <p class="section-subheading">${music.subtitle}</p>
           </div>
         </div>
 
@@ -239,7 +236,6 @@ export function renderPersonalHub(container, data) {
                 <h2 class="section-heading">${cinema.title}</h2>
                 <span class="badge badge-cyan" style="font-size: 0.65rem;">${cinema.badge}</span>
               </div>
-              <p class="section-subheading">${cinema.subtitle}</p>
             </div>
           </div>
 

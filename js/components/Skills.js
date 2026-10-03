@@ -65,7 +65,7 @@ export function renderSkills(container, data) {
       <div class="section-title-wrap">
         <div class="section-accent-bar cyan"></div>
         <div>
-          <h2 class="section-heading">Skills & Specializations</h2>
+          <h2 class="section-heading">Skills & Keywords</h2>
         </div>
       </div>
 

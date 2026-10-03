@@ -285,15 +285,6 @@ body {
   line-height: 1.25;
 }
 
-.section-subheading {
-  font-family: var(--font-sans);
-  font-size: 0.86rem;
-  color: var(--text-dim);
-  letter-spacing: 0.01em;
-  margin-top: 0.25rem;
-  line-height: 1.45;
-}
-
 /* Glitch Animation (Only on hover, low overhead) */
 @keyframes glitch {
   0% { transform: translate(0); }
@@ -362,6 +353,7 @@ body {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
+  line-height: 1.2;
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);

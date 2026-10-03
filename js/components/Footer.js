@@ -20,10 +20,10 @@ export function renderFooter(container, data) {
             <i class="fa-brands fa-github" style="font-size: 1.25rem;"></i>
           </a>
 
-          <a href="#" class="footer-top-btn" title="Back to top of page">
+          <button type="button" class="footer-top-btn" id="footer-top-btn" title="Back to top of page" aria-label="Back to top of page">
             <i class="fa-solid fa-arrow-up"></i>
             <span>TOP</span>
-          </a>
+          </button>
         </div>
 
       </div>
@@ -31,4 +31,11 @@ export function renderFooter(container, data) {
   `;
 
   container.innerHTML = footerHtml;
+
+  const topBtn = container.querySelector('#footer-top-btn');
+  if (topBtn) {
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }

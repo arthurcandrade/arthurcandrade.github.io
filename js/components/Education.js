@@ -68,7 +68,6 @@ export function renderEducation(container, data) {
           <div class="section-accent-bar green"></div>
           <div>
             <h2 class="section-heading">Academic Timeline</h2>
-            <p class="section-subheading">Chronological academic journey from Bachelor's in CS (UFG) to M.Sc. in HPC & AI</p>
           </div>
         </div>
 
@@ -83,7 +82,6 @@ export function renderEducation(container, data) {
           <div class="section-accent-bar cyan"></div>
           <div>
             <h2 class="section-heading">Certifications</h2>
-            <p class="section-subheading">Accredited certifications in accelerated computing, networking, cybersecurity, and data protection</p>
           </div>
         </div>
 

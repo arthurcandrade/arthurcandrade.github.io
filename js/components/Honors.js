@@ -43,7 +43,6 @@ export function renderHonors(container, data) {
         <div class="section-accent-bar yellow"></div>
         <div>
           <h2 class="section-heading">Honors & Recognitions</h2>
-          <p class="section-subheading">Competitive achievements, hackathons, and scientific incubation</p>
         </div>
       </div>
 

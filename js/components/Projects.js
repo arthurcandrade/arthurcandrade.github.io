@@ -26,7 +26,7 @@ export function renderProjects(container, data) {
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div class="project-meta-top">
             <span class="badge ${badgeClass}">${proj.badge}</span>
-            <span style="color: var(--text-muted);">${proj.client}</span>
+            <span class="project-client">${proj.client}</span>
           </div>
 
           <div>
@@ -59,7 +59,6 @@ export function renderProjects(container, data) {
         <div class="section-accent-bar magenta"></div>
         <div>
           <h2 class="section-heading">Key Engineering Projects</h2>
-          <p class="section-subheading">High-impact developments with native AI modules & structural designs</p>
         </div>
       </div>
 

@@ -102,10 +102,10 @@ export const portfolioData = {
       location: "Goiânia, Brazil (Hybrid)",
       summary: "Leading the systemic migration of the MCA contract management platform (originally Ruby on Rails/Hotwire) and the Kaizen strategic management engine (Node.js/React.js) into a unified Java Spring Boot backend infrastructure, while spearheading generative AI GovTech initiatives.",
       bullets: [
-        "Orchestrated the SIMPATIC AI Agentic framework, automating procurement pieces (DOD, ETP, TR) and cutting preparation cycle times by over 80%.",
-        "Engineered the ISO 31000 Risk Assessment Platform (patented IP BR512026002418-8), converting qualitative audit vectors into quantitative indices with RAG.",
-        "Acting as focal point for external audits and compliance with ISO 31000, LGPD, Brazilian Procurement Law (14.133/21), and CNJ Resolution 468/22.",
-        "Providing technical guidance to development teams, conducting code reviews, defining architectural standards, and optimizing database queries."
+        "Architected AI systems, implementing agents to automate compliance workflows and reduce manual documentation time by over 80%.",
+        "Developed Risk Assessment Engine (patented IP BR512026002418-8), converting qualitative audit vectors into quantitative indices.",
+        "Serving as focal point for external audits and compliance with ISO 31000, LGPD, Brazilian Procurement Law (14.133/21), and CNJ Resolution 468/22.",
+        "Providing technical leadership to development teams, conducting code reviews, defining architectural standards, and optimizing database queries."
       ],
       technologies: ["Java (Spring Boot)", "Ruby (Rails 8+, Hotwire)", "Python (FastAPI)", "TypeScript (React.js)", "PostgreSQL", "Docker", "GitLab", "ISO 31000"]
     },
@@ -114,7 +114,7 @@ export const portfolioData = {
       status: "INSURTECH NODE",
       statusColor: "green",
       role: "SOFTWARE ENGINEER",
-      company: "Cilia Tecnologia (Insurtech)",
+      company: "Cilia Tecnologia S.A.",
       period: "Feb 2023 - Jan 2026",
       location: "Goiânia, Brazil (Hybrid)",
       summary: "Scaled and refactored high-traffic RESTful API architectures for one of Brazil's largest insurtech platforms using Ruby on Rails, integrating with external systems and third-party services.",
@@ -239,7 +239,7 @@ export const portfolioData = {
     {
       categoryBadge: "HACKATHON PODIUM",
       year: "2023",
-      title: "First Place Award Winner & Incubated Concept",
+      title: "Award Winner & Incubated Concept",
       issuer: "1st EPT Congress (CETT / UFG)",
       description: "Managed a team of three high school students during a low-code hackathon at the 1st EPT Congress (CETT/UFG), leading the design and development of an integrated mobile IoT water telemetry tracking app (MIT App Inventor) with a prototype reservoir to collect and monitor rainwater runoff. The project received a podium award and was later incubated by CEI/UFG.",
       stats: [
@@ -257,10 +257,10 @@ export const portfolioData = {
       client: "COURT OF JUSTICE OF GOIÁS (TJGO)",
       title: "Contracts and Acquisitions Module (MCA)",
       role: "Software Architect & Engineer",
-      description: "Comprehensive planning and management system implemented at TJGO to streamline contract administration and payment workflows. Transitioned the institution away from scattered spreadsheets by automating processes across every procurement stage. Features the Risk Assessment System (SAR) and SIMPATIC AI agents.",
+      description: "Comprehensive planning and management system implemented at TJGO to streamline contract administration and payment workflows. Transitioned the institution away from scattered spreadsheets by automating processes across every procurement stage. Features the Risk Assessment Engine.",
       features: [
-        { icon: "fa-solid fa-robot", text: "SIMPATIC AI Agents (Auto-generating DOD, ETP, and TR artifacts)" },
-        { icon: "fa-solid fa-shield-halved", text: "Integrated Risk Assessment Engine" }
+        { icon: "fa-solid fa-file-invoice-dollar", text: "Process Automation System" },
+        { icon: "fa-solid fa-robot", text: "Integrated Risk Assessment Engine" }
       ],
       technologies: ["Ruby (Rails)", "Hotwire", "PostgreSQL", "AI Agents"],
       date: "April 2026"
@@ -272,9 +272,9 @@ export const portfolioData = {
       client: "INTELLECTUAL PROPERTY",
       title: "Risk Assessment Engine",
       role: "Software Architect & Code Reviewer",
-      description: "Python and FastAPI backend engine combining ISO 31000 methodology with RAG architecture. Utilizes NLP to transform qualitative public sector documents (DOD, ETP, TR) into quantitative metrics for calculating inherent and residual risk, serving as a scalable GRC tool and reducing total assessment process time by 80%.",
+      description: "Python and FastAPI backend engine combining ISO 31000 methodology with RAG architecture. Utilizes NLP to transform qualitative public sector documents (DOD, ETP, TR) into quantitative metrics for defining risk scenarios, identifying control methods and calculating both inherent and residual risks, serving as a scalable GRC tool and reducing total assessment process time by 80%.",
       features: [
-        { icon: "fa-solid fa-bolt", text: "Reduces total assessment process time by 80%" },
+        { icon: "fa-solid fa-bolt", text: "Reduces total risk assessment process time by 80%" },
         { icon: "fa-solid fa-code-branch", text: "FastAPI core + RAG historical knowledge base calibration" }
       ],
       technologies: ["Python", "FastAPI", "RAG Architecture", "ISO 31000", "NLP"],
@@ -286,7 +286,6 @@ export const portfolioData = {
     gear: {
       id: "personal-gear",
       title: "Workstation & Hardware",
-      subtitle: "Compact, high-mobility architecture, low-latency wireless peripherals & Linux environment",
       badge: "HARDWARE DEPLOYED",
       description: "Curated minimalist and high-mobility workstation focused on compact, portable peripherals with a clean wireless footprint. Running development workflows through Linux via WSL2 on Windows, with plans to introduce a dedicated secondary laptop to physically separate engineering and personal environments.",
       items: [
@@ -317,32 +316,20 @@ export const portfolioData = {
     },
     gaming: {
       id: "personal-gaming",
-      title: "Gaming & Rig Telemetry",
-      subtitle: "Tactical shooters, immersive open-world RPGs, grand strategy systems & kinetic indies",
+      title: "Gaming Telemetry",
       badge: "STEAM NODE",
       steamUrl: "https://steamcommunity.com/id/Kaizenhauer",
       description: "Enthusiast gamer drawn to deep mechanics, high skill ceilings, and tactical discipline in competitive titles, paired with emergent narratives in expansive open worlds. Strong affinity for complex grand strategy systems, calculated turn-based decision making, and high-tempo, atmospheric roguelikes driven by kinetic action and build synergies.",
       recommendedGames: [
         {
-          category: "Tactical & Competitive",
-          icon: "fa-solid fa-crosshairs",
-          badge: "HIGH SKILL CEILING",
-          games: [
-            { title: "eFootball", tag: "Competitive Soccer", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/capsule_231x87.jpg" },
-            { title: "Battlefield 1", tag: "WW1 FPS", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1238840/capsule_231x87.jpg" },
-            { title: "Counter Strike 2", tag: "Tactical FPS", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_231x87.jpg" },
-            { title: "Brawlhalla", tag: "Platform Fighter", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/291550/capsule_231x87.jpg" }
-          ]
-        },
-        {
-          category: "Immersive & Action RPGs",
+          category: "Immersive Adventures",
           icon: "fa-solid fa-khanda",
           badge: "DARK WORLDS & LORE",
           games: [
             { title: "The Elder Scrolls V: Skyrim", tag: "Fantasy RPG", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/72850/capsule_231x87.jpg" },
-            { title: "Grand Theft Auto V", tag: "Open-World Action-Adventure", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/capsule_231x87.jpg" },
+            { title: "Sleeping Dogs", tag: "Open-World Action-Adventure", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307690/capsule_231x87.jpg" },
             { title: "Hogwarts Legacy", tag: "Wizarding World RPG", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/990080/capsule_231x87.jpg" },
-            { title: "Sleeping Dogs", tag: "Open-World Action-Adventure", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307690/capsule_231x87.jpg" }
+            { title: "Grand Theft Auto IV", tag: "Open-World Action-Adventure", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/12210/capsule_231x87.jpg" }
           ]
         },
         {
@@ -364,7 +351,18 @@ export const portfolioData = {
             { title: "Katana ZERO", tag: "Stylish Action", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/460950/capsule_231x87.jpg" },
             { title: "Hotline Miami", tag: "Top-down Neo-Noir", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/219150/capsule_231x87.jpg" },
             { title: "Risk of Rain 2", tag: "Sci-Fi Roguelike", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/capsule_231x87.jpg" },
-            { title: "The Last Flame", tag: "Turn-based Dark Fantasy", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1830970/capsule_231x87.jpg" }
+            { title: "Don't Starve Together", tag: "Survival Adventure", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/322330/capsule_231x87.jpg" }
+          ]
+        },
+        {
+          category: "Tactical & Competitive",
+          icon: "fa-solid fa-crosshairs",
+          badge: "HIGH SKILL CEILING",
+          games: [
+            { title: "eFootball", tag: "Competitive Soccer", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/capsule_231x87.jpg" },
+            { title: "Battlefield 1", tag: "WW1 FPS", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1238840/capsule_231x87.jpg" },
+            { title: "Counter Strike 2", tag: "Tactical FPS", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_231x87.jpg" },
+            { title: "Brawlhalla", tag: "Platform Fighter", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/291550/capsule_231x87.jpg" }
           ]
         }
       ]
@@ -372,7 +370,6 @@ export const portfolioData = {
     music: {
       id: "personal-music",
       title: "Music & Creation",
-      subtitle: "Casual music enthusiast exploring guitar, beatmaking & audio production",
       badge: "MUSIC ENTHUSIAST",
       spotifyUrl: "https://open.spotify.com/user/12163317381",
       description: "Music enthusiast who enjoys playing electric guitar, crafting beats, and experimenting in FL Studio across styles like Cloud Rap, R&B, Punk Rock, and Indie Rock as a casual creative hobby.",
@@ -410,7 +407,6 @@ export const portfolioData = {
     cinema: {
       id: "personal-cinema",
       title: "Cinema & Series",
-      subtitle: "Cyberpunk narratives, neo-noir crime sagas, psychological thrillers & anime",
       badge: "MEDIA STREAM",
       description: "Appreciation for nuanced storytelling, complex character arcs, atmospheric world-building, and moral ambiguity. Drawn to cyberpunk dystopias, neo-noir crime sagas exploring power dynamics, and dark psychological narratives with existential weight across cinema, television, and anime.",
       topMovies: [

@@ -64,10 +64,15 @@
   background: rgba(0, 240, 255, 0.05);
   border-radius: var(--radius-sm);
   color: var(--neon-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  cursor: pointer;
+  outline: none;
   transition: all var(--transition-fast);
 }
 
