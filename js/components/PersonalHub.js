@@ -167,6 +167,7 @@ export function renderPersonalHub(container, data) {
               <div class="artists-clean-title">
                 <i class="fa-solid fa-headphones text-green"></i>
                 <span>TOP RECENT ARTISTS</span>
+                <span class="badge badge-green" style="font-size: 0.62rem;">SPOTIFY</span>
               </div>
               <div class="artists-carousel-toolbar">
                 <span class="artists-carousel-counter" id="artists-carousel-counter">1-5 / 10</span>
@@ -178,7 +179,6 @@ export function renderPersonalHub(container, data) {
                     <i class="fa-solid fa-chevron-right"></i>
                   </button>
                 </div>
-                <span class="badge badge-green" style="font-size: 0.62rem;">SPOTIFY</span>
               </div>
             </div>
 
@@ -252,7 +252,8 @@ export function renderPersonalHub(container, data) {
                 <div class="cinema-sub-header">
                   <div class="cinema-sub-title">
                     <i class="fa-solid fa-film text-cyan"></i>
-                    <span>TOP MOVIES</span>
+                    <span>MOVIES</span>
+                    <span class="badge badge-cyan" style="font-size: 0.62rem;">TOP 10</span>
                   </div>
                   <div class="cinema-carousel-toolbar">
                     <span class="cinema-carousel-counter" id="movies-carousel-counter">1-5 / 10</span>
@@ -264,7 +265,6 @@ export function renderPersonalHub(container, data) {
                         <i class="fa-solid fa-chevron-right"></i>
                       </button>
                     </div>
-                    <span class="badge badge-cyan" style="font-size: 0.62rem;">TOP 10</span>
                   </div>
                 </div>
 

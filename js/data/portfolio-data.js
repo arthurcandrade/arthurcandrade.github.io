@@ -256,7 +256,7 @@ export const portfolioData = {
       badgeType: "green",
       client: "COURT OF JUSTICE OF GOIÁS (TJGO)",
       title: "Contracts and Acquisitions Module (MCA)",
-      role: "Architect & Software Engineer",
+      role: "Software Architect & Engineer",
       description: "Comprehensive planning and management system implemented at TJGO to streamline contract administration and payment workflows. Transitioned the institution away from scattered spreadsheets by automating processes across every procurement stage. Features the Risk Assessment System (SAR) and SIMPATIC AI agents.",
       features: [
         { icon: "fa-solid fa-robot", text: "SIMPATIC AI Agents (Auto-generating DOD, ETP, and TR artifacts)" },
@@ -271,7 +271,7 @@ export const portfolioData = {
       badgeType: "magenta",
       client: "INTELLECTUAL PROPERTY",
       title: "Risk Assessment Engine",
-      role: "Architect & Code Reviewer",
+      role: "Software Architect & Code Reviewer",
       description: "Python and FastAPI backend engine combining ISO 31000 methodology with RAG architecture. Utilizes NLP to transform qualitative public sector documents (DOD, ETP, TR) into quantitative metrics for calculating inherent and residual risk, serving as a scalable GRC tool and reducing total assessment process time by 80%.",
       features: [
         { icon: "fa-solid fa-bolt", text: "Reduces total assessment process time by 80%" },
