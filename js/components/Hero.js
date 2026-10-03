@@ -13,7 +13,15 @@ export function renderHero(container, data) {
 
           <div class="profile-card-header">
             <span class="badge badge-cyan">SUMMARY</span>
-            <span style="color: var(--text-muted); font-size: 0.74rem;">LOC: ${profile.location.toUpperCase()}</span>
+            <span class="hero-loc-tag">
+              <span>LOC: ${profile.location.toUpperCase()}</span>
+              <svg class="hero-flag-icon" viewBox="0 0 720 504" width="17" height="12" aria-label="Brazil Flag" role="img">
+                <rect width="720" height="504" fill="#009c3b"/>
+                <polygon points="360,57.6 662.4,252 360,446.4 57.6,252" fill="#ffdf00"/>
+                <circle cx="360" cy="252" r="126" fill="#002776"/>
+                <path d="M 234 252 A 288 288 0 0 1 486 252 A 306 306 0 0 0 234 252 Z" fill="#ffffff"/>
+              </svg>
+            </span>
           </div>
 
           <div>

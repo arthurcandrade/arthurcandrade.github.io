@@ -50,10 +50,9 @@ export function renderSkills(container, data) {
               <i class="${iconClass}"></i>
               <span>${cat.title}</span>
             </h3>
-            <p class="skill-cat-subtitle">${cat.subtitle}</p>
           </div>
 
-          <div class="skill-items-list" style="margin-top: 1rem;">
+          <div class="skill-items-list">
             ${itemsHtml}
           </div>
         </div>
@@ -66,8 +65,7 @@ export function renderSkills(container, data) {
       <div class="section-title-wrap">
         <div class="section-accent-bar cyan"></div>
         <div>
-          <h2 class="section-heading">Skills & Specializations Matrix</h2>
-          <p class="section-subheading">Core competencies spanning Generative AI, Distributed Backends, Cybersecurity & IT Governance</p>
+          <h2 class="section-heading">Skills & Specializations</h2>
         </div>
       </div>
 

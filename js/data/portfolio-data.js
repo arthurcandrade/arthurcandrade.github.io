@@ -39,7 +39,6 @@ export const portfolioData = {
     {
       id: "ai-deep-learning",
       title: "AI, RAG & Deep Learning",
-      subtitle: "Neural architectures, generative diffusion & agent workflows",
       color: "magenta",
       skills: [
         { name: "LLMs & Hybrid RAG Pipelines", tag: "Generative AI", icon: "fa-solid fa-brain" },
@@ -53,7 +52,6 @@ export const portfolioData = {
     {
       id: "backend-distributed",
       title: "Web Backend & Systems Engineering",
-      subtitle: "Ruby on Rails as primary web stack & Python utility ecosystem",
       color: "cyan",
       skills: [
         { name: "Ruby on Rails (Rails 3+ to Rails 8+)", tag: "Primary Web Stack", icon: "fa-solid fa-gem" },
@@ -67,7 +65,6 @@ export const portfolioData = {
     {
       id: "cybersecurity-governance",
       title: "Cybersecurity & Data Governance",
-      subtitle: "Postgraduate specialization at PUC Minas: defense, risk & compliance",
       color: "green",
       skills: [
         { name: "ISO 31000 Risk Management", tag: "Risk Methodology", icon: "fa-solid fa-shield-halved" },
@@ -81,7 +78,6 @@ export const portfolioData = {
     {
       id: "it-processes-hpc",
       title: "IT Processes, Management & HPC",
-      subtitle: "Postgraduate specialization at UFG & High-Performance Computing",
       color: "yellow",
       skills: [
         { name: "IT Processes & Strategy (ITIL / COBIT)", tag: "IT Management", icon: "fa-solid fa-sitemap" },
@@ -260,7 +256,7 @@ export const portfolioData = {
       badgeType: "green",
       client: "COURT OF JUSTICE OF GOIÁS (TJGO)",
       title: "Contracts and Acquisitions Module (MCA)",
-      role: "Lead Architect & AI Integrator",
+      role: "Architect & Software Engineer",
       description: "Comprehensive planning and management system implemented at TJGO to streamline contract administration and payment workflows. Transitioned the institution away from scattered spreadsheets by automating processes across every procurement stage. Features the Risk Assessment System (SAR) and SIMPATIC AI agents.",
       features: [
         { icon: "fa-solid fa-robot", text: "SIMPATIC AI Agents (Auto-generating DOD, ETP, and TR artifacts)" },
@@ -275,7 +271,7 @@ export const portfolioData = {
       badgeType: "magenta",
       client: "INTELLECTUAL PROPERTY",
       title: "Risk Assessment Engine",
-      role: "Lead Creator & Core Developer",
+      role: "Architect & Code Reviewer",
       description: "Python and FastAPI backend engine combining ISO 31000 methodology with RAG architecture. Utilizes NLP to transform qualitative public sector documents (DOD, ETP, TR) into quantitative metrics for calculating inherent and residual risk, serving as a scalable GRC tool and reducing total assessment process time by 80%.",
       features: [
         { icon: "fa-solid fa-bolt", text: "Reduces total assessment process time by 80%" },
