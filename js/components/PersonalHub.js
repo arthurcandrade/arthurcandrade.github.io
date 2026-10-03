@@ -12,6 +12,7 @@ export function renderPersonalHub(container, data) {
 
   const { gear, gaming, music, cinema } = personal;
 
+
   const personalHtml = `
     <div class="personal-hub-wrap" style="display: flex; flex-direction: column; gap: 3.5rem;">
 
@@ -31,11 +32,26 @@ export function renderPersonalHub(container, data) {
         <div class="cyber-card personal-detail-card">
           <p class="personal-card-desc">${gear.description}</p>
 
-          <div class="personal-items-grid">
+          <div class="personal-items-grid ${gear.items && gear.items.length <= 2 ? 'two-cols' : ''}">
             ${gear.items.map(item => `
               <div class="personal-spec-box yellow-accent">
-                <span class="spec-label">${item.label}</span>
-                <span class="spec-val text-yellow">${item.val}</span>
+                <div class="spec-header">
+                  ${item.icon ? `<i class="${item.icon} spec-icon"></i>` : ''}
+                  <span class="spec-label">${item.label}</span>
+                </div>
+                ${item.name ? `<div class="spec-device-name">${item.name}</div>` : ''}
+                ${item.details && item.details.length ? `
+                  <ul class="spec-details-list">
+                    ${item.details.map(d => `
+                      <li class="spec-detail-item">
+                        <span class="spec-bullet">›</span>
+                        <span>${d.includes(': ') ? `<strong class="spec-item-key">${d.split(': ')[0]}:</strong> ${d.split(': ').slice(1).join(': ')}` : d}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                ` : `
+                  <span class="spec-val text-yellow">${item.val || ''}</span>
+                `}
               </div>
             `).join('')}
           </div>
@@ -62,14 +78,67 @@ export function renderPersonalHub(container, data) {
         <div class="cyber-card personal-detail-card">
           <p class="personal-card-desc">${gaming.description}</p>
 
-          <div class="personal-items-grid">
-            ${gaming.items.map(item => `
-              <div class="personal-spec-box magenta-accent">
-                <span class="spec-label">${item.label}</span>
-                <span class="spec-val text-magenta">${item.val}</span>
+          ${gaming.recommendedGames && gaming.recommendedGames.length ? `
+            <div class="gaming-recommended-section" id="gaming-recommended-section">
+              <div class="gaming-recommended-header">
+                <div class="gaming-recommended-title">
+                  <i class="fa-solid fa-gamepad text-magenta"></i>
+                  <span>RECOMMENDED TITLES</span>
+                </div>
+                <div class="gaming-carousel-toolbar">
+                  <span class="gaming-carousel-counter" id="gaming-carousel-counter">1 / ${gaming.recommendedGames.length}</span>
+                  <div class="gaming-nav-group">
+                    <button class="gaming-nav-icon-btn prev" id="gaming-prev-btn" type="button" aria-label="Previous category" title="Previous Category">
+                      <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="gaming-nav-icon-btn next" id="gaming-next-btn" type="button" aria-label="Next category" title="Next Category">
+                      <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
-            `).join('')}
-          </div>
+
+              <!-- Interactive Category Tabs -->
+              <div class="gaming-category-tabs" id="gaming-category-tabs">
+                ${gaming.recommendedGames.map((cat, idx) => `
+                  <button type="button" class="gaming-tab-btn ${idx === 0 ? 'active' : ''}" data-cat-idx="${idx}">
+                    ${cat.icon ? `<i class="${cat.icon}"></i>` : ''}
+                    <span>${cat.category}</span>
+                  </button>
+                `).join('')}
+              </div>
+
+              <!-- Carousel Viewport & Track -->
+              <div class="gaming-carousel-viewport" id="gaming-carousel-viewport">
+                <div class="gaming-carousel-track" id="gaming-carousel-track">
+                  ${gaming.recommendedGames.map((cat, catIdx) => `
+                    <div class="gaming-carousel-slide" data-slide-idx="${catIdx}">
+                      <div class="gaming-games-grid">
+                        ${(cat.games || []).map((g, gIdx) => `
+                          <div class="gaming-game-card">
+                            <div class="gaming-capsule-wrap">
+                              <span class="gaming-rank-badge">#${String(gIdx + 1).padStart(2, '0')}</span>
+                              ${g.image ? `
+                                <img src="${g.image}" alt="${g.title || 'Game'}" class="gaming-capsule-img" loading="lazy" referrerpolicy="no-referrer" onerror="this.classList.add('img-error');" />
+                              ` : ''}
+                              <div class="gaming-capsule-placeholder ${g.image ? 'fallback' : ''}">
+                                <i class="fa-solid fa-gamepad"></i>
+                                <span>STEAM CAPSULE</span>
+                              </div>
+                            </div>
+                            <div class="gaming-card-body">
+                              <span class="gaming-card-title" title="${g.title || `Slot ${gIdx + 1}`}">${g.title || `Slot ${gIdx + 1}`}</span>
+                              ${g.tag ? `<span class="gaming-card-sub">${g.tag}</span>` : ''}
+                            </div>
+                          </div>
+                        `).join('')}
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          ` : ''}
 
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
             <div class="personal-tags-row">
@@ -99,44 +168,64 @@ export function renderPersonalHub(container, data) {
         <div class="cyber-card green-variant personal-detail-card">
           <p class="personal-card-desc">${music.description}</p>
 
-          <!-- Favorite Artists Clean Carousel (No dots, Image-forward, Seamless Infinite Loop) -->
+          <!-- 1. Top Music Artists Carousel (Unified Format) -->
           <div class="artists-clean-section" id="artists-clean-section">
             <div class="artists-clean-header">
               <div class="artists-clean-title">
                 <i class="fa-solid fa-headphones text-green"></i>
                 <span>TOP RECENT ARTISTS</span>
               </div>
-              <div class="artists-clean-toolbar">
+              <div class="artists-carousel-toolbar">
+                <span class="artists-carousel-counter" id="artists-carousel-counter">1-5 / 10</span>
                 <div class="artists-nav-group">
-                  <button class="ah-nav-icon-btn prev" id="ah-prev-btn" type="button" aria-label="Previous artist" title="Previous">
+                  <button class="artists-nav-icon-btn prev" id="ah-prev-btn" type="button" aria-label="Previous artists" title="Previous 5 artists">
                     <i class="fa-solid fa-chevron-left"></i>
                   </button>
-                  <button class="ah-nav-icon-btn play-pause active" id="ah-play-btn" type="button" aria-label="Toggle Auto-play" title="Pause Auto-scroll">
-                    <i class="fa-solid fa-pause"></i>
-                  </button>
-                  <button class="ah-nav-icon-btn next" id="ah-next-btn" type="button" aria-label="Next artist" title="Next">
+                  <button class="artists-nav-icon-btn next" id="ah-next-btn" type="button" aria-label="Next artists" title="Next 5 artists">
                     <i class="fa-solid fa-chevron-right"></i>
                   </button>
                 </div>
+                <span class="badge badge-green" style="font-size: 0.62rem;">SPOTIFY</span>
               </div>
             </div>
 
             <!-- Viewport & Hardware-Accelerated Sliding Track -->
-            <div class="artists-clean-viewport" id="artist-carousel-viewport">
-              <div class="artists-clean-track" id="artist-carousel-track">
-                <!-- Dynamically populated with cloned cards for seamless 60fps loop -->
+            <div class="artists-carousel-viewport" id="artist-carousel-viewport">
+              <div class="artists-carousel-track" id="artist-carousel-track">
+                <!-- Dynamically populated with clean artist cards -->
               </div>
             </div>
           </div>
 
-          <div class="personal-items-grid">
-            ${music.items.map(item => `
-              <div class="personal-spec-box green-accent">
-                <span class="spec-label">${item.label}</span>
-                <span class="spec-val text-green">${item.val}</span>
+          <!-- 2. Home Studio Hardware & Instruments Grid (Clean & Direct) -->
+          <div class="studio-gear-section">
+            <div class="studio-gear-header">
+              <div class="studio-gear-title">
+                <i class="fa-solid fa-guitar text-green"></i>
+                <span>HOME STUDIO GEAR & INSTRUMENTS</span>
               </div>
-            `).join('')}
+              <span class="badge badge-green" style="font-size: 0.62rem;">MY SETUP</span>
+            </div>
+
+            <div class="studio-gear-grid">
+              ${(music.studioGear || []).map(gear => `
+                <div class="studio-gear-card">
+                  <div class="studio-gear-img-wrap">
+                    <span class="studio-gear-cat-badge">${gear.category}</span>
+                    <img src="${gear.image}" alt="${gear.name}" class="studio-gear-img" loading="lazy" onerror="this.classList.add('img-error');" />
+                    <div class="studio-gear-icon-fallback" aria-hidden="true" title="${gear.name}">
+                      <i class="${gear.icon}"></i>
+                    </div>
+                  </div>
+                  <div class="studio-gear-info">
+                    <span class="studio-gear-name">${gear.name}</span>
+                    <span class="studio-gear-edition">${gear.edition}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
           </div>
+
 
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
             <div class="personal-tags-row">
@@ -169,16 +258,119 @@ export function renderPersonalHub(container, data) {
           <div class="cyber-card personal-detail-card">
             <p class="personal-card-desc">${cinema.description}</p>
 
-            <div class="personal-items-grid">
-              ${cinema.items.map(item => `
-                <div class="personal-spec-box">
-                  <span class="spec-label">${item.label}</span>
-                  <span class="spec-val text-cyan">${item.val}</span>
+            <!-- 1. Top Movies (Top 10 Carousel) -->
+            ${cinema.topMovies && cinema.topMovies.length ? `
+              <div class="cinema-subsection" id="cinema-movies-subsection">
+                <div class="cinema-sub-header">
+                  <div class="cinema-sub-title">
+                    <i class="fa-solid fa-film text-cyan"></i>
+                    <span>TOP MOVIES</span>
+                  </div>
+                  <div class="cinema-carousel-toolbar">
+                    <span class="cinema-carousel-counter" id="movies-carousel-counter">1-5 / 10</span>
+                    <div class="cinema-nav-group">
+                      <button class="cinema-nav-icon-btn prev" id="movies-prev-btn" type="button" aria-label="Previous movies" title="Previous 5 movies">
+                        <i class="fa-solid fa-chevron-left"></i>
+                      </button>
+                      <button class="cinema-nav-icon-btn next" id="movies-next-btn" type="button" aria-label="Next movies" title="Next 5 movies">
+                        <i class="fa-solid fa-chevron-right"></i>
+                      </button>
+                    </div>
+                    <span class="badge badge-cyan" style="font-size: 0.62rem;">TOP 10</span>
+                  </div>
                 </div>
-              `).join('')}
-            </div>
 
-            <div class="personal-tags-row" style="padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.06);">
+                <div class="cinema-carousel-viewport" id="movies-carousel-viewport">
+                  <div class="cinema-carousel-track" id="movies-carousel-track">
+                    ${cinema.topMovies.map(movie => `
+                      <div class="cinema-media-card">
+                        <div class="cinema-poster-wrap">
+                          <span class="cinema-rank-pill">#${String(movie.rank).padStart(2, '0')}</span>
+                          ${movie.image ? `
+                            <img src="${movie.image}" alt="${movie.title || `Movie #${movie.rank}`}" class="cinema-poster-img" loading="lazy" referrerpolicy="no-referrer" onerror="this.classList.add('img-error');" />
+                          ` : ''}
+                          <div class="cinema-poster-placeholder ${movie.image ? 'fallback' : ''}">
+                            <i class="fa-solid fa-film"></i>
+                            <span>${movie.image ? 'NO IMAGE' : 'POSTER'}</span>
+                          </div>
+                        </div>
+                        <div class="cinema-card-info">
+                          <span class="cinema-card-title ${!movie.title ? 'cinema-title-empty' : ''}" title="${movie.title || `Movie #${movie.rank}`}">
+                            ${movie.title ? movie.title : `Movie #${movie.rank}`}
+                          </span>
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- 2. Top Series Category Carousel (Live Action & Anime) -->
+            ${cinema.seriesCategories && cinema.seriesCategories.length ? `
+              <div class="cinema-subsection series-carousel-section" id="series-carousel-section">
+                <div class="cinema-sub-header">
+                  <div class="cinema-sub-title">
+                    <i class="fa-solid fa-tv text-cyan"></i>
+                    <span>TOP SERIES</span>
+                  </div>
+                  <div class="series-carousel-toolbar">
+                    <span class="series-carousel-counter" id="series-carousel-counter">1 / ${cinema.seriesCategories.length}</span>
+                    <div class="series-nav-group">
+                      <button class="series-nav-icon-btn prev" id="series-prev-btn" type="button" aria-label="Previous category" title="Previous Category">
+                        <i class="fa-solid fa-chevron-left"></i>
+                      </button>
+                      <button class="series-nav-icon-btn next" id="series-next-btn" type="button" aria-label="Next category" title="Next Category">
+                        <i class="fa-solid fa-chevron-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Interactive Category Tabs -->
+                <div class="series-category-tabs" id="series-category-tabs">
+                  ${cinema.seriesCategories.map((cat, idx) => `
+                    <button type="button" class="series-tab-btn ${idx === 0 ? 'active' : ''}" data-cat-idx="${idx}">
+                      ${cat.icon ? `<i class="${cat.icon}"></i>` : ''}
+                      <span>${cat.category}</span>
+                    </button>
+                  `).join('')}
+                </div>
+
+                <!-- Carousel Viewport & Track -->
+                <div class="series-carousel-viewport" id="series-carousel-viewport">
+                  <div class="series-carousel-track" id="series-carousel-track">
+                    ${cinema.seriesCategories.map((cat, catIdx) => `
+                      <div class="series-carousel-slide" data-slide-idx="${catIdx}">
+                        <div class="cinema-media-grid">
+                          ${(cat.items || []).map(item => `
+                            <div class="cinema-media-card">
+                              <div class="cinema-poster-wrap">
+                                <span class="cinema-rank-pill">#${String(item.rank).padStart(2, '0')}</span>
+                                ${item.image ? `
+                                  <img src="${item.image}" alt="${item.title || `Item #${item.rank}`}" class="cinema-poster-img" loading="lazy" referrerpolicy="no-referrer" onerror="this.classList.add('img-error');" />
+                                ` : ''}
+                                <div class="cinema-poster-placeholder ${item.image ? 'fallback' : ''}">
+                                  <i class="${cat.icon || 'fa-solid fa-tv'}"></i>
+                                  <span>${item.image ? 'NO IMAGE' : 'POSTER'}</span>
+                                </div>
+                              </div>
+                              <div class="cinema-card-info">
+                                <span class="cinema-card-title ${!item.title ? 'cinema-title-empty' : ''}" title="${item.title || `Item #${item.rank}`}">
+                                  ${item.title ? item.title : `Item #${item.rank}`}
+                                </span>
+                              </div>
+                            </div>
+                          `).join('')}
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            ` : ''}
+
+            <div class="personal-tags-row" style="padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
               ${cinema.tags.map(t => `<span class="tech-chip">${t}</span>`).join('')}
             </div>
           </div>
@@ -192,35 +384,48 @@ export function renderPersonalHub(container, data) {
 
   // Initialize the favorite artists seamless infinite carousel
   setupArtistsCarousel(container);
+
+  // Setup Movies Carousel
+  setupMoviesCarousel(container);
+
+  // Setup Gaming Recommended Carousel
+  setupGamingCarousel(container);
+
+  // Setup Series Category Carousel (Live Action & Anime)
+  setupSeriesCarousel(container);
 }
 
 /**
  * Initializes Favorite Artists clean carousel logic:
- * - Hardware-accelerated CSS transform loop (60fps)
- * - Seamless infinite circular wrapping via transitionend
- * - Maximum image prominence (160px) with direct Spotify link
+ * - Hardware-accelerated CSS transform
+ * - Discrete page transitions matching Movies carousel
+ * - Scaled-up avatar prominence (185px) with direct Spotify link
  * - Clean integrated toolbar (no dots to miscount)
- * - Auto-scroll with pause on hover & touch swipe support
+ * - Manual button & touch swipe navigation
  */
 function setupArtistsCarousel(container) {
   const viewport = container.querySelector('#artist-carousel-viewport');
   const track = container.querySelector('#artist-carousel-track');
   const prevBtn = container.querySelector('#ah-prev-btn');
   const nextBtn = container.querySelector('#ah-next-btn');
-  const playBtn = container.querySelector('#ah-play-btn');
+  const counter = container.querySelector('#artists-carousel-counter');
 
   if (!track || !viewport) return;
 
-  let currentArtists = null;
-  let isAutoPlaying = true;
-  let autoPlayTimer = null;
-  const AUTOPLAY_INTERVAL = 3200; // 3.2 seconds
+  let currentArtists = [];
+  let currentPage = 0;
 
-  let cardStep = 0;
-  let artistCount = 0;
-  let multiplier = 3;
-  let currentIndex = 0;
-  let isAnimating = false;
+  function getCardsPerPage() {
+    const w = window.innerWidth;
+    if (w <= 640) return 2;
+    if (w <= 1024) return 3;
+    return 5;
+  }
+
+  function getTotalPages() {
+    const perPage = getCardsPerPage();
+    return Math.ceil(currentArtists.length / perPage);
+  }
 
   function renderCards(artists) {
     if (!artists || !artists.length) {
@@ -228,17 +433,10 @@ function setupArtistsCarousel(container) {
       return;
     }
 
-    artistCount = artists.length;
-    // Clone 3 times to ensure seamless circular infinite loop
-    multiplier = artistCount <= 5 ? 4 : 3;
-    const clonedList = [];
-    for (let m = 0; m < multiplier; m++) {
-      clonedList.push(...artists);
-    }
+    currentArtists = artists;
 
-    track.innerHTML = clonedList.map((a, idx) => {
-      const originalIndex = idx % artistCount;
-      const rankNum = a.rank || (originalIndex + 1);
+    track.innerHTML = currentArtists.map((a, idx) => {
+      const rankNum = a.rank || (idx + 1);
       return `
         <a href="${a.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="artist-card-clean" title="Open ${a.name} on Spotify">
           <div class="artist-avatar-container">
@@ -258,108 +456,81 @@ function setupArtistsCarousel(container) {
       `;
     }).join('');
 
-    // Start centered in the middle cloned set
-    currentIndex = artistCount;
-    requestAnimationFrame(() => {
-      calculateMetrics();
-      applyTransform(false);
-    });
+    currentPage = 0;
+    setTimeout(applyTransform, 60);
   }
 
-  function calculateMetrics() {
-    const card = track.querySelector('.artist-card-clean');
-    const gap = 12; // 0.75rem - reduced padding between cards
-    const width = (card && card.offsetWidth > 0) ? card.offsetWidth : (window.innerWidth <= 640 ? 150 : 175);
-    cardStep = width + gap;
+  function applyTransform() {
+    if (!currentArtists.length) return;
+    const cards = track.querySelectorAll('.artist-card-clean');
+    if (!cards.length) return;
+
+    const perPage = getCardsPerPage();
+    const totalPages = Math.ceil(currentArtists.length / perPage);
+
+    if (currentPage >= totalPages) currentPage = totalPages - 1;
+    if (currentPage < 0) currentPage = 0;
+
+    const firstCard = cards[0];
+    const secondCard = cards[1];
+    let cardStep = 0;
+    if (firstCard && secondCard) {
+      cardStep = secondCard.offsetLeft - firstCard.offsetLeft;
+    } else if (firstCard) {
+      cardStep = firstCard.offsetWidth + 16;
+    }
+
+    const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    let offset = currentPage * perPage * cardStep;
+    if (offset > maxOffset) offset = maxOffset;
+    if (offset < 0) offset = 0;
+
+    track.style.transform = `translateX(-${offset}px)`;
+
+    if (counter) {
+      const startItem = currentPage * perPage + 1;
+      const endItem = Math.min((currentPage + 1) * perPage, currentArtists.length);
+      counter.textContent = `${startItem}-${endItem} / ${currentArtists.length}`;
+    }
   }
 
-  function applyTransform(withTransition = true) {
-    if (!cardStep) return;
-    if (withTransition) {
-      track.style.transition = 'transform 0.42s cubic-bezier(0.22, 1, 0.36, 1)';
+  function nextPage() {
+    const totalPages = getTotalPages();
+    if (currentPage < totalPages - 1) {
+      currentPage++;
     } else {
-      track.style.transition = 'none';
+      currentPage = 0;
     }
-    track.style.transform = `translateX(-${currentIndex * cardStep}px)`;
+    applyTransform();
   }
 
-  function slideNext() {
-    if (isAnimating) return;
-    calculateMetrics();
-    isAnimating = true;
-    currentIndex++;
-    applyTransform(true);
+  function prevPage() {
+    const totalPages = getTotalPages();
+    if (currentPage > 0) {
+      currentPage--;
+    } else {
+      currentPage = totalPages - 1;
+    }
+    applyTransform();
   }
 
-  function slidePrev() {
-    if (isAnimating) return;
-    calculateMetrics();
-    isAnimating = true;
-    currentIndex--;
-    applyTransform(true);
-  }
-
-  // Flawless infinite circular wrapping on transitionend without visual rewind
-  track.addEventListener('transitionend', () => {
-    isAnimating = false;
-    // Scrolled into rightmost cloned set -> seamlessly wrap back to middle set
-    if (currentIndex >= (multiplier - 1) * artistCount) {
-      currentIndex -= artistCount;
-      applyTransform(false);
-      void track.offsetHeight; // force reflow
-    }
-    // Scrolled into leftmost cloned set -> seamlessly wrap forward to middle set
-    else if (currentIndex < artistCount) {
-      currentIndex += artistCount;
-      applyTransform(false);
-      void track.offsetHeight;
-    }
-  });
-
-  function startAutoPlay() {
-    stopAutoPlay();
-    if (!isAutoPlaying) return;
-    if (document.body.classList.contains('fx-eco') || document.documentElement.classList.contains('fx-eco')) {
-      return;
-    }
-    autoPlayTimer = setInterval(() => {
-      slideNext();
-    }, AUTOPLAY_INTERVAL);
-  }
-
-  function stopAutoPlay() {
-    if (autoPlayTimer) {
-      clearInterval(autoPlayTimer);
-      autoPlayTimer = null;
-    }
-  }
-
-  // Navigation button listeners
-  if (prevBtn) prevBtn.addEventListener('click', () => { slidePrev(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { slideNext(); });
-
-  // Play / Pause toggle
-  if (playBtn) {
-    playBtn.addEventListener('click', () => {
-      isAutoPlaying = !isAutoPlaying;
-      playBtn.classList.toggle('active', isAutoPlaying);
-      playBtn.classList.toggle('paused', !isAutoPlaying);
-      playBtn.innerHTML = `<i class="fa-solid ${isAutoPlaying ? 'fa-pause' : 'fa-play'}"></i>`;
-      playBtn.setAttribute('title', isAutoPlaying ? 'Pause Auto-scroll' : 'Resume Auto-scroll');
-      if (isAutoPlaying) startAutoPlay();
-      else stopAutoPlay();
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextPage();
     });
   }
 
-  // Pause on mouse hover, resume on mouse leave
-  viewport.addEventListener('mouseenter', () => { stopAutoPlay(); });
-  viewport.addEventListener('mouseleave', () => { if (isAutoPlaying) startAutoPlay(); });
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevPage();
+    });
+  }
 
-  // Touch Swipe support for smartphones & tablets
+  // Touch swipe support
   let touchStartX = 0;
   let touchDeltaX = 0;
+
   viewport.addEventListener('touchstart', (e) => {
-    stopAutoPlay();
     touchStartX = e.touches[0].clientX;
     touchDeltaX = 0;
   }, { passive: true });
@@ -370,44 +541,360 @@ function setupArtistsCarousel(container) {
 
   viewport.addEventListener('touchend', () => {
     if (Math.abs(touchDeltaX) > 40) {
-      if (touchDeltaX < 0) slideNext();
-      else slidePrev();
+      if (touchDeltaX < 0) {
+        nextPage();
+      } else {
+        prevPage();
+      }
     }
-    if (isAutoPlaying) startAutoPlay();
   });
 
-  // Fetch verified authentic dataset (zero network/CORS errors)
+  // Fetch verified authentic dataset
   getAudioHabitsData().then(({ data }) => {
-    currentArtists = Array.isArray(data) ? data : (data.artists || data.sixMonths || data.allTime);
-    renderCards(currentArtists);
-    startAutoPlay();
+    const list = Array.isArray(data) ? data : (data.artists || data.sixMonths || data.allTime);
+    renderCards(list);
   });
 
   // Background update listener
   window.addEventListener('audiohabits:updated', (e) => {
     if (e.detail?.data) {
       const data = e.detail.data;
-      currentArtists = Array.isArray(data) ? data : (data.artists || data.sixMonths);
-      renderCards(currentArtists);
+      const list = Array.isArray(data) ? data : (data.artists || data.sixMonths);
+      renderCards(list);
     }
   });
 
-  // Recalculate on window resize
+  // Window resize
   window.addEventListener('resize', () => {
-    calculateMetrics();
-    applyTransform(false);
+    applyTransform();
   }, { passive: true });
 
-  // Recalibrate metrics when the user navigates/switches into the Personal view
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          calculateMetrics();
-          applyTransform(false);
-        }
-      });
-    }, { threshold: 0.05 });
-    observer.observe(viewport);
-  }
+  // Realm change alignment
+  window.addEventListener('portal:realmchange', (e) => {
+    if (e.detail?.realm === 'personal') {
+      setTimeout(() => {
+        applyTransform();
+      }, 80);
+    }
+  });
 }
+
+/**
+ * Sets up horizontal Carousel for Top Movies
+ */
+function setupMoviesCarousel(container) {
+  const viewport = container.querySelector('#movies-carousel-viewport');
+  const track = container.querySelector('#movies-carousel-track');
+  const prevBtn = container.querySelector('#movies-prev-btn');
+  const nextBtn = container.querySelector('#movies-next-btn');
+  const counter = container.querySelector('#movies-carousel-counter');
+
+  if (!viewport || !track) return;
+
+  const cards = track.querySelectorAll('.cinema-media-card');
+  const totalCards = cards.length;
+  if (totalCards <= 1) return;
+
+  let currentPage = 0;
+
+  function getCardsPerPage() {
+    const w = window.innerWidth;
+    if (w <= 640) return 2;
+    if (w <= 1024) return 3;
+    return 5;
+  }
+
+  function getTotalPages() {
+    const perPage = getCardsPerPage();
+    return Math.ceil(totalCards / perPage);
+  }
+
+  function applyTransform() {
+    const perPage = getCardsPerPage();
+    const totalPages = Math.ceil(totalCards / perPage);
+
+    if (currentPage >= totalPages) currentPage = totalPages - 1;
+    if (currentPage < 0) currentPage = 0;
+
+    const firstCard = cards[0];
+    const secondCard = cards[1];
+    let cardStep = 0;
+    if (firstCard && secondCard) {
+      cardStep = secondCard.offsetLeft - firstCard.offsetLeft;
+    } else if (firstCard) {
+      cardStep = firstCard.offsetWidth + 16;
+    }
+
+    const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    let offset = currentPage * perPage * cardStep;
+    if (offset > maxOffset) offset = maxOffset;
+    if (offset < 0) offset = 0;
+
+    track.style.transform = `translateX(-${offset}px)`;
+
+    if (counter) {
+      const startItem = currentPage * perPage + 1;
+      const endItem = Math.min((currentPage + 1) * perPage, totalCards);
+      counter.textContent = `${startItem}-${endItem} / ${totalCards}`;
+    }
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const totalPages = getTotalPages();
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+      } else {
+        currentPage = 0; // loop back to first page
+      }
+      applyTransform();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const totalPages = getTotalPages();
+      if (currentPage > 0) {
+        currentPage--;
+      } else {
+        currentPage = totalPages - 1; // loop to last page
+      }
+      applyTransform();
+    });
+  }
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchDeltaX = 0;
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', (e) => {
+    touchDeltaX = e.touches[0].clientX - touchStartX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', () => {
+    if (Math.abs(touchDeltaX) > 40) {
+      const totalPages = getTotalPages();
+      if (touchDeltaX < 0) {
+        if (currentPage < totalPages - 1) currentPage++;
+        else currentPage = 0;
+      } else {
+        if (currentPage > 0) currentPage--;
+        else currentPage = totalPages - 1;
+      }
+      applyTransform();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    applyTransform();
+  }, { passive: true });
+
+  // Initial alignment
+  setTimeout(applyTransform, 60);
+}
+
+/**
+ * Sets up Category Carousel for Gaming Recommended Titles
+ */
+function setupGamingCarousel(container) {
+  const section = container.querySelector('#gaming-recommended-section');
+  if (!section) return;
+
+  const track = section.querySelector('#gaming-carousel-track');
+  const viewport = section.querySelector('#gaming-carousel-viewport');
+  const counter = section.querySelector('#gaming-carousel-counter');
+  const prevBtn = section.querySelector('#gaming-prev-btn');
+  const nextBtn = section.querySelector('#gaming-next-btn');
+  const tabBtns = section.querySelectorAll('.gaming-tab-btn');
+  const slides = section.querySelectorAll('.gaming-carousel-slide');
+
+  if (!track || !viewport || !slides.length) return;
+
+  let currentCategory = 0;
+  const totalCategories = slides.length;
+
+  function updateActiveState() {
+    track.style.transform = `translateX(-${currentCategory * 100}%)`;
+
+    if (counter) {
+      counter.textContent = `${currentCategory + 1} / ${totalCategories}`;
+    }
+
+    tabBtns.forEach((btn, idx) => {
+      if (idx === currentCategory) {
+        btn.classList.add('active');
+        const tabsContainer = btn.parentElement;
+        if (tabsContainer && tabsContainer.scrollWidth > tabsContainer.clientWidth) {
+          tabsContainer.scrollTo({
+            left: btn.offsetLeft - (tabsContainer.clientWidth - btn.offsetWidth) / 2,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  function nextCategory() {
+    currentCategory = (currentCategory + 1) % totalCategories;
+    updateActiveState();
+  }
+
+  function prevCategory() {
+    currentCategory = (currentCategory - 1 + totalCategories) % totalCategories;
+    updateActiveState();
+  }
+
+  if (nextBtn) nextBtn.addEventListener('click', nextCategory);
+  if (prevBtn) prevBtn.addEventListener('click', prevCategory);
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.catIdx, 10);
+      if (!isNaN(idx) && idx >= 0 && idx < totalCategories) {
+        currentCategory = idx;
+        updateActiveState();
+      }
+    });
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchDeltaX = 0;
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', (e) => {
+    touchDeltaX = e.touches[0].clientX - touchStartX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', () => {
+    if (Math.abs(touchDeltaX) > 40) {
+      if (touchDeltaX < 0) {
+        nextCategory();
+      } else {
+        prevCategory();
+      }
+    }
+  });
+
+  window.addEventListener('resize', updateActiveState, { passive: true });
+  window.addEventListener('portal:realmchange', (e) => {
+    if (e.detail?.realm === 'personal') {
+      setTimeout(updateActiveState, 80);
+    }
+  });
+
+  // Initial render alignment
+  updateActiveState();
+}
+
+/**
+ * Sets up Category Carousel for Top Series (Live Action & Anime)
+ */
+function setupSeriesCarousel(container) {
+  const section = container.querySelector('#series-carousel-section');
+  if (!section) return;
+
+  const track = section.querySelector('#series-carousel-track');
+  const viewport = section.querySelector('#series-carousel-viewport');
+  const counter = section.querySelector('#series-carousel-counter');
+  const prevBtn = section.querySelector('#series-prev-btn');
+  const nextBtn = section.querySelector('#series-next-btn');
+  const tabBtns = section.querySelectorAll('.series-tab-btn');
+  const slides = section.querySelectorAll('.series-carousel-slide');
+
+  if (!track || !viewport || !slides.length) return;
+
+  let currentCategory = 0;
+  const totalCategories = slides.length;
+
+  function updateActiveState() {
+    track.style.transform = `translateX(-${currentCategory * 100}%)`;
+
+    if (counter) {
+      counter.textContent = `${currentCategory + 1} / ${totalCategories}`;
+    }
+
+    tabBtns.forEach((btn, idx) => {
+      if (idx === currentCategory) {
+        btn.classList.add('active');
+        const tabsContainer = btn.parentElement;
+        if (tabsContainer && tabsContainer.scrollWidth > tabsContainer.clientWidth) {
+          tabsContainer.scrollTo({
+            left: btn.offsetLeft - (tabsContainer.clientWidth - btn.offsetWidth) / 2,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  function nextCategory() {
+    currentCategory = (currentCategory + 1) % totalCategories;
+    updateActiveState();
+  }
+
+  function prevCategory() {
+    currentCategory = (currentCategory - 1 + totalCategories) % totalCategories;
+    updateActiveState();
+  }
+
+  if (nextBtn) nextBtn.addEventListener('click', nextCategory);
+  if (prevBtn) prevBtn.addEventListener('click', prevCategory);
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.catIdx, 10);
+      if (!isNaN(idx) && idx >= 0 && idx < totalCategories) {
+        currentCategory = idx;
+        updateActiveState();
+      }
+    });
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchDeltaX = 0;
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', (e) => {
+    touchDeltaX = e.touches[0].clientX - touchStartX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', () => {
+    if (Math.abs(touchDeltaX) > 40) {
+      if (touchDeltaX < 0) {
+        nextCategory();
+      } else {
+        prevCategory();
+      }
+    }
+  });
+
+  window.addEventListener('resize', updateActiveState, { passive: true });
+  window.addEventListener('portal:realmchange', (e) => {
+    if (e.detail?.realm === 'personal') {
+      setTimeout(updateActiveState, 80);
+    }
+  });
+
+  // Initial render alignment
+  updateActiveState();
+}
+

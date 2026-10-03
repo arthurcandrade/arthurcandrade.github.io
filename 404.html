@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arthur Cavalcante | Redirecting...</title>
+  <script>
+    // GitHub Pages SPA router fallback
+    const pathname = window.location.pathname.toLowerCase();
+    const search = window.location.search || '';
+    const hash = window.location.hash || '';
+
+    if (pathname.includes('personal')) {
+      window.location.replace('/' + search + '#personal');
+    } else if (pathname.includes('professional')) {
+      window.location.replace('/' + search + '#professional');
+    } else {
+      window.location.replace('/' + search + hash);
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="/">Arthur Cavalcante Portfolio</a>...</p>
+</body>
+</html>

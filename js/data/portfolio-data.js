@@ -289,58 +289,175 @@ export const portfolioData = {
   personal: {
     gear: {
       id: "personal-gear",
-      title: "Workstation, Lab & Hardware",
-      subtitle: "Hardware architecture, developer tooling & local compute",
+      title: "Workstation & Hardware",
+      subtitle: "Compact, high-mobility architecture, low-latency wireless peripherals & Linux environment",
       badge: "HARDWARE DEPLOYED",
-      description: "Curated engineering environment optimized for high-performance computing, clean ergonomics, Linux/Unix toolchains, and multi-monitor telemetry.",
+      description: "Curated minimalist and high-mobility workstation focused on compact, portable peripherals with a clean wireless footprint. Running development workflows through Linux via WSL2 on Windows, with plans to introduce a dedicated secondary laptop to physically separate engineering and personal environments.",
       items: [
-        { label: "Compute Node", val: "Multi-core workstation + dedicated NVIDIA CUDA acceleration" },
-        { label: "Input Telemetry", val: "Custom mechanical keyboards with tactile switches" },
-        { label: "OS & Terminal", val: "Linux / PowerShell / WSL2 with automated dotfiles" }
+        {
+          label: "Notebook & Environment",
+          icon: "fa-solid fa-laptop-code",
+          name: "Acer Predator Triton 300 SE 14” (Dark Gray)",
+          details: [
+            "Hardware: Intel Core i7-12700H · 16GB RAM · 1TB SSD",
+            "Graphics: NVIDIA GeForce RTX 3060",
+            "OS: Windows 11 with Linux via WSL2"
+          ]
+        },
+        {
+          label: "Peripherals & Audio",
+          icon: "fa-solid fa-sliders",
+          name: "Compact Wireless Gear",
+          details: [
+            "Mouse: Logitech G305 LIGHTSPEED (Wireless) & G203 (Wired)",
+            "Surface: Fallen Pantera V2 Speed++ Mousepad",
+            "Keyboard: Logitech K380 Multi-Device Wireless",
+            "Audio: JBL Quantum 360 Wireless (Headset) & JBL Wave Buds 2",
+            "Gamepads: 2x 8BitDo Ultimate 2C (Mint & Transparent Black)"
+          ]
+        }
       ],
-      tags: ["NVIDIA CUDA", "Workstation", "Mechanical Keyboards", "Homelab"]
+      tags: ["Minimalist Setup", "Wireless Peripherals", "Linux Workflow", "WSL2", "Compact Computing", "Low Latency"]
     },
     gaming: {
       id: "personal-gaming",
       title: "Gaming & Rig Telemetry",
-      subtitle: "Tactical, RPG, simulations & competitive gaming history",
+      subtitle: "Tactical shooters, immersive open-world RPGs, grand strategy systems & kinetic indies",
       badge: "STEAM NODE",
       steamUrl: "https://steamcommunity.com/id/Kaizenhauer",
-      description: "Enthusiast gamer focused on deep mechanics, immersive tactical sims, RPG world-building, and high-framerate competitive titles. Steam profile linked with community telemetry.",
-      items: [
-        { label: "Community Profile", val: "Kaizenhauer (Level 30)" },
-        { label: "Favorite Genres", val: "Tactical Shooters, Immersive RPGs & Simulators" },
-        { label: "Hardware & Display", val: "Ultra-low latency peripherals, high-refresh rate displays" }
+      description: "Enthusiast gamer drawn to deep mechanics, high skill ceilings, and tactical discipline in competitive titles, paired with emergent narratives in expansive open worlds. Strong affinity for complex grand strategy systems, calculated turn-based decision making, and high-tempo, atmospheric roguelikes driven by kinetic action and build synergies.",
+      recommendedGames: [
+        {
+          category: "Tactical & Competitive",
+          icon: "fa-solid fa-crosshairs",
+          badge: "HIGH SKILL CEILING",
+          games: [
+            { title: "eFootball", tag: "Competitive Soccer", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/capsule_231x87.jpg" },
+            { title: "Battlefield 1", tag: "WW1 FPS", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1238840/capsule_231x87.jpg" },
+            { title: "Counter Strike 2", tag: "Tactical FPS", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_231x87.jpg" },
+            { title: "Brawlhalla", tag: "Platform Fighter", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/291550/capsule_231x87.jpg" }
+          ]
+        },
+        {
+          category: "Immersive & Action RPGs",
+          icon: "fa-solid fa-khanda",
+          badge: "DARK WORLDS & LORE",
+          games: [
+            { title: "The Elder Scrolls V: Skyrim", tag: "Fantasy RPG", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/72850/capsule_231x87.jpg" },
+            { title: "Grand Theft Auto V", tag: "Open-World Action-Adventure", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/capsule_231x87.jpg" },
+            { title: "Hogwarts Legacy", tag: "Wizarding World RPG", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/990080/capsule_231x87.jpg" },
+            { title: "Sleeping Dogs", tag: "Open-World Action-Adventure", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307690/capsule_231x87.jpg" }
+          ]
+        },
+        {
+          category: "Strategy & Simulation",
+          icon: "fa-solid fa-chess-knight",
+          badge: "DEEP SYSTEMS",
+          games: [
+            { title: "Civilization VI", tag: "World Domination", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/289070/capsule_231x87.jpg" },
+            { title: "Crusader Kings III", tag: "Medieval Dynasties", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1158310/capsule_231x87.jpg" },
+            { title: "XCOM: Enemy Unknown", tag: "Alien Defense", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/268500/capsule_231x87.jpg" },
+            { title: "Bloons TD 6", tag: "Tower Defense", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/960090/capsule_231x87.jpg" }
+          ]
+        },
+        {
+          category: "Indie Gems & Roguelikes",
+          icon: "fa-solid fa-dice-d20",
+          badge: "ATMOSPHERIC",
+          games: [
+            { title: "Katana ZERO", tag: "Stylish Action", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/460950/capsule_231x87.jpg" },
+            { title: "Hotline Miami", tag: "Top-down Neo-Noir", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/219150/capsule_231x87.jpg" },
+            { title: "Risk of Rain 2", tag: "Sci-Fi Roguelike", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/capsule_231x87.jpg" },
+            { title: "The Last Flame", tag: "Turn-based Dark Fantasy", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1830970/capsule_231x87.jpg" }
+          ]
+        }
       ],
-      tags: ["Steam", "Competitive Gaming", "PC Enthusiast", "Simulation"]
+      tags: ["Tactical Shooters", "Open-World RPGs", "Grand Strategy", "Roguelikes", "Competitive Gaming", "Steam"]
     },
     music: {
       id: "personal-music",
-      title: "Audio & Music Synthesis",
-      subtitle: "Electric guitars, synthesizer workflows, DSP & procedural sound",
-      badge: "ACTIVE AUDIO RX",
+      title: "Music & Creation",
+      subtitle: "Casual music enthusiast exploring guitar, beatmaking & audio production",
+      badge: "MUSIC ENTHUSIAST",
       spotifyUrl: "https://open.spotify.com/user/12163317381",
-      audioHabitsUrl: "https://audiohabits.co/u/12163317381",
-      description: "Lifelong passion for music production, digital signal processing, guitar tone modeling, and electronic sound synthesis. Exploring procedural audio synthesis and ambient sound design directly in modern browsers.",
-      items: [
-        { label: "Instruments & Synths", val: "Electric Guitars, MIDI Controllers, VSTs & Soft Synths" },
-        { label: "Soundtrack & Aesthetics", val: "Cyberpunk OSTs, Synthwave, Hip-Hop Classics & Dark Synth" },
-        { label: "Audio Gear", val: "High-Impedance IEMs & DAC/Amp Stack" }
+      description: "Music enthusiast who enjoys playing electric guitar, crafting beats, and experimenting in FL Studio across styles like Cloud Rap, R&B, Punk Rock, and Indie Rock as a casual creative hobby.",
+      studioGear: [
+        {
+          name: "Gibson SG Standard Cream",
+          edition: "2011 Limited Edition",
+          category: "Electric Guitar",
+          image: "assets/music/gibson-sg.jpg",
+          icon: "fa-solid fa-guitar"
+        },
+        {
+          name: "Focusrite Scarlett Solo (2nd Gen)",
+          edition: "Audio Interface",
+          category: "Audio Interface",
+          image: "assets/music/focusrite-scarlett.jpg",
+          icon: "fa-solid fa-sliders"
+        },
+        {
+          name: "BM-800 Condenser",
+          edition: "Microphone",
+          category: "Recording Mic",
+          image: "assets/music/bm800-mic.jpg",
+          icon: "fa-solid fa-microphone-lines"
+        },
+        {
+          name: "FL Studio",
+          edition: "All Plugins Edition",
+          category: "DAW Software",
+          image: "assets/music/fl-studio.jpg",
+          icon: "fa-solid fa-wave-square"
+        }
       ],
-      tags: ["Spotify", "Audio Synthesis", "Web Audio API", "DSP", "Music Production"]
+      tags: ["Cloud Rap", "R&B", "Punk Rock", "Indie Rock", "FL Studio", "Gibson SG", "Guitarist", "Beatmaking", "Audio Mixing"]
     },
     cinema: {
       id: "personal-cinema",
       title: "Cinema & Series",
-      subtitle: "Sci-Fi, psychological thrillers, cyberpunk narratives & television",
+      subtitle: "Cyberpunk narratives, neo-noir crime sagas, psychological thrillers & anime",
       badge: "MEDIA STREAM",
-      description: "Appreciation for nuanced storytelling, complex character arcs, atmospheric world-building, and hard science fiction. Fascinated by narratives exploring artificial intelligence sentience, techno-dystopian futures, time dilation, and existential philosophy.",
-      items: [
-        { label: "Favorite Genres", val: "Cyberpunk, Hard Sci-Fi, Neo-Noir & Psychological Thrillers" },
-        { label: "Narrative Themes", val: "AI Sentience, Dystopian Societies, Mind-Bending Twists & Detective Arcs" },
-        { label: "Aesthetic Influences", val: "Blade Runner, Mr. Robot, Dark, Westworld & Classic Thrillers" }
+      description: "Appreciation for nuanced storytelling, complex character arcs, atmospheric world-building, and moral ambiguity. Drawn to cyberpunk dystopias, neo-noir crime sagas exploring power dynamics, and dark psychological narratives with existential weight across cinema, television, and anime.",
+      topMovies: [
+        { rank: 1, title: "Blade Runner", image: "https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_QL75_UX380_CR0,2,380,562_.jpg" },
+        { rank: 2, title: "Mr. Nobody", image: "https://m.media-amazon.com/images/M/MV5BMTg4ODkzMDQ3Nl5BMl5BanBnXkFtZTgwNTEwMTkxMDE@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
+        { rank: 3, title: "The Godfather", image: "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_QL75_UY562_CR8,0,380,562_.jpg" },
+        { rank: 4, title: "The Matrix", image: "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 5, title: "Fight Club", image: "https://m.media-amazon.com/images/M/MV5BOTgyOGQ1NDItNGU3Ny00MjU3LTg2YWEtNmEyYjBiMjI1Y2M5XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 6, title: "The Wolf of Wall Street", image: "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
+        { rank: 7, title: "Watchmen", image: "https://m.media-amazon.com/images/M/MV5BYmJiNTUwYWUtZDllNi00ODdjLWFmNTEtOTVlNmYxYTZhNzYzXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 8, title: "Taxi Driver", image: "https://m.media-amazon.com/images/M/MV5BZDNhMGYwM2UtMTdlZS00MGQ1LWI2YzAtODY5YWI1MjYyNzRmXkEyXkFqcGc@._V1_QL75_UX380_CR0,7,380,562_.jpg" },
+        { rank: 9, title: "Scarface", image: "https://m.media-amazon.com/images/M/MV5BNDUzYjY0NmUtMDM4OS00Y2Q5LWJiODYtNTk0ZTk0YjZhMTg1XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 10, title: "Ghost in the Shell", image: "https://m.media-amazon.com/images/M/MV5BNzljMjA3MTQtMjM1OS00OGJjLWJiYzctZDRiMTk1NWI5YzQ5XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg" }
       ],
-      tags: ["Cinema", "Sci-Fi Series", "Cyberpunk Narrative", "Neo-Noir", "Psychological Thriller"]
+      seriesCategories: [
+        {
+          category: "Live Action",
+          icon: "fa-solid fa-tv",
+          badge: "TOP 5 SERIES",
+          items: [
+            { rank: 1, title: "Mr. Robot", image: "https://m.media-amazon.com/images/M/MV5BOTg4NTBiZDAtZTc0YS00NzZlLTg4Y2ItNGQ3M2ZlMDM5MWQzXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+            { rank: 2, title: "Breaking Bad", image: "https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYjVjNzliZTg1ZGE4XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+            { rank: 3, title: "Dexter", image: "https://m.media-amazon.com/images/M/MV5BNTE5ZGI2N2UtYmFiMi00ZGIxLWI1ZTMtYWJkZDYxNDZiOTQwXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+            { rank: 4, title: "Barry", image: "https://m.media-amazon.com/images/M/MV5BYzdlYWZkNjQtMWYwNi00YjNkLTljYjgtZjRhMmQ2YTQ1MWQ0XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
+            { rank: 5, title: "Peaky Blinders", image: "https://m.media-amazon.com/images/M/MV5BOGM0NGY3ZmItOGE2ZC00OWIxLTk0N2EtZWY4Yzg3ZDlhNGI3XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" }
+          ]
+        },
+        {
+          category: "Anime",
+          icon: "fa-solid fa-dragon",
+          badge: "TOP 5 ANIME",
+          items: [
+            { rank: 1, title: "Hunter x Hunter", image: "https://m.media-amazon.com/images/M/MV5BYzYxOTlkYzctNGY2MC00MjNjLWIxOWMtY2QwYjcxZWIwMmEwXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg" },
+            { rank: 2, title: "Berserk", image: "https://m.media-amazon.com/images/M/MV5BMzEzMzhkNDgtY2Q0YS00MDk0LTg0YzItODY5ZjNjMDc4ODI3XkEyXkFqcGc@._V1_QL75_UY562_CR17,0,380,562_.jpg" },
+            { rank: 3, title: "Dragon Ball Sagas", image: "https://m.media-amazon.com/images/M/MV5BN2VlNTdlMzQtYzE5OC00YmYwLTgyZTItYjEzMWY0ZDNjMTJhXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg" },
+            { rank: 4, title: "Death Note", image: "https://m.media-amazon.com/images/M/MV5BYTgyZDhmMTEtZDFhNi00MTc4LTg3NjUtYWJlNGE5Mzk2NzMxXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+            { rank: 5, title: "Cowboy Bebop", image: "https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_QL75_UY562_CR16,0,380,562_.jpg" }
+          ]
+        }
+      ],
+      tags: ["Cyberpunk", "Neo-Noir", "Crime Sagas", "Psychological Thriller", "Hard Sci-Fi", "Dark Fantasy", "Anime"]
     }
   }
 };

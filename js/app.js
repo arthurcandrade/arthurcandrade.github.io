@@ -101,7 +101,7 @@ class PortfolioApp {
     const realmProf = document.getElementById('realm-professional');
     const realmPers = document.getElementById('realm-personal');
 
-    const switchRealm = (realmName, targetHash = null) => {
+    const switchRealm = (realmName, targetHash = null, updateUrl = true) => {
       this.activeRealm = realmName;
       const isProf = realmName === 'professional';
 
@@ -124,6 +124,14 @@ class PortfolioApp {
         window.__setPortalRealmUI(realmName, false);
       }
 
+      // Update URL hash without triggering extra scroll
+      if (updateUrl) {
+        const targetUrl = targetHash || `#${realmName}`;
+        if (window.location.hash !== targetUrl) {
+          history.replaceState(null, '', targetUrl);
+        }
+      }
+
       if (targetHash) {
         setTimeout(() => {
           const targetEl = document.querySelector(targetHash);
@@ -134,10 +142,61 @@ class PortfolioApp {
       }
     };
 
+    // Determine initial realm from URL path, query params, or hash
+    const parseUrlRoute = () => {
+      const pathname = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      const queryRealm = (params.get('realm') || params.get('view') || params.get('tab') || '').toLowerCase();
+
+      // 1. Direct pathname check (e.g. /personal, /personal/, /personal.html)
+      if (pathname.includes('/personal') || pathname.endsWith('personal.html')) {
+        return { realm: 'personal', targetHash: window.location.hash || null };
+      }
+      if (pathname.includes('/professional') || pathname.endsWith('professional.html')) {
+        return { realm: 'professional', targetHash: window.location.hash || null };
+      }
+
+      // 2. Query parameter check (e.g. ?realm=personal, ?view=personal, ?tab=personal, ?personal)
+      if (queryRealm === 'personal' || params.has('personal')) {
+        return { realm: 'personal', targetHash: window.location.hash || null };
+      }
+      if (queryRealm === 'professional' || params.has('professional')) {
+        return { realm: 'professional', targetHash: window.location.hash || null };
+      }
+
+      // 3. Hash routing check
+      if (
+        hash.startsWith('#personal') || 
+        hash.startsWith('#/personal') || 
+        hash.includes('gaming') || 
+        hash.includes('cinema') || 
+        hash.includes('music') || 
+        hash.includes('workstation')
+      ) {
+        return { realm: 'personal', targetHash: window.location.hash };
+      }
+
+      if (
+        hash.startsWith('#professional') || 
+        hash.startsWith('#/professional') || 
+        hash.startsWith('#skills') || 
+        hash.startsWith('#experience') || 
+        hash.startsWith('#education') || 
+        hash.startsWith('#honors') || 
+        hash.startsWith('#projects') || 
+        hash.startsWith('#hero')
+      ) {
+        return { realm: 'professional', targetHash: window.location.hash };
+      }
+
+      return { realm: 'professional', targetHash: null };
+    };
+
     // Listen to Header Realm button event
     window.addEventListener('portal:realmchange', (e) => {
       const realm = e.detail?.realm || 'professional';
-      switchRealm(realm);
+      switchRealm(realm, null, true);
       // Smooth scroll to top of content
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -161,30 +220,29 @@ class PortfolioApp {
 
       if (isPersonalTarget && this.activeRealm !== 'personal') {
         e.preventDefault();
-        switchRealm('personal', hash);
-        history.pushState(null, '', hash);
+        switchRealm('personal', hash, true);
       } else if (isProfTarget && this.activeRealm !== 'professional') {
         e.preventDefault();
-        switchRealm('professional', hash);
-        history.pushState(null, '', hash);
+        switchRealm('professional', hash, true);
       }
     });
 
-    // Handle initial load based on URL hash
-    const initialHash = window.location.hash;
-    if (initialHash.startsWith('#personal')) {
-      switchRealm('personal', initialHash);
-    } else {
-      switchRealm('professional', (initialHash.startsWith('#skills') || initialHash.startsWith('#experience') || initialHash.startsWith('#education') || initialHash.startsWith('#honors') || initialHash.startsWith('#projects') || initialHash.startsWith('#hero')) ? initialHash : null);
-    }
+    // Handle initial load based on URL (path, query, or hash)
+    const initialRoute = parseUrlRoute();
+    switchRealm(initialRoute.realm, initialRoute.targetHash, false);
 
     // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const currentRoute = parseUrlRoute();
+      if (this.activeRealm !== currentRoute.realm) {
+        switchRealm(currentRoute.realm, currentRoute.targetHash, false);
+      }
+    });
+
     window.addEventListener('hashchange', () => {
-      const currentHash = window.location.hash;
-      if (currentHash.startsWith('#personal')) {
-        switchRealm('personal', currentHash);
-      } else if (currentHash.startsWith('#skills') || currentHash.startsWith('#experience') || currentHash.startsWith('#education') || currentHash.startsWith('#honors') || currentHash.startsWith('#projects') || currentHash.startsWith('#hero')) {
-        switchRealm('professional', currentHash);
+      const currentRoute = parseUrlRoute();
+      if (this.activeRealm !== currentRoute.realm) {
+        switchRealm(currentRoute.realm, currentRoute.targetHash, false);
       }
     });
   }
