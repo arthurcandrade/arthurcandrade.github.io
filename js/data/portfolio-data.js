@@ -293,11 +293,12 @@ export const portfolioData = {
         {
           label: "Notebook & Environment",
           icon: "fa-solid fa-laptop-code",
-          name: "Acer Predator Triton 300 SE 14” (Dark Gray)",
+          name: "Acer Predator Triton 300 SE (Dark Gray)",
           details: [
-            "Hardware: Intel Core i7-12700H · 16GB RAM · 1TB SSD",
-            "Graphics: NVIDIA GeForce RTX 3060",
-            "OS: Windows 11 with Linux via WSL2"
+            "Display: 14-inch WUXGA LCD (1920 x 1200) 165Hz, 400 nits",
+            "Hardware: Intel Core i7-12700H · 16GB LPDDR5 RAM · 1TB SSD",
+            "GPU: NVIDIA GeForce RTX 3060",
+            "OS: Windows 11 / Linux (WSL2)"
           ]
         },
         {
@@ -306,14 +307,13 @@ export const portfolioData = {
           name: "Compact Wireless Gear",
           details: [
             "Mouse: Logitech G305 LIGHTSPEED (Wireless) & G203 (Wired)",
-            "Surface: Fallen Pantera V2 Speed++ Mousepad",
+            "Mousepad: Fallen Pantera V2 Speed++",
             "Keyboard: Logitech K380 Multi-Device Wireless",
-            "Audio: JBL Quantum 360 Wireless (Headset) & JBL Wave Buds 2",
-            "Gamepads: 2x 8BitDo Ultimate 2C (Mint & Transparent Black)"
+            "Gamepads: 2x 8BitDo Ultimate 2C (Mint & Transparent Black)",
+            "Audio: JBL Quantum 360 Wireless (Headset) & JBL Wave Buds 2"
           ]
         }
-      ],
-      tags: ["Minimalist Setup", "Wireless Peripherals", "Linux Workflow", "WSL2", "Compact Computing", "Low Latency"]
+      ]
     },
     gaming: {
       id: "personal-gaming",
@@ -367,8 +367,7 @@ export const portfolioData = {
             { title: "The Last Flame", tag: "Turn-based Dark Fantasy", image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1830970/capsule_231x87.jpg" }
           ]
         }
-      ],
-      tags: ["Tactical Shooters", "Open-World RPGs", "Grand Strategy", "Roguelikes", "Competitive Gaming", "Steam"]
+      ]
     },
     music: {
       id: "personal-music",
@@ -406,8 +405,7 @@ export const portfolioData = {
           image: "assets/music/fl-studio.jpg",
           icon: "fa-solid fa-wave-square"
         }
-      ],
-      tags: ["Cloud Rap", "R&B", "Punk Rock", "Indie Rock", "FL Studio", "Gibson SG", "Guitarist", "Beatmaking", "Audio Mixing"]
+      ]
     },
     cinema: {
       id: "personal-cinema",
@@ -452,8 +450,7 @@ export const portfolioData = {
             { rank: 5, title: "Cowboy Bebop", image: "https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_QL75_UY562_CR16,0,380,562_.jpg" }
           ]
         }
-      ],
-      tags: ["Cyberpunk", "Neo-Noir", "Crime Sagas", "Psychological Thriller", "Hard Sci-Fi", "Dark Fantasy", "Anime"]
+      ]
     }
   }
 };

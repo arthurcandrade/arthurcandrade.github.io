@@ -55,10 +55,6 @@ export function renderPersonalHub(container, data) {
               </div>
             `).join('')}
           </div>
-
-          <div class="personal-tags-row">
-            ${gear.tags.map(t => `<span class="tech-chip">${t}</span>`).join('')}
-          </div>
         </div>
       </section>
 
@@ -140,10 +136,7 @@ export function renderPersonalHub(container, data) {
             </div>
           ` : ''}
 
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
-            <div class="personal-tags-row">
-              ${gaming.tags.map(t => `<span class="tech-chip">${t}</span>`).join('')}
-            </div>
+          <div style="display: flex; align-items: center; justify-content: flex-end; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
             <a href="${gaming.steamUrl}" target="_blank" rel="noopener noreferrer" class="cyber-button-sm magenta">
               <i class="fa-brands fa-steam"></i>
               <span>STEAM PROFILE</span>
@@ -227,16 +220,11 @@ export function renderPersonalHub(container, data) {
           </div>
 
 
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
-            <div class="personal-tags-row">
-              ${music.tags.map(t => `<span class="tech-chip">${t}</span>`).join('')}
-            </div>
-            <div>
-              <a href="${music.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="cyber-button-sm green" title="Open Spotify Profile">
-                <i class="fa-brands fa-spotify"></i>
-                <span>SPOTIFY PROFILE</span>
-              </a>
-            </div>
+          <div style="display: flex; align-items: center; justify-content: flex-end; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
+            <a href="${music.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="cyber-button-sm green" title="Open Spotify Profile">
+              <i class="fa-brands fa-spotify"></i>
+              <span>SPOTIFY PROFILE</span>
+            </a>
           </div>
         </div>
       </section>
@@ -370,9 +358,6 @@ export function renderPersonalHub(container, data) {
               </div>
             ` : ''}
 
-            <div class="personal-tags-row" style="padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
-              ${cinema.tags.map(t => `<span class="tech-chip">${t}</span>`).join('')}
-            </div>
           </div>
         </section>
       ` : ''}
