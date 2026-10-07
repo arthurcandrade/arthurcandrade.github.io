@@ -9,12 +9,16 @@ export function renderHonors(container, data) {
   if (!honors || !honors.length) return;
 
   const honorsCardsHtml = honors.map(h => {
-    const statsHtml = h.stats.map(s => `
-      <div class="honors-stat-box">
-        <span>${s.label}</span>
-        <span style="font-weight: 700; color: ${s.isHighlight ? 'var(--neon-green)' : '#ffffff'};">${s.value}</span>
+    const statsHtml = (h.stats && h.stats.length) ? `
+      <div class="honors-stats-grid">
+        ${h.stats.map(s => `
+          <div class="honors-stat-box">
+            <span>${s.label}</span>
+            <span style="font-weight: 700; color: ${s.isHighlight ? 'var(--neon-green)' : '#ffffff'};">${s.value}</span>
+          </div>
+        `).join('')}
       </div>
-    `).join('');
+    ` : '';
 
     return `
       <div class="cyber-card honors-card">
@@ -29,10 +33,7 @@ export function renderHonors(container, data) {
         </div>
 
         <p class="honors-desc">${h.description}</p>
-
-        <div class="honors-stats-grid">
-          ${statsHtml}
-        </div>
+        ${statsHtml}
       </div>
     `;
   }).join('');

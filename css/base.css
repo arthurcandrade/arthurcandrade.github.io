@@ -253,6 +253,22 @@ body {
   background: var(--neon-green);
 }
 
+/* Cyber Card Yellow Variant */
+.cyber-card.yellow-variant {
+  border-color: var(--border-yellow);
+}
+.cyber-card.yellow-variant::before {
+  background: rgba(255, 223, 0, 0.5);
+}
+.cyber-card.yellow-variant:hover {
+  border-color: rgba(255, 223, 0, 0.75);
+  box-shadow: 0 4px 20px rgba(255, 223, 0, 0.15);
+}
+.cyber-card.yellow-variant:hover::before {
+  background: var(--neon-yellow);
+}
+
+
 /* Section Header Structure */
 .section-title-wrap {
   display: flex;

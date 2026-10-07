@@ -76,15 +76,16 @@
 }
 
 .experience-card-inner {
-  padding: 1.75rem 2rem;
+  padding: 1.4rem 1.85rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.85rem;
 }
 
 @media (max-width: 640px) {
   .experience-card-inner {
-    padding: 1.35rem 1.25rem;
+    padding: 1.15rem 1.15rem 0.85rem;
+    gap: 0.75rem;
   }
 }
 
@@ -101,7 +102,8 @@
   font-size: 1.2rem;
   font-weight: 700;
   color: #ffffff;
-  margin-top: 0.35rem;
+  margin: 0;
+  line-height: 1.25;
 }
 
 .exp-role-badge {
@@ -111,12 +113,14 @@
   color: var(--neon-magenta);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  margin-top: 0.25rem;
 }
 
 .exp-date-meta {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .exp-period {
@@ -126,18 +130,25 @@
   align-items: center;
   gap: 0.4rem;
   justify-content: flex-end;
+  line-height: 1.25;
 }
 
 .exp-location {
   color: var(--text-muted);
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
+}
+
+.exp-body {
+  display: flex;
+  flex-direction: column;
 }
 
 .exp-description {
   font-family: var(--font-sans);
   color: var(--text-secondary);
   font-size: 0.92rem;
-  line-height: 1.68;
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* Key Achievement Bullet Points */
@@ -177,4 +188,122 @@
   flex-wrap: wrap;
   gap: 0.45rem;
   padding-top: 0.5rem;
+}
+
+/* Collapsible Content Drawer (Smooth GPU Grid Transition) */
+.exp-collapsible-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.experience-item.is-expanded .exp-collapsible-wrapper {
+  grid-template-rows: 1fr;
+  margin-top: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.exp-collapsible-inner {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.experience-item.is-expanded .exp-collapsible-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive Cybernetic Card */
+.experience-card {
+  cursor: pointer;
+  outline: none;
+  user-select: text;
+}
+
+.experience-card:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 3px;
+}
+
+/* Continuous Card Footer Rail (Subtle & Refined) */
+.exp-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 16px;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-dim);
+  opacity: 0.65;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  user-select: none;
+}
+
+.exp-footer-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.exp-footer-icon {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card Hover Interactions */
+.experience-card:hover .exp-card-footer {
+  opacity: 1;
+  border-top-color: rgba(0, 240, 255, 0.28);
+  color: var(--neon-cyan);
+}
+
+.experience-card:hover .exp-footer-handle {
+  transform: translateY(1px);
+}
+
+.experience-item.is-expanded .experience-card:hover .exp-footer-handle {
+  transform: translateY(-1px);
+}
+
+/* Expanded State (Single chevron points up) */
+.experience-item.is-expanded .exp-footer-icon {
+  transform: rotate(180deg);
+}
+
+/* High-Contrast Card Footer Accent Color Variants */
+.experience-item.magenta-variant .experience-card:focus-visible {
+  outline-color: var(--neon-magenta);
+}
+
+.experience-item.magenta-variant .experience-card:hover .exp-card-footer {
+  border-top-color: rgba(255, 0, 127, 0.28);
+  color: var(--neon-magenta);
+}
+
+.experience-item.green-variant .experience-card:focus-visible {
+  outline-color: var(--neon-green);
+}
+
+.experience-item.green-variant .experience-card:hover .exp-card-footer {
+  border-top-color: rgba(57, 255, 20, 0.28);
+  color: var(--neon-green);
+}
+
+.experience-item.yellow-variant .experience-card:focus-visible {
+  outline-color: var(--neon-yellow);
+}
+
+.experience-item.yellow-variant .experience-card:hover .exp-card-footer {
+  border-top-color: rgba(255, 223, 0, 0.28);
+  color: var(--neon-yellow);
 }

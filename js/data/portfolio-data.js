@@ -93,7 +93,6 @@ export const portfolioData = {
   experiences: [
     {
       id: "tjgo-unified",
-      status: "CURRENT NODE",
       statusColor: "cyan",
       role: "LEAD SOFTWARE ENGINEER",
       formerRole: "Progression: Software Engineer & IT Risk Manager (until May 2026)",
@@ -110,16 +109,31 @@ export const portfolioData = {
       technologies: ["Java (Spring Boot)", "Ruby (Rails 8+, Hotwire)", "Python (FastAPI)", "TypeScript (React.js)", "PostgreSQL", "Docker", "GitLab", "ISO 31000"]
     },
     {
+      id: "ifg-contract",
+      statusColor: "magenta",
+      role: "SOFTWARE ENGINEER",
+      company: "Federal Institute of Education, Science and Technology of Goiás (IFG)",
+      period: "Jun 2026 - Present",
+      location: "Goiânia, Brazil (Remote)",
+      summary: "Engineering contract focused on modernizing institutional public platforms and educational management systems across their full software lifecycle.",
+      bullets: [
+        "Maintaining scalable software components and digital services, actively participating in team meetings for product planning and prioritization.",
+        "Migrating the application from Ruby on Rails 5 to 8, ensuring system stability, dependency compatibility, and adherence to best practices.",
+        "Refactoring the frontend by building highly reactive, decoupled interfaces using ViewComponents and Hotwire.",
+        "Improving code quality and deployment workflows by optimizing GitLab CI/CD pipelines and systematically resolving legacy technical debt."
+      ],
+      technologies: ["Ruby (Rails 5/8, Hotwire)", "ViewComponent", "MySQL", "Docker", "GitLab"]
+    },
+    {
       id: "cilia",
-      status: "INSURTECH NODE",
       statusColor: "green",
       role: "SOFTWARE ENGINEER",
       company: "Cilia Tecnologia S.A.",
       period: "Feb 2023 - Jan 2026",
       location: "Goiânia, Brazil (Hybrid)",
-      summary: "Scaled and refactored high-traffic RESTful API architectures for one of Brazil's largest insurtech platforms using Ruby on Rails, integrating with external systems and third-party services.",
+      summary: "Scaled and refactored core backend architectures for one of Brazil's largest insurtech platforms, connecting mission-critical claims workflows with automotive partner ecosystems.",
       bullets: [
-        "Designed and developed RESTful APIs in Ruby on Rails for high-traffic usage, integrating external systems and third-party services.",
+        "Designed and maintained resilient RESTful APIs in Ruby on Rails to process high-traffic insurance claims and policy transactions.",
         "Optimized database structures (PostgreSQL), automated tasks, implemented background workers, and built new features with Backbone.js and Vue.js.",
         "Enforced 85%+ testing coverage targets across critical codebases using strict RSpec TDD, promoting best development practices.",
         "Led code reviews and maintained comprehensive technical documentation of implemented features."
@@ -128,7 +142,6 @@ export const portfolioData = {
     },
     {
       id: "cnpq-research",
-      status: "ACADEMIC RESEARCH",
       statusColor: "yellow",
       role: "SCIENTIFIC INITIATION RESEARCHER (PIBIC)",
       company: "National Council for Scientific and Technological Development (CNPq / UFG)",
@@ -241,11 +254,7 @@ export const portfolioData = {
       year: "2023",
       title: "Award Winner & Incubated Concept",
       issuer: "1st EPT Congress (CETT / UFG)",
-      description: "Managed a team of three high school students during a low-code hackathon at the 1st EPT Congress (CETT/UFG), leading the design and development of an integrated mobile IoT water telemetry tracking app (MIT App Inventor) with a prototype reservoir to collect and monitor rainwater runoff. The project received a podium award and was later incubated by CEI/UFG.",
-      stats: [
-        { label: "Incubated by:", value: "CEI / UFG", isHighlight: true },
-        { label: "Integration:", value: "IoT Runoff Prototypes" }
-      ]
+      description: "Managed a team of three high school students during a low-code hackathon at the 1st EPT Congress (CETT/UFG), leading the design and development of an integrated mobile IoT water telemetry tracking app (MIT App Inventor) with a prototype reservoir to collect and monitor rainwater runoff. The project received a podium award and was later incubated by CEI/UFG."
     }
   ],
 
@@ -294,17 +303,18 @@ export const portfolioData = {
           icon: "fa-solid fa-laptop-code",
           name: "Acer Predator Triton 300 SE (Dark Gray)",
           details: [
-            "Display: 14-inch WUXGA LCD (1920 x 1200) 165Hz, 400 nits",
+            "Display: 14-inch IPS WQXGA (2560 x 1600) · 165Hz",
             "Hardware: Intel Core i7-12700H · 16GB LPDDR5 RAM · 1TB SSD",
             "GPU: NVIDIA GeForce RTX 3060",
             "OS: Windows 11 / Linux (WSL2)"
           ]
         },
         {
-          label: "Peripherals & Audio",
+          label: "Peripherals & Setup",
           icon: "fa-solid fa-sliders",
-          name: "Compact Wireless Gear",
+          name: "Compact Gear & Display",
           details: [
+            "Monitor: TCL 25G64 25\" Fast IPS QD-Mini LED (FHD · 300Hz · 1ms)",
             "Mouse: Logitech G305 LIGHTSPEED (Wireless) & G203 (Wired)",
             "Mousepad: Fallen Pantera V2 Speed++",
             "Keyboard: Logitech K380 Multi-Device Wireless",
