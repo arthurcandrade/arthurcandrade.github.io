@@ -1,6 +1,6 @@
 # Arthur Cavalcante de Andrade
 
-Personal website and interactive cyberpunk terminal portfolio of **Arthur Cavalcante de Andrade**.
+Personal website and interactive cyberpunk terminal portfolio.
 
 Live at: **[arthurcandrade.github.io](https://arthurcandrade.github.io/)**
 
