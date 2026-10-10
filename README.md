@@ -76,15 +76,6 @@ Install the **Live Server** extension and click **"Go Live"** from `index.html`.
 
 ---
 
-## Contact & Links
-
-- **Website**: [arthurcandrade.github.io](https://arthurcandrade.github.io/)
-- **GitHub**: [@arthurcandrade](https://github.com/arthurcandrade)
-- **LinkedIn**: [arthurdeandrade](https://linkedin.com/in/arthurdeandrade)
-- **Email**: [arthurcandrade@hotmail.com](mailto:arthurcandrade@hotmail.com)
-
----
-
 ## License & Attribution
 
 The source code and design architecture of this project are licensed under the **[MIT License](LICENSE)**.
