@@ -96,4 +96,6 @@ This project adopts a **hybrid licensing model**:
 - **Source Code & Architecture**: Licensed under the **[MIT License](LICENSE)**. You are free to inspect, learn from, and adapt the codebase, design system, and scripts for your own projects.
 - **Personal Content & Identity**: All personal data, biography, credentials, career history (`js/data/portfolio-data.js`), and media files (`assets/`) are **Copyright © 2026 Arthur Cavalcante de Andrade. All rights reserved.**
 
-If you use this repository as a template, please replace all personal data and assets with your own.
+If you use this repository as a template or reference:
+1. Replace all personal data, biography, and media assets with your own.
+2. Provide visible attribution and credit linking back to the original repository ([arthurcandrade/arthurcandrade.github.io](https://github.com/arthurcandrade/arthurcandrade.github.io)).

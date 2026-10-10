@@ -36,6 +36,10 @@ strictly protected with ALL RIGHTS RESERVED:
    `assets/`.
 3. The name, identity, and personal likeness of Arthur Cavalcante de Andrade.
 
+ATTRIBUTION & USAGE REQUIREMENTS:
 You are welcome to use this codebase as a template or reference for your own
-portfolio, provided that you remove and replace all personal information,
-biography, and media assets with your own.
+portfolio, provided that:
+1. You remove and replace all personal information, biography, and media assets
+   with your own.
+2. You provide visible attribution and credit linking back to the original
+   author and repository (https://github.com/arthurcandrade/arthurcandrade.github.io).
