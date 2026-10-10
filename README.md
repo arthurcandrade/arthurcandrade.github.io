@@ -2,7 +2,7 @@
 
 [![Website](https://img.shields.io/badge/Live-arthurcandrade.github.io-00f0ff?style=flat-square&logo=googlechrome&logoColor=white)](https://arthurcandrade.github.io/)
 [![Stack](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20CSS3%20%7C%20HTML5-ff007f?style=flat-square)](https://arthurcandrade.github.io/)
-[![License](https://img.shields.io/badge/License-MIT%20(Code)-39ff14?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/License-All_Rights_Reserved-ff007f?style=flat-square)](LICENSE)
 
 Personal website and interactive cyberpunk terminal portfolio of **Arthur Cavalcante de Andrade** — Software Engineer & AI Researcher.
 
@@ -91,11 +91,6 @@ Install the **Live Server** extension and click **"Go Live"** from `index.html`.
 
 ## License
 
-This project adopts a **hybrid licensing model**:
+Copyright © 2026 Arthur Cavalcante de Andrade. All rights reserved.
 
-- **Source Code & Architecture**: Licensed under the **[MIT License](LICENSE)**. You are free to inspect, learn from, and adapt the codebase, design system, and scripts for your own projects.
-- **Personal Content & Identity**: All personal data, biography, credentials, career history (`js/data/portfolio-data.js`), and media files (`assets/`) are **Copyright © 2026 Arthur Cavalcante de Andrade. All rights reserved.**
-
-If you use this repository as a template or reference:
-1. Replace all personal data, biography, and media assets with your own.
-2. Provide visible attribution and credit linking back to the original repository ([arthurcandrade/arthurcandrade.github.io](https://github.com/arthurcandrade/arthurcandrade.github.io)).
+All materials, source code, visual designs, assets, and written content in this repository are proprietary. Unauthorized copying, cloning, modification, redistribution, or commercial use is strictly prohibited. See [LICENSE](LICENSE) for details.
