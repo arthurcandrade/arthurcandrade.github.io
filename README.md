@@ -1,10 +1,6 @@
-# Arthur Cavalcante de Andrade | Portfolio & Personal Terminal
+# Arthur Cavalcante de Andrade
 
-[![Website](https://img.shields.io/badge/Live-arthurcandrade.github.io-00f0ff?style=flat-square&logo=googlechrome&logoColor=white)](https://arthurcandrade.github.io/)
-[![Stack](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20CSS3%20%7C%20HTML5-ff007f?style=flat-square)](https://arthurcandrade.github.io/)
-[![License](https://img.shields.io/badge/License-All_Rights_Reserved-ff007f?style=flat-square)](LICENSE)
-
-Personal website and interactive cyberpunk terminal portfolio of **Arthur Cavalcante de Andrade** — Software Engineer & AI Researcher.
+Personal website and interactive cyberpunk terminal portfolio of **Arthur Cavalcante de Andrade**.
 
 Live at: **[arthurcandrade.github.io](https://arthurcandrade.github.io/)**
 
