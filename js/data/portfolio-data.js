@@ -421,14 +421,14 @@ export const portfolioData = {
       description: "Appreciation for nuanced storytelling, complex character arcs, atmospheric world-building, and moral ambiguity. Drawn to cyberpunk dystopias, neo-noir crime sagas exploring power dynamics, and dark psychological narratives with existential weight across cinema, television, and anime.",
       topMovies: [
         { rank: 1, title: "Blade Runner", image: "https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_QL75_UX380_CR0,2,380,562_.jpg" },
-        { rank: 2, title: "Mr. Nobody", image: "https://m.media-amazon.com/images/M/MV5BMTg4ODkzMDQ3Nl5BMl5BanBnXkFtZTgwNTEwMTkxMDE@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
+        { rank: 2, title: "The Matrix", image: "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
         { rank: 3, title: "The Godfather", image: "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_QL75_UY562_CR8,0,380,562_.jpg" },
-        { rank: 4, title: "The Matrix", image: "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 4, title: "Mr. Nobody", image: "https://m.media-amazon.com/images/M/MV5BMTg4ODkzMDQ3Nl5BMl5BanBnXkFtZTgwNTEwMTkxMDE@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
         { rank: 5, title: "Fight Club", image: "https://m.media-amazon.com/images/M/MV5BOTgyOGQ1NDItNGU3Ny00MjU3LTg2YWEtNmEyYjBiMjI1Y2M5XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
-        { rank: 6, title: "The Wolf of Wall Street", image: "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
-        { rank: 7, title: "Watchmen", image: "https://m.media-amazon.com/images/M/MV5BYmJiNTUwYWUtZDllNi00ODdjLWFmNTEtOTVlNmYxYTZhNzYzXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
-        { rank: 8, title: "Taxi Driver", image: "https://m.media-amazon.com/images/M/MV5BZDNhMGYwM2UtMTdlZS00MGQ1LWI2YzAtODY5YWI1MjYyNzRmXkEyXkFqcGc@._V1_QL75_UX380_CR0,7,380,562_.jpg" },
-        { rank: 9, title: "Scarface", image: "https://m.media-amazon.com/images/M/MV5BNDUzYjY0NmUtMDM4OS00Y2Q5LWJiODYtNTk0ZTk0YjZhMTg1XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 6, title: "Watchmen", image: "https://m.media-amazon.com/images/M/MV5BYmJiNTUwYWUtZDllNi00ODdjLWFmNTEtOTVlNmYxYTZhNzYzXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 7, title: "Scarface", image: "https://m.media-amazon.com/images/M/MV5BNDUzYjY0NmUtMDM4OS00Y2Q5LWJiODYtNTk0ZTk0YjZhMTg1XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+        { rank: 8, title: "The Wolf of Wall Street", image: "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
+        { rank: 9, title: "Taxi Driver", image: "https://m.media-amazon.com/images/M/MV5BZDNhMGYwM2UtMTdlZS00MGQ1LWI2YzAtODY5YWI1MjYyNzRmXkEyXkFqcGc@._V1_QL75_UX380_CR0,7,380,562_.jpg" },
         { rank: 10, title: "Ghost in the Shell", image: "https://m.media-amazon.com/images/M/MV5BNzljMjA3MTQtMjM1OS00OGJjLWJiYzctZDRiMTk1NWI5YzQ5XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg" }
       ],
       seriesCategories: [
@@ -439,9 +439,9 @@ export const portfolioData = {
           items: [
             { rank: 1, title: "Mr. Robot", image: "https://m.media-amazon.com/images/M/MV5BOTg4NTBiZDAtZTc0YS00NzZlLTg4Y2ItNGQ3M2ZlMDM5MWQzXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
             { rank: 2, title: "Breaking Bad", image: "https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYjVjNzliZTg1ZGE4XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
-            { rank: 3, title: "Dexter", image: "https://m.media-amazon.com/images/M/MV5BNTE5ZGI2N2UtYmFiMi00ZGIxLWI1ZTMtYWJkZDYxNDZiOTQwXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
-            { rank: 4, title: "Barry", image: "https://m.media-amazon.com/images/M/MV5BYzdlYWZkNjQtMWYwNi00YjNkLTljYjgtZjRhMmQ2YTQ1MWQ0XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg" },
-            { rank: 5, title: "Peaky Blinders", image: "https://m.media-amazon.com/images/M/MV5BOGM0NGY3ZmItOGE2ZC00OWIxLTk0N2EtZWY4Yzg3ZDlhNGI3XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" }
+            { rank: 3, title: "Dexter", image: "https://m.media-amazon.com/images/M/MV5BZDY4NjQxMGMtOTQ1Zi00ZGUyLTkyYWQtY2QwZjkyYmJkYjc4XkEyXkFqcGc@._V1_FMjpg_UX854_.jpg" },
+            { rank: 4, title: "Peaky Blinders", image: "https://m.media-amazon.com/images/M/MV5BOGM0NGY3ZmItOGE2ZC00OWIxLTk0N2EtZWY4Yzg3ZDlhNGI3XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" },
+            { rank: 5, title: "Barry", image: "https://m.media-amazon.com/images/M/MV5BMmY0NjAzZjYtYmQzOC00ZTYxLWFjNWItOGY0NzYyMTc5NTA5XkEyXkFqcGc@._V1_FMjpg_UX600_.jpg" }
           ]
         },
         {
