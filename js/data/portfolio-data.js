@@ -122,7 +122,7 @@ export const portfolioData = {
         "Refactoring the frontend by building highly reactive, decoupled interfaces using ViewComponents and Hotwire.",
         "Improving code quality and deployment workflows by optimizing GitLab CI/CD pipelines and systematically resolving legacy technical debt."
       ],
-      technologies: ["Ruby (Rails 5/8, Hotwire)", "ViewComponent", "MySQL", "Docker", "GitLab"]
+      technologies: ["Ruby (Rails 5/8, Hotwire)", "MySQL", "Docker", "GitLab"]
     },
     {
       id: "cilia",
@@ -138,7 +138,7 @@ export const portfolioData = {
         "Enforced 85%+ testing coverage targets across critical codebases using strict RSpec TDD, promoting best development practices.",
         "Led code reviews and maintained comprehensive technical documentation of implemented features."
       ],
-      technologies: ["Ruby (Rails 3+)", "JavaScript (Vue.js, Backbone.js)", "Python", "PostgreSQL", "RSpec", "Sidekiq", "Bitbucket"]
+      technologies: ["Ruby (Rails 3+)", "JavaScript (Vue.js, Backbone.js)", "Python", "PostgreSQL", "RSpec", "Bitbucket"]
     },
     {
       id: "cnpq-research",
