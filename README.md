@@ -85,8 +85,14 @@ Install the **Live Server** extension and click **"Go Live"** from `index.html`.
 
 ---
 
-## License
+## License & Attribution
 
-Copyright © 2026 Arthur Cavalcante de Andrade. All rights reserved.
+The source code and design architecture of this project are licensed under the **[MIT License](LICENSE)**.
 
-All materials, source code, visual designs, assets, and written content in this repository are proprietary. Unauthorized copying, cloning, modification, redistribution, or commercial use is strictly prohibited. See [LICENSE](LICENSE) for details.
+### Usage & Exceptions
+
+You are welcome to use this codebase, design system, and architecture as a template or reference for your own portfolio, provided that:
+
+1. **Personal Identity & Data**: All personal data, biography, credentials, academic records, and career history contained in `js/data/portfolio-data.js` and HTML files are **All Rights Reserved** to Arthur Cavalcante de Andrade.
+2. **Third-Party Assets**: Media, images, album covers, posters, and GIF visualizers located in `assets/` belong to their respective copyright owners. If you adapt this project, please replace them with your own media.
+3. **Attribution**: You must provide visible attribution and credit linking back to the original repository ([arthurcandrade/arthurcandrade.github.io](https://github.com/arthurcandrade/arthurcandrade.github.io)).
