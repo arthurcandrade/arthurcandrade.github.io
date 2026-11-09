@@ -13,7 +13,7 @@ export const portfolioData = {
     role: "Software Engineer & AI Researcher",
     shortRole: "LEAD_ENG / AI_RES",
     location: "Goiânia, GO, Brazil",
-    bio: "Computer Scientist with 4+ years of software engineering experience in Ruby on Rails and Java Spring Boot. Focused on code quality, performance, and automated testing. Experienced in building AI solutions with LLMs, RAG, and autonomous agents. Postgraduate specializations in Cybersecurity & Data Governance and IT Processes & Management, with hands-on AppSec and risk management experience.",
+    bio: "Computer Scientist with 4+ years of professional software engineering experience, currently working with Ruby on Rails and Java Spring Boot. Focused on code quality, performance, and automated testing, with a background in architecting AI-driven solutions using LLMs, RAG architecture, and autonomous AI agents to automate workflows and document generation. Holds dual postgraduate specializations in Cybersecurity & Data Governance and in IT Processes & Management, with hands-on experience in AppSec and risk management.",
     quote: "Building solid, secure, and well-documented systems that bridge cutting-edge AI technologies with robust engineering practices to drive business value.",
     contacts: {
       github: "https://github.com/arthurcandrade",
